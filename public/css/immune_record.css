@@ -1,0 +1,51 @@
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.h6_css{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+
+.ir_date{
+    border: 0px;
+}
+
+.ir_bg{
+    width: 100%;
+    height: 100%;
+}
+
+#ir_container{
+    height: 100%;
+}
+
+#ir_category{
+    padding: 0.5%;
+    width: 30%;
+}
+
+option:hover{
+    background-color: chartreuse;
+}
+
+.adver_bg{
+    padding: 30%;
+    text-align: center;
+    background-image: url('/img/vaccine.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.adver_bg:hover{
+    opacity: 1;
+}
+
+.adver_line{
+    font-size: 300px;
+    color: white;
+}
