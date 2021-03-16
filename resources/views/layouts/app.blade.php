@@ -16,7 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -121,11 +121,11 @@
                 </div>
                 <div class="list-group list-group-flush">
                     <a href="home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-dashboard btn-success"></i> Dashboard</a>
-                    <a href="search" class="list-group-item list-group-item-action bg-light"><i class="fa fa-search btn-success"></i> Search</a>
+                    {{-- <a href="search" class="list-group-item list-group-item-action bg-light"><i class="fa fa-search btn-success"></i> Search</a>
                     <a href="list" class="list-group-item list-group-item-action bg-light"><i class="fa fa-address-card btn-success"></i> Overview</a>
                     <a href="fullcalendar" class="list-group-item list-group-item-action bg-light"><i class="fa fa-calendar btn-success"></i> Calendar</a>
                     <a href="profile" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle btn-success"></i> Profile</a>
-                    <a href="immune_records" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Immunization form</a>
+                    <a href="immune_records" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Immunization form</a> --}}
 
                     <a href="{{ route('logout') }}" class="list-group-item list-group-item-action bg-light" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">

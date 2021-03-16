@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
 
             User::create([
                 'name'           => 'Admin',
+                'phone_number'  => '+639959802143',
                 'is_vaccinated'  => 'yes',
                 'email'          => 'admin@admin.com',
                 'password'       => bcrypt('password'),

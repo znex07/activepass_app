@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Twilio\Rest\Client;
 
 class RegisterController extends Controller
 {
@@ -51,6 +54,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,10 +68,41 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_sid = getenv("TWILIO_SID");
+        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        $twilio = new Client($twilio_sid, $token);
+        $twilio->verify->v2->services($twilio_verify_sid)
+            ->verifications
+            ->create($data['phone_number'], "sms");
+
         return User::create([
             'name' => $data['name'],
+            'email' => $data['phone_number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+    protected function verify(Request $request)
+    {
+        $data = $request->validate([
+            'verification_code' => ['required', 'numeric'],
+            'phone_number' => ['required', 'string'],
+        ]);
+        /* Get credentials from .env */
+        $token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_sid = getenv("TWILIO_SID");
+        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        $twilio = new Client($twilio_sid, $token);
+        $verification = $twilio->verify->v2->services($twilio_verify_sid)
+            ->verificationChecks
+            ->create($data['verification_code'], array('to' => $data['phone_number']));
+        if ($verification->valid) {
+            $user = tap(User::where('phone_number', $data['phone_number']))->update(['isVerified' => true]);
+            /* Authenticate user */
+            Auth::login($user->first());
+            return redirect()->route('home')->with(['message' => 'Phone number verified']);
+        }
+        return back()->with(['phone_number' => $data['phone_number'], 'error' => 'Invalid verification code entered!']);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,12 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/verify/{id}', function ($id) {
+    $vaccine_status = User::where('id', $id)->pluck('is_vaccinated');
+    return view('verify_vax')->with('status', $vaccine_status);
+});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/immunization',  function () {
+    return view('user.immunization');
+});
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
