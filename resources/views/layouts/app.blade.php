@@ -39,7 +39,7 @@
 <body>
     <div id="app">
         <div class="se-pre-con"></div>
-        <nav class="navbar fixed-top  navbar-expand-md navbar-light bg-success color-white shadow-sm">
+        <nav class="navbar fixed-top  navbar-expand-md navbar-dark bg-dark color-white shadow-sm">
             <div class="container">
 
                 <button class="navbar-toggler d-block navbar-dark" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -120,7 +120,11 @@
                     </div>
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-dashboard btn-success"></i> Dashboard</a>
+                    <a href="home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-dashboard text-success fa-lg"></i> Dashboard</a>
+
+                    <a type="button" class="list-group-item list-group-item-action bg-warning" data-toggle="modal" data-target="#exampleModalCenter">
+                        <span class="fa fa-lg fa-warning text-success"></span> Report Side Effect
+                    </a>
                     {{-- <a href="search" class="list-group-item list-group-item-action bg-light"><i class="fa fa-search btn-success"></i> Search</a>
                     <a href="list" class="list-group-item list-group-item-action bg-light"><i class="fa fa-address-card btn-success"></i> Overview</a>
                     <a href="fullcalendar" class="list-group-item list-group-item-action bg-light"><i class="fa fa-calendar btn-success"></i> Calendar</a>
@@ -129,7 +133,7 @@
 
                     <a href="{{ route('logout') }}" class="list-group-item list-group-item-action bg-light" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-times-circle btn-danger"></i> Logout </a>
+                                    <i class="fa fa-times-circle text-danger fa-lg"></i> Logout </a>
                         <form action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
