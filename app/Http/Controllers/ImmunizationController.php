@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Immunization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Twilio\Rest\Client as RestClient;
 
 class ImmunizationController extends Controller
 {
@@ -81,5 +83,18 @@ class ImmunizationController extends Controller
     public function destroy(Immunization $immunization)
     {
         //
+    }
+    public function send_otp(Request $request)
+    {
+
+        // dd(Auth::user()->phone_number);
+        $token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_sid = getenv("TWILIO_SID");
+        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        $twilio = new RestClient($twilio_sid, $token);
+        $twilio->verify->v2->services($twilio_verify_sid)
+            ->verifications
+            ->create(Auth::user()->phone_number, "sms");
+            return back();
     }
 }

@@ -23,8 +23,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success btn-sm">Send to your Email</button>
-                <button class="btn btn-info mt-1 btn-sm">Send OTP</button>
+                {{-- <button class="btn btn-success btn-sm">Send to your Email</button> --}}
+                <a class="btn btn-success mt-1 btn-sm" href="/send_otp">Send One Time Pin</a>
                 </div>
             </div>
 

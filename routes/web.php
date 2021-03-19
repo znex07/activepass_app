@@ -18,13 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/verify/{id}', function ($id) {
-    $vaccine_status = User::where('id', $id)->pluck('is_vaccinated');
-    return view('verify_vax')->with('status', $vaccine_status);
+    $vaccine_status = User::where('id', $id)->get();
+
+    return view('verify_vax', compact('vaccine_status'));
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/send_otp', [App\Http\Controllers\ImmunizationController::class, 'send_otp'])->name('send_otp');
 Route::get('/immunization',  function () {
     return view('user.immunization');
 });
@@ -32,5 +34,6 @@ Route::get('/immunization',  function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::post('/verify-otp', [TCG\Voyager\Http\Controllers\VoyagerUserController::class, 'verify'])->name('verify-otp');
 });
 
