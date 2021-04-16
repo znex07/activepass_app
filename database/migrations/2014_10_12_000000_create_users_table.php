@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone_number');
+            $table->boolean('isVerified')->default(false);
             $table->string('is_vaccinated');
             $table->string('vaccine_brand')->nullable();
             $table->string('email')->unique();

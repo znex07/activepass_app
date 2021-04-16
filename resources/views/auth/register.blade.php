@@ -3,12 +3,15 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="mx-2 col-md-3 ">
+
+            <img class="mt-5" src="/img/reg.png" alt="" style="width: 100%; height: 200px;" >
+        </div>
+        <div class="col-md-8"   >
             <div class="card mt-5">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="/register-user">
                         @csrf
 
                         <div class="form-group row">
@@ -44,7 +47,7 @@
                         <div class="form-group row">
                             <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
                             <div class="col-md-6">
-                                <input id="phone_number" type="tel" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required>
+                                <input id="phone_number" type="tel" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="+639" required>
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -57,11 +60,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                </div>
-
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

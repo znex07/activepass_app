@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="container d-flex justify-content-center">
-    @if(session('message') == "Phone number verified")
+    {{-- @if(session('message') == "Phone number verified") --}}
     <div class="row  ">
-        <div class="col-md-8 mt-3">
+        {{-- <div class="col-md-8 mt-3">
 
             <div class="card d-flex justify-content-center" style="width: 2.55in; height:4.25in;" >
                 <div class="title text-center mt-3">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="card-body text-center">
                     <div class="row p-3" >
-                        {{-- <h3><b>Certificate of Vaccination</b></h3> --}}
+                        <h3><b>Certificate of Vaccination</b></h3>
                         @foreach ($vaccine_status as $vax)
                         @if ($vax->is_vaccinated == 'Fully Vaccinated')
                             <label>This is to certify that the holder of this certificate has been Fully
@@ -26,26 +26,53 @@
                                     <h5 class="text-center">Vaccine: {{ $vax->vaccine_brand }}</h5>
                                     <small class="text-center">Date Vaccinated: {{ Carbon\Carbon::parse($vax->date_2)->format('Y-m-d') }}</small>
                                 </div>
-                            {{-- <small>Scan the QR below to verify status.</small> --}}
                         @else
                             <label>ActivePass digital vaccine passport for <b>COVID-19</b></label>
-                            {{-- <small>Scan the QR below to verify status.</small> --}}
                             <h3 class="text-danger">Not Yet Vaccinated</h3>
                         @endif
-                                {{-- {{ $vax->is_vaccinated  }} --}}
                         @endforeach
                     </div>
                     <hr>
                 </div>
-                {{-- <button class="btn btn-success btn-sm">Send to your Email</button> --}}
-                {{-- <button class="btn btn-info mt-1 btn-sm">Send OTP</button> --}}
                 </div>
             </div>
 
         </div>
-    </div>
+    </div> --}}
+
+
+
+    <div class="card mt-5 ">
+        <div class="card-header text-center" style="justify-content: center">
+            <h3 class="card-title font-weight-bold ">COVID VACCINE PASSPORT</h3>
+        </div>
+        <div class="card-body">
+                <p class="card-text">
+                <h4 class="text-success" id="exampleModalLongTitle">First Dose</h4>
+                <img src="{{ Voyager::image(Auth::user()->avatar) }}" class="img-thumbnail pull-right" style="height: 70px; width:70px">
+                <h5 class="" id="exampleModalLongTitle">Vaccine Provider:</h5>
+                <h5 class="" id="exampleModalLongTitle">Name: {{ Auth::user()->name }}</h5>
+                <h5 class="" id="exampleModalLongTitle">Doctor: </h5>
+                <h5 class="" id="exampleModalLongTitle">Vaccine Name: {{ Auth::user()->vaccine_brand }}</h5>
+                <h5 class="" id="exampleModalLongTitle">Date:{{ Carbon\Carbon::parse(Auth::user()->date_1)->format('Y-m-d') }}</h5>
+
+                <hr>
+                <h3 class=" text-success" id="exampleModalLongTitle">Second Dose</h3>
+                <h5 class="" id="exampleModalLongTitle">Vaccine Name: {{ Auth::user()->vaccine_brand }}</h5>
+                <h5 class="" id="exampleModalLongTitle">Date:{{ Carbon\Carbon::parse(Auth::user()->date_1)->format('Y-m-d') }}</h5>
+                <hr>
+                <h2>Status: <label class="text-danger">{{ Auth::user()->is_vaccinated }}</label></h2>
+                </p>
+                {{-- <div class="card-footer">
+                  <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Ok</button>
+                </div> --}}
+              </div>
+            </div>
+
+            </div>
+
     {{-- OTP --}}
-    @else
+    {{-- @else
     <div class="card mt-5">
         <div class="card-header">{{ __('Verify Your Phone Number') }}</div>
         <div class="card-body">
@@ -84,12 +111,13 @@
                 </div>
             </form>
         </div>
-    </div>
-    @endif
+    </div> --}}
+    {{-- @endif --}}
 </div>
 <script>
         $('document').ready(function () {
             $('#wrapper').hide();
+            // $('#myModal').modal('show');
         });
 </script>
 @endsection

@@ -21,10 +21,12 @@ class User extends \TCG\Voyager\Models\User
         'email',
         'phone_number',
         'vaccine_brand',
+        'is_vaccinated',
         'date_1',
         'date_2',
         'email',
         'password',
+        'qr_code',
     ];
 
     /**

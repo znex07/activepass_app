@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMailVax;
 use App\Models\Immunization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Twilio\Rest\Client as RestClient;
 
 class ImmunizationController extends Controller
@@ -96,5 +98,11 @@ class ImmunizationController extends Controller
             ->verifications
             ->create(Auth::user()->phone_number, "sms");
             return back();
+    }
+    public function send_mail(Request $request)
+    {
+
+        // dd($request['email']);
+        Mail::to($request['email'])->send(new SendMailVax);
     }
 }

@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/immune_record.css') }}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ asset('css/activepass.css') }}" rel="stylesheet">
+    <link href="/css/activepass1.css" rel="stylesheet">
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
@@ -39,14 +39,14 @@
 <body>
     <div id="app">
         <div class="se-pre-con"></div>
-        <nav class="navbar fixed-top  navbar-expand-md navbar-dark bg-dark color-white shadow-sm">
+        <nav class="navbar fixed-top  navbar-expand-md navbar-light bg-light color-white shadow-sm">
             <div class="container">
 
-                <button class="navbar-toggler d-block navbar-dark" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler d-block navbar-light" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand pull-left" href="{{ url('/') }}">
-                    <img src="{{asset('/img/logo.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
+                    <img src="{{asset('/img/sg-logo.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
                     <b>{{ config('app.name', 'FitPass') }}</b>
                 </a>
 
@@ -115,21 +115,21 @@
                         @if (Auth::user()->role == 'Patient' )
                         <p class="row font-weight-bold mt-2"><a href="certificate" class="btn btn-dark">Vaccine Passport</a></p>
                         @elseif (Auth::user()->role_id == '1' )
-                        <p class="row font-weight-bold mt-2"><a href="admin" class="btn btn-dark">Admin Dash</a></p>
+                        <p class="row font-weight-bold mt-2"><a href="admin" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
                         @endif
                     </div>
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-dashboard text-success fa-lg"></i> Dashboard</a>
+                    {{-- <a href="home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-dashboard text-success fa-lg"></i> Dashboard</a> --}}
 
-                    <a type="button" class="list-group-item list-group-item-action bg-warning" data-toggle="modal" data-target="#exampleModalCenter">
-                        <span class="fa fa-lg fa-warning text-success"></span> Report Side Effect
+                    {{-- {{-- <a href="search" class="list-group-item list-group-item-action bg-light"><i class="fa fa-search btn-success"></i> Search</a> --}}
+                    <a href="/home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Access VaxPass</a>
+                    <a href="/edit-personal" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle btn-success"></i> Edit Personal Info</a>
+                    <a href="/upload-id" class="list-group-item list-group-item-action bg-light"><i class="fa fa-address-card btn-success"></i> Upload files</a>
+                    {{-- <a href="immune_records" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Immunization form</a> --}}
+                    <a type="button" class="list-group-item list-group-item-action text-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                        <span class="fa fa-lg fa-warning" style="color: orange"></span> Report Side Effect
                     </a>
-                    {{-- <a href="search" class="list-group-item list-group-item-action bg-light"><i class="fa fa-search btn-success"></i> Search</a>
-                    <a href="list" class="list-group-item list-group-item-action bg-light"><i class="fa fa-address-card btn-success"></i> Overview</a>
-                    <a href="fullcalendar" class="list-group-item list-group-item-action bg-light"><i class="fa fa-calendar btn-success"></i> Calendar</a>
-                    <a href="profile" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle btn-success"></i> Profile</a>
-                    <a href="immune_records" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Immunization form</a> --}}
 
                     <a href="{{ route('logout') }}" class="list-group-item list-group-item-action bg-light" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -148,6 +148,7 @@
         <footer class="footer py-3 bg-dark">
             <div class="container">
                 <p class="m-0 text-center text-white">Copyright &copy; 2021 Segovia Development</p>
+                <p class="m-0 text-center"><a href="/terms" >Terms and Condition</a></p>
             </div>
     </footer>
     </div>

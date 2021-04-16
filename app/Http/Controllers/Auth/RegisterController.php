@@ -66,7 +66,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create(Request $data)
     {
         $token = getenv("TWILIO_AUTH_TOKEN");
         $twilio_sid = getenv("TWILIO_SID");
@@ -76,19 +76,31 @@ class RegisterController extends Controller
             ->verifications
             ->create($data['phone_number'], "sms");
 
-        return User::create([
+        User::create([
             'name' => $data['name'],
-            'email' => $data['phone_number'],
+            'phone_number' => $data['phone_number'],
             'email' => $data['email'],
+            'is_vaccinated' => 'Pending..',
             'password' => Hash::make($data['password']),
         ]);
-    }
+        return redirect('verify-now')->with([
+            'name' => $data['name'],
+            'phone_number' => $data['phone_number'],
+            'role' => $data['role'],
+            'is_vaccinated' => $data['is_vaccinated'],
+            'address' => $data['address'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]
+    );
+ }
     protected function verify(Request $request)
     {
         $data = $request->validate([
             'verification_code' => ['required', 'numeric'],
             'phone_number' => ['required', 'string'],
         ]);
+        // dd($request);
         /* Get credentials from .env */
         $token = getenv("TWILIO_AUTH_TOKEN");
         $twilio_sid = getenv("TWILIO_SID");
