@@ -13,13 +13,12 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/lifepass.js') }}" type="module" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="https://bootswatch.com/4/lux/bootstrap.min.css" rel="stylesheet"> --}}
     <link href="{{ asset('css/immune_record.css') }}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('css/activepass1.css') }}" rel="stylesheet">
@@ -46,8 +45,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button> --}}
                 <img src="{{asset('/img/sg-logo.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
-                <a class="navbar-brand pull-left" href="{{ url('/') }}">
-                    <h2 class=" mt-2 font-weight-bold">{{ config('app.name', 'ActivePass') }}</h2>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'ActivePass') }}
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -207,46 +206,71 @@
     </div>
 
 </div>
-<div class="container d-flex justify-content-center">
+<div class="container ">
 
-    <div class="row">
-        <div class="card-thum col ">
-            <img class="img-thumbnail" src="/img/icon1.png" alt="" style=" width:80px; height:100px">
-            <h3>Get a digital vaccine certificate</h3>
-          <p>doctors and get the best recomendations.</p>
+    <div class="row d-flex justify-content-center">
+        <div class="card col-md-3 m-2 ">
+            <div class="card-title px-3 mt-4">
+            <img class="img-thumbnail " src="/img/icon1.svg" alt="" style=" width:80px; height:100px">
+            </div>
+            <div class="card-body">
+            <h4>Get a digital vaccine certificate</h4>
+              <p>doctors and get the best recomendations.</p>
+            </div>
+
         </div>
-        <div class="card-thum col">
-          <img class="img-thumbnail" src="/img/icon2.png" alt="Generic placeholder image" style=" width:70px; height:100px">
-          <h3>Covid Testing Partners</h3>
+        <div class="card col-md-3 m-2">
+            <div class="card-title px-3 mt-4">
+          <img class="img-thumbnail" src="/img/icon2.svg" alt="Generic placeholder image" style=" width:70px; height:100px">
+          </div>
+          <div class="card-body">
+          <h4>Covid Testing Partners</h4>
           <p>Buy  your medicines with our mobile application with a simple delivery system </p>
+          </div>
         </div>
-        <div class="card-thum col">
-          <img class="img-thumbnail" src="/img/icon3.png" alt="Generic placeholder image" style=" width:90px; height:100px">
-          <h3>List of Health Partners</h3>
+        <div class="card col-md-3 m-2">
+            <div class="card-title px-3 mt-4">
+          <img class="img-thumbnail" src="/img/icon3.svg" alt="Generic placeholder image" style=" width:90px; height:100px">
+          </div>
+          <div class="card-body">
+          <h4>List of Health Partners</h4>
           <p>You can get 24/7 urgent care for yourself or your children and your
             lovely family</p>
+            </div>
         </div>
     </div>
 
 
 </div>
-<div class="container d-flex justify-content-center">
-    <div class="row">
-        <div class="card-thum col">
-            <img class="img-thumbnail" src="/img/icon4.png" alt="" style=" width:70px; height:100px">
-            <h3>Get a digital vaccine certificate</h3>
+<div class="container ">
+    <div class="row d-flex justify-content-center">
+        <div class="card col-md-3 m-2">
+            <div class="card-title px-3 mt-4">
+            <img class="img-thumbnail" src="/img/icon4.svg" alt="" style=" width:70px; height:100px">
+            </div>
+          <div class="card-body">
+            <h4>Get a digital vaccine certificate</h4>
             <p>doctors and get the best recomendations.</p>
+            </div>
       </div>
-          <div class="card-thum col">
-          <img class="img-thumbnail" src="/img/icon5.png" alt="Generic placeholder image" style=" width:100px; height:100px">
-          <h2>Get your Vaccine</h2>
-          <p>You can get 24/7 urgent care for yourself or your children and your
+          <div class="card col-md-3 m-2">
+            <div class="card-title px-3 mt-4">
+                <img class="img-thumbnail" src="/img/icon5.svg" alt="Generic placeholder image" style=" width:100px; height:70px">
+            </div>
+            <div class="card-body">
+              <h4>Get your Vaccine</h4>
+             <p>You can get 24/7 urgent care for yourself or your children and your
               lovely family</p>
           </div>
-          <div class="card-thum col">
-              <img class="img-thumbnail" src="/img/icon6.png" alt="Generic placeholder image" style=" width:70px; height:100px">
-              <h2>Book a vacination</h2>
+          </div>
+          <div class="card col-md-3 m-2">
+              <div class="card-title px-3 mt-4">
+                <img class="img-thumbnail" src="/img/icon6.svg" alt="Generic placeholder image" style=" width:70px; height:100px">
+              </div>
+              <div class="card-body">
+                <h4>Book a vacination</h4>
               <p>Track and save your medical history and health data </p>
+            </div>
           </div>
 </div>
 </div>
@@ -257,7 +281,7 @@
 <div class="container" style="margin-top: 100px">
     <div class="row d-flex justify-content-center mt-4">
         <div class="col-lg-4">
-            <img src="/img/reg.png" alt="" style="height: 300px; width: 300px">
+            <img src="/img/reg.svg" alt="" style="height: 400px; width: 300px">
         </div>
         <div class="col-lg-4">
             <h3 class="mt-5">Leading healthcare providers</h3>
@@ -274,15 +298,14 @@
                 in the solutions we deliver</p>
             </div>
             <div class="col-lg-4">
-                <img src="/img/reg2.png" alt="" style="height: 300px; width: 350px">
+                <img src="/img/reg2.svg" alt="" style="height: 300px; width: 350px">
             </div>
     </div>
 </div>
 
 <footer class="footer footer-nav py-0 bg-dark">
     <div class="container text-center">
-        <small class="m-0 text-center text-white">Copyright &copy; 2021 Segovia Development </small>
-        <p class="m-0 text-center"><a href="/terms" >Terms and Condition</a></p>
+        <small class="m-0 text-center text-white">Copyright &copy; 2021 Segovia Development <a href="/terms" class="nav-link">PRIVACY & TERMS</a></small>
 
 
     </div>
