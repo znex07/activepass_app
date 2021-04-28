@@ -1,5 +1,5 @@
 FROM php:7.4-fpm
-
+# FROM php:7.3-apache-stretch
 RUN apt-get update && apt-get install -y \
     build-essential \
     libzip-dev \
@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     wget \
-    && docker-php-ext-configure gd \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
-RUN docker-php-ext-install gd pdo_mysql zip exif pcntl
+RUN docker-php-ext-install pdo_mysql zip exif pcntl
 
 FROM composer:1.9.0 as build
 WORKDIR /app
