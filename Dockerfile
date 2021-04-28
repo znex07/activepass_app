@@ -5,8 +5,9 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
-    && docker-php-ext-configure gd ext-zip --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd ext-zip
+        zip \
+    && docker-php-ext-configure gd zip --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd zip
 
 RUN mkdir -p /run/nginx
 
