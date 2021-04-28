@@ -20,7 +20,7 @@ RUN docker-php-ext-install pdo_mysql zip exif pcntl
 FROM composer:1.9.0 as build
 WORKDIR /app
 COPY . /app
-RUN composer global require hirak/prestissimo && composer install
+RUN composer install
 
 
 EXPOSE 8080
