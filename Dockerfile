@@ -5,7 +5,7 @@ RUN apk add zlib-dev libpng-dev libzip-dev
 RUN docker-php-ext-install gd zip
 
 RUN mkdir -p /run/nginx
-
+RUN apt-get update && apt-get install imagemagick -y
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir -p /app
