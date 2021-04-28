@@ -1,7 +1,7 @@
 FROM php:7.4-fpm-alpine
-RUN apt update && apt install -y
-RUN docker-php-ext-configure gd
 RUN apk add --no-cache nginx wget
+RUN apt-get update && apt-get install -y
+RUN docker-php-ext-configure gd
 
 RUN mkdir -p /run/nginx
 
