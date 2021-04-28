@@ -2,7 +2,7 @@ FROM php:7.4-fpm-alpine
 
 RUN apk add --no-cache nginx wget
 RUN apk add zlib-dev libpng-dev
-RUN docker-php-ext-install gd
+RUN docker-php-ext-install gd zip
 
 RUN mkdir -p /run/nginx
 
