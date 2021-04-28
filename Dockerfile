@@ -1,4 +1,5 @@
 FROM php:7.4-fpm-alpine
+RUN apt-get install zlib-dev
 RUN docker-php-ext-install gd
 
 RUN apk add --no-cache nginx wget
