@@ -1,5 +1,4 @@
 FROM php:7.4-fpm
-# FROM php:7.3-apache-stretch
 RUN apt-get update && apt-get install -y \
     build-essential \
     libzip-dev \
@@ -23,7 +22,6 @@ WORKDIR /app
 COPY . /app
 RUN composer global require hirak/prestissimo && composer install
 
-# RUN docker-php-ext-install pdo pdo_mysql
 
 EXPOSE 8080
 COPY --from=build /app /var/www/
