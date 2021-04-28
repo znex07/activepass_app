@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     wget \
+    php7.4-gd \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install pdo_mysql zip exif pcntl
