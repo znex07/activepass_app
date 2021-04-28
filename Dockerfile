@@ -1,4 +1,5 @@
 FROM php:7.4-fpm-alpine
+RUN docker-php-ext-install gd
 
 RUN apk add --no-cache nginx wget
 
