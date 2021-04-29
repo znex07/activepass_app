@@ -2,7 +2,7 @@ FROM php:7.4-fpm-alpine
 
 RUN apk add --no-cache nginx wget
 RUN apk add zlib-dev libpng-dev libzip-dev
-RUN apk add imagemagick
+RUN apk add imagemagick imagick
 RUN docker-php-ext-install gd zip
 RUN docker-php-ext-enable imagick
 RUN mkdir -p /run/nginx
