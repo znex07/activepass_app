@@ -2,9 +2,8 @@ FROM php:7.4-fpm-alpine
 
 RUN apk add --no-cache nginx wget
 RUN apk add zlib-dev libpng-dev libzip-dev
-RUN apk add imagemagick imagick
+RUN apk add imagemagick
 RUN docker-php-ext-install gd zip
-RUN docker-php-ext-enable imagick
 RUN mkdir -p /run/nginx
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 
