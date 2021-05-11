@@ -19,7 +19,7 @@
                             <img src="{{ Voyager::image(Auth::user()->avatar) }}" class="img-thumbnail pull-right" style="height: 70px; width:70px">
                         </div>
                         <div class="col ">
-                            <div class="pull-left">{!! QrCode::size(70)->generate('https://life.segoviagroup.com/verify/' . Auth::user()->id); !!}</div>
+                            <div class="pull-left"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->gradient(87, 200, 100, 10, 100, 100, 'vertical')->generate('https://life.segoviagroup.com/verify/' . Auth::user()->id)); !!}" class="img-thumbnail pull-right" style="height: 80px; width:80px"></div>
                         </div>
 
                     </div>
