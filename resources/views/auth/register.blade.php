@@ -134,10 +134,10 @@
     		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
     		</div>
     		<select class="custom-select" name="phone_code" style="max-width: 120px;">
-    		    <option selected="">+639</option>
-    		    <option value="1">+972</option>
-    		    <option value="2">+198</option>
-    		    <option value="3">+701</option>
+    		    <option selected="">+63</option>
+    		    <option value="1">+97</option>
+    		    <option value="2">+19</option>
+    		    <option value="3">+70</option>
     		</select>
         	<input name="phone_number" class="form-control" placeholder="Phone number" type="text">
         </div> <!-- form-group// -->
