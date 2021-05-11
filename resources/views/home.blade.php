@@ -148,7 +148,7 @@
                 <div class="card-body text-center">
                     <div class="row p-3" >
                         {{-- <h3><b>Certificate of Vaccination</b></h3> --}}
-                        {{-- @foreach (Auth::user() as $vax)
+                        @foreach ($vaccine_status as $vax)
                         @if ($vax->is_vaccinated == 'Fully Vaccinated')
                             <label>This is to certify that the holder of this certificate has been Fully
                                 Vaccinated against Coronavirus <b>COVID-19</b></label>
@@ -159,13 +159,13 @@
                                     <small class="text-center">Date Vaccinated: {{ Carbon\Carbon::parse($vax->date_2)->format('Y-m-d') }}</small>
                                 </div>
                             {{-- <small>Scan the QR below to verify status.</small> --}}
-                        {{-- @else --}}
-                            {{-- <label>ActivePass digital vaccine passport for <b>COVID-19</b></label> --}}
+                        @else
+                            <label>ActivePass digital vaccine passport for <b>COVID-19</b></label>
                             {{-- <small>Scan the QR below to verify status.</small> --}}
-                            {{-- <h3 class="text-danger">Not Yet Vaccinated</h3> --}}
-                        {{-- @endif --}}
+                            <h3 class="text-danger">Not Yet Vaccinated</h3>
+                        @endif
                                 {{-- {{ $vax->is_vaccinated  }} --}}
-                        {{-- @endforeach --}} --}}
+                        @endforeach
                     </div>
                     <hr>
                 </div>
