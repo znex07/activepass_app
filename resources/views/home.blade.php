@@ -149,7 +149,7 @@
                     <div class="row p-3" >
                         {{-- <h3><b>Certificate of Vaccination</b></h3> --}}
 
-                        @foreach ( $vaccine_status ?? '' as $vax)
+                        @foreach ( $vaccine_status as $vax)
                         @if ($vax->is_vaccinated == 'Fully Vaccinated')
                             <label>This is to certify that the holder of this certificate has been Fully
                                 Vaccinated against Coronavirus <b>COVID-19</b></label>
