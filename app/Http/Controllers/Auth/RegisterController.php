@@ -96,7 +96,7 @@ class RegisterController extends Controller
 
         return redirect('verify-now')->with([
             'name' => $data['name'],
-            'phone_number' => $data['phone_number'],
+            'phone_number' => $data['phone_code'] . $data['phone_number'],
             'phone_code' => $data['phone_code'],
             'role' => $data['role'],
             'is_vaccinated' => $data['is_vaccinated'],
