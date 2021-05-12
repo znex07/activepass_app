@@ -11,6 +11,11 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('admin-lte');
+    require('chart.js');
+    require('chartjs-color');
+    require('chartjs-color-string');
+    require('jquery');
 } catch (e) {}
 
 /**

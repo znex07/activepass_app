@@ -20,7 +20,9 @@ Route::get('/', function () {
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
-
+Route::get('/admin/addpatient', function () {
+    return view('admin.addpatient');
+});
 Route::get('/terms', function () {
     return view('termscondition');
 });
