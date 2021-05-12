@@ -80,9 +80,17 @@ class RegisterController extends Controller
                     ->withInput();
         }
         User::create([
-            'name' => $data['name'],
+            'fname' => $data['fname'],
+            'mname' => $data['mname'],
+            'lname' => $data['lname'],
+            'role_id' => '2',
             'phone_number' => $data['phone_code'] . $data['phone_number'],
             'email' => $data['email'],
+            'avatar' => '',
+            'address1' => '',
+            'address2' => '',
+            'city' => '',
+            'zip' => '',
             'is_vaccinated' => 'Pending...',
             'password' => Hash::make($data['password']),
         ]);
@@ -95,7 +103,9 @@ class RegisterController extends Controller
             ->create($data['phone_code'] . $data['phone_number'], "sms");
 
         return redirect('verify-now')->with([
-            'name' => $data['name'],
+            'fname' => $data['fname'],
+            'mname' => $data['mname'],
+            'lname' => $data['lname'],
             'phone_number' => $data['phone_code'] . $data['phone_number'],
             'phone_code' => $data['phone_code'],
             'role' => $data['role'],

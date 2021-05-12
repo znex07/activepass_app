@@ -16,7 +16,10 @@ class PatientController extends Controller
     {
         //
     }
+    public function report(Request $request){
+        dd($request);
 
+    }
     /**
      * Show the form for creating a new resource.
      *

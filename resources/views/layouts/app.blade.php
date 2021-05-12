@@ -74,7 +74,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->fname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -110,12 +110,10 @@
                 <div class="bg-light border-right" id="sidebar-wrapper">
                     <div class="sidebar-heading d-flex justify-content-center" style="">
                         <div class="container">
-                            <img class="row rounded-circle img-thumbnail" src="{{ Voyager::image(Auth::user()->avatar) }}" style="width: 80px; height: 80px">
-                        <p class="row font-weight-bold mt-3">Welcome, {{ Auth::user()->name }} !</p>
-                        @if (Auth::user()->role == 'Patient' )
-                        <p class="row font-weight-bold mt-2"><a href="certificate" class="btn btn-dark">Vaccine Passport</a></p>
-                        @elseif (Auth::user()->role_id == '1' )
-                        <p class="row font-weight-bold mt-2"><a href="admin" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
+                            <img class="row rounded-circle img-thumbnail" src="{{ asset('/img/'. Auth::user()->avatar )  }}" style="width: 80px; height: 80px">
+                        <p class="row font-weight-bold mt-3" style="text-transform: capitalize;">Welcome,<br> {{ Auth::user()->fname . ' ' . Auth::user()->mname .' '. Auth::user()->lname }} !</p>
+                        @if (Auth::user()->role_id == '1' )
+                            <p class="row font-weight-bold mt-2"><a href="/admin/dashboard" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
                         @endif
                     </div>
                 </div>

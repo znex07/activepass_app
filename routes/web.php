@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
+Route::get('/admin/viewusers', function () {
+    return view('admin.users');
+});
 Route::get('/admin/addpatient', function () {
     return view('admin.addpatient');
 });
@@ -54,10 +57,4 @@ Route::post('/send_vax_mail', [App\Http\Controllers\ImmunizationController::clas
 Route::get('/immunization',  function () {
     return view('user.immunization');
 });
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-    Route::post('/verify-otp', [TCG\Voyager\Http\Controllers\VoyagerUserController::class, 'verify'])->name('verify-otp');
-});
-
+Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class, 'report'])->name('report');

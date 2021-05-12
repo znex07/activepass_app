@@ -5,6 +5,19 @@ $(window).on('load',function() {
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "slideLeft",
-        autoFocus: true
+        autoFocus: true,
+        onStepChanging: function (event, currentIndex, newIndex) {
+            console.log($('#fname').val());
+            $('#inputtype').text('User Type: ' + $('#user_type').val());
+            $('#inputname').text('Name: ' + $('#fname').val() + ' ' + $('#mname').val() + ' ' +  $('#lname').val());
+            $('#inputemail').text('Email: ' + $('#email').val());
+            $('#inputaddress').text('Address: ' + $('#address1').val() + $('#address2').val());
+            $('#inputphone').text('Phone Number: ' + $('#phone_prefix').val() + $('#phone').val());
+            return true;
+        },
+        onFinished: function(){
+            // alert('submitted');
+            $("#patient-new").submit();
+        }
     });
 });
