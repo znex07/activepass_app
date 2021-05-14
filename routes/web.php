@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
+Route::get('/admin/viewusers', function () {
+    return view('admin.users');
+});
 Route::get('/admin/addpatient', function () {
     return view('admin.addpatient');
 });
@@ -54,8 +57,4 @@ Route::post('/send_vax_mail', [App\Http\Controllers\ImmunizationController::clas
 Route::get('/immunization',  function () {
     return view('user.immunization');
 });
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class, 'report'])->name('report');

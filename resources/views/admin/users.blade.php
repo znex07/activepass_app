@@ -8,12 +8,10 @@
 
   <title>Admin | Dashboard</title>
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/jquery.steps.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -159,7 +157,7 @@
           <img src="{{ asset('/img/default.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+          <a href="#" class="d-block">{{Auth::user()->fname}}</a>
         </div>
       </div>
 
@@ -169,19 +167,18 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="/admin/dashboard" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
           <li class="nav-item  has-treeview">
-            <a href="/admin/addpatient" class="nav-link">
+            <a href="/admin/addpatient" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Patient
+                Users
                 <i class="fas fa-angle-left right"></i>
 
                 {{-- <span class="right badge badge-danger">New</span> --}}
@@ -189,7 +186,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/admin/viewusers" class="nav-link">
+                    <a href="/admin/viewusers" class="nav-link">
                     <i class="fa fa-users nav-icon"></i>
                     <p>View Users</p>
                   </a>
@@ -202,6 +199,7 @@
                 </li>
             </ul>
           </li>
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -276,109 +274,73 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Admin Dashboard</h1>
+            <h1 class="m-0 text-dark">Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             </ol>
-          </div><!-- /.col -->
+        </div><!-- /.col -->
         </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Patient Vaccine</h3>
-                  <a href="javascript:void(0);">View Report</a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">820</span>
-                    <span>Visitors Over Time</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
-                    </span>
-                    <span class="text-muted">Since last week</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
 
-                <div class="position-relative mb-4">
-                  <canvas id="visitors-chart" height="200"></canvas>
-                </div>
-
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
-                  </span>
-                </div>
-              </div>
+                <div class="alert alert-info alert-dismissible fade" role="alert" id="message">
+                    <p class="card-text"> <span class="fa fa-info-circle"></span> All personal data you input is confidential and be kept private </p>
+                    <button type="button" class="close" dat a-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <!-- /.card -->
 
 
           </div>
           <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            {{-- <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Sales</h3>
-                  <a href="javascript:void(0);">View Report</a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">$18,230.00</span>
-                    <span>Sales Over Time</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 33.1%
-                    </span>
-                    <span class="text-muted">Since last month</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
 
-                <div class="position-relative mb-4">
-                  <canvas id="sales-chart" height="200"></canvas>
-                </div>
-
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This year
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last year
-                  </span>
-                </div>
-              </div> --}}
-            </div>
-            <!-- /.card -->
-
-
-          </div>
-          <!-- /.col-md-6 -->
         </div>
+        <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Users</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Vaccine Status</th>
+                      <th>Vaccine type</th>
+                      <th>Role</th>
+                      <th>date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                      <td>Trident</td>
+                      <td>Internet
+                        Explorer 4.0
+                      </td>
+                      <td>Win 95+</td>
+                      <td> 4</td>
+                      <td>X</td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
@@ -405,16 +367,13 @@
 
 <!-- REQUIRED SCRIPTS -->
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE -->
+
 <script src="{{ asset('js/app.js') }}"></script>
 
 <!-- OPTIONAL SCRIPTS -->
 {{-- <script src="{{ asset('js/chart.js') }}"></script> --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script src="{{ asset('/js/admindash.js') }}"></script>
+<script src="{{ asset('js/jquery.steps.min.js') }}"></script>
+<script src="{{ asset('js/lifepass.js') }}"></script>
+
 </body>
 </html>

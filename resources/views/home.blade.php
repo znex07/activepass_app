@@ -16,7 +16,7 @@
                     <hr>
                     <div class="row">
                         <div class="col">
-                            <img src="{{ Auth::user()->avatar }}" class="img-thumbnail pull-right" style="height: 70px; width:70px">
+                            <img src="{{ asset('/img/'. Auth::user()->avatar )  }}" class="img-thumbnail pull-right" style="height: 70px; width:70px">
                         </div>
                         <div class="col ">
                             <div class="pull-left"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->gradient(0, 0, 51, 0, 102, 204, 'diagonal')->generate('https://life.segoviagroup.com/verify/' . Auth::user()->id)); !!}" class="img-thumbnail pull-right" style="height: 80px; width:80px"></div>
@@ -27,7 +27,9 @@
                     <div class="row text-center py-3">
                         <div class="col text-center">
 
-                            <h5 class="text-center">Name: {{ Auth::user()->name }}</h5>
+                            {{-- <h5 class="text-center">Name: {{ Auth::user()->fname }}</h5> --}}
+                        <h5 class="font-weight-bold text-center" style="text-transform: capitalize;"> {{ Auth::user()->fname . ' ' . Auth::user()->mname .' '. Auth::user()->lname }} </h5>
+
                         </div>
 
                     </div>
@@ -50,7 +52,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h3 class="font-weight-bold ">COVID VACCINE PASSPORT</h3>
-                    <img src="{{ Auth::user()->avatar }}" class="img-thumbnail " style="height: 70px; width:70px">
+                    <img src="{{ asset('/img/'. Auth::user()->avatar )  }}" class="img-thumbnail " style="height: 70px; width:70px">
                 </div>
                 <div class="modal-body text-center">
 
@@ -86,66 +88,68 @@
           </button>
         </div>
         <div class="modal-body p-3">
-            <div class="form-group row">
-                <label class="col-md-2 col-form-label text-md-right">Date</label>
+           <form action="/report/sideeffect" method="post">
+            @csrf
+               <div class="form-group row">
+                   <label class="col-md-2 col-form-label text-md-right">Date</label>
 
-                    <div class='input-group col-md-8 date' id='datetimepicker1'>
-                        <input type='date' class="form-control" name="date_1" value="<?php echo date('Y-m-d'); ?>"/>
-                        <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                   <div class='input-group col-md-8 date' id='datetimepicker1'>
+                       <input type='date' class="form-control" name="date_1" value="<?php echo date('Y-m-d'); ?>"/>
+                       <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
-                     </div>
+                    </div>
 
-            </div>
-            <hr>
-            <div class="row d-flex justify-content-center">
-                <div class="symp_1 col-md-4 ">
-                    <div class="form-check">
-                        <label for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                     Allergy
-                   </label>
-                    </div>
-                    <div class="form-check">
-                        <label for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                            Fever
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label  for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                            Musscle Pain
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label  for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                            Headache
-                        </label>
-                    </div>
                 </div>
-               <div class="symp_2 col-md-4">
+                <hr>
+                <div class="row d-flex justify-content-center">
+                    <div class="symp_1 col-md-4 ">
+                        <div class="form-check">
+                            <label for="">
+                                <input name="allergy" class="form-check-input" type="checkbox" value="" id="">
+                                Allergy
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label for="">
+                                <input class="form-check-input" type="checkbox" value="" id="">
+                                Fever
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label  for="">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        Musscle Pain
+                    </label>
+                </div>
                 <div class="form-check">
                     <label  for="">
-                    <input class="form-check-input" type="checkbox" value="" id="">
+                        <input class="form-check-input" type="checkbox" value="" id="">
+                        Headache
+                    </label>
+                </div>
+            </div>
+            <div class="symp_2 col-md-4">
+                <div class="form-check">
+                    <label  for="">
+                        <input class="form-check-input" type="checkbox" value="" id="">
                         Allergy
                     </label>
                 </div>
                 <div class="form-check">
                     <label for="">
-                    <input class="form-check-input" type="checkbox" value="" id="">
+                        <input class="form-check-input" type="checkbox" value="" id="">
                         Chills
                     </label>
                 </div>
-                    <div class="form-check">
+                <div class="form-check">
                       <label for="">
-                      <input class="form-check-input" type="checkbox" value="" id="">
-                        Nausea
-                    </label>
+                          <input class="form-check-input" type="checkbox" value="" id="">
+                          Nausea
+                        </label>
                     </div>
-                        <input type="text" class="form-control input-sm " placeholder="Others" name="" id="">
-                    </div>
+                    <input type="text" class="form-control input-sm " placeholder="Others" name="" id="">
+                </div>
             </div>
             <hr>
             <div class="form-group text-center">
@@ -158,14 +162,15 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Report now</button>
+            <button type="submit" class="btn btn-primary">Report now</button>
         </div>
-        </div>
-      </div>
+    </form>
     </div>
-  </div>
+</div>
+</div>
+</div>
 
-        </div>
+</div>
     </div>
 </div>
 <script>

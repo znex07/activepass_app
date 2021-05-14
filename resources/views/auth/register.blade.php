@@ -102,7 +102,7 @@
                         @csrf
     <article class="card-body mx-auto" style="max-width: 400px;">
     	<h4 class="card-title mt-3 text-center">Register for VaxPass</h4>
-    	<p class="text-center">Get started with your free account</p>
+    	{{-- <p class="text-center">Get started with your free account</p> --}}
     	{{-- <p>
     		<a href="" class="btn btn-block btn-danger"> <i class="fab fa-google"></i>   Login via Gmail</a>
     		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
@@ -115,7 +115,9 @@
     		<div class="input-group-prepend">
     		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
     		 </div>
-            <input name="name" class="form-control" placeholder="Full name" type="text">
+             <input id="fname" name="fname" class="form-control" placeholder="First name" type="text">
+             <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text">
+             <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text">
         </div> <!-- form-group// -->
         <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
         	<div class="input-group-prepend">
@@ -129,6 +131,35 @@
                 </span>
             @enderror
         </div> <!-- form-group// -->
+        <div class="form-row">
+
+            <div class="form-group col">
+                <label for="inputAddress">Address</label>
+                <input id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
+            </div>
+
+            <div class="form-group col">
+                <label for="inputAddress2">Address 2</label>
+                <input id="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
+            </div>
+        </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="brgy">Barangay</label>
+              <input id="brgy" type="text" class="form-control" >
+            </div>
+            <div class="form-group col-md-4">
+              <label for="city">City</label>
+              <select id="city" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+          </div>
         <div class="form-group input-group">
         	<div class="input-group-prepend">
     		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>

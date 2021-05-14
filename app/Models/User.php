@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable{
+
+class User extends Authenticatable
+{
     use HasFactory, Notifiable;
 
     /**
@@ -16,14 +18,22 @@ class User extends Authenticatable{
      * @var array
      */
     protected $fillable = [
-        'name',
+        'fname',
+        'mname',
+        'lname',
         'email',
+        'role_id',
         'phone_number',
         'vaccine_brand',
         'is_vaccinated',
         'date_1',
         'date_2',
         'email',
+        'avatar',
+        'address1',
+        'address2',
+        'city',
+        'zip',
         'password',
         'qr_code',
     ];
