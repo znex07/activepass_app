@@ -100,7 +100,7 @@
             <div class="card mt-3 bg-light">
                 <form method="POST" action="/register-user">
                         @csrf
-    <article class="card-body mx-auto" style="max-width: 400px;">
+    <article class="card-body mx-auto" style="max-width: 600px;">
     	<h4 class="card-title mt-3 text-center">Register for VaxPass</h4>
     	{{-- <p class="text-center">Get started with your free account</p> --}}
     	{{-- <p>
@@ -135,12 +135,12 @@
 
             <div class="form-group col">
                 <label for="inputAddress">Address</label>
-                <input id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
+                <input name="address1" id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
             </div>
 
             <div class="form-group col">
                 <label for="inputAddress2">Address 2</label>
-                <input id="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
+                <input id="address2" name="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
             </div>
         </div>
           <div class="form-row">
@@ -150,14 +150,14 @@
             </div>
             <div class="form-group col-md-4">
               <label for="city">City</label>
-              <select id="city" class="form-control">
+              <select id="city" name="city" class="form-control">
                 <option selected>Choose...</option>
                 <option>...</option>
               </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputZip">Zip</label>
-              <input type="text" class="form-control" id="inputZip">
+              <input type="text" name="zip" class="form-control" id="inputZip">
             </div>
           </div>
         <div class="form-group input-group">
@@ -176,7 +176,7 @@
         	<div class="input-group-prepend">
     		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
     		</div>
-    		<select class="form-control">
+    		<select class="form-control" >
     			<option selected="" disabled> Select User type</option>
     			<option>Healthcare Provider</option>
     			<option>Patient</option>
