@@ -3,13 +3,13 @@
 @section('content')
 
 <div class="container">
-    <h1>MESSAGES</h1>
+
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default" >
+        <div class="col-md-8 py-3 col-md-offset-2">
+            <div class="panel panel-default" id="app" >
                 <div class="panel-heading" >Chats</div>
 
-                <div class="panel-body" id="app">
+                <div class="panel-body" >
                     <chat-messages :messages="messages"></chat-messages>
                 </div>
                 <div class="panel-footer">

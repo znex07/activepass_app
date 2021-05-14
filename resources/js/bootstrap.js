@@ -18,10 +18,10 @@ try {
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
+window.$ = window.jQuery = require('jquery');
 window.axios = require('axios');
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.Vue = require('vue');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -39,3 +39,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+import Echo from "laravel-echo"
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: '9e8c8f5da1fceac21dfd',
+    cluster: 'ap1',
+    encrypted: true
+});

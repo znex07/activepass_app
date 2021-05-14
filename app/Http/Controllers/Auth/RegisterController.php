@@ -84,7 +84,7 @@ class RegisterController extends Controller
             'role_id' => '2',
             'phone_number' => $data['phone_code'] . $data['phone_number'],
             'email' => $data['email'],
-            'avatar' => '',
+            'avatar' => 'default.png',
             'address1' => '',
             'address2' => '',
             'city' => '',

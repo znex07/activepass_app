@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'ActivePass') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/lifepass.js') }}" type="module" defer></script>
 
     <!-- Fonts -->
@@ -19,6 +18,44 @@
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
     <!-- Styles -->
+    <style>
+        .chat {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .chat li {
+          margin-bottom: 10px;
+          padding-bottom: 5px;
+          border-bottom: 1px dotted #B3A9A9;
+        }
+
+        .chat li .chat-body p {
+          margin: 0;
+          color: #777777;
+        }
+
+        .panel-body {
+          overflow-y: scroll;
+          height: 350px;
+        }
+
+        ::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar {
+          width: 12px;
+          background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: #555;
+        }
+      </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/immune_record.css') }}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -124,6 +161,7 @@
                     <a href="/home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Access VaxPass</a>
                     <a href="/edit-personal" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle btn-success"></i> Edit Personal Info</a>
                     <a href="/upload-id" class="list-group-item list-group-item-action bg-light"><i class="fa fa-address-card btn-success"></i> Upload files</a>
+                    <a href="/chat" class="list-group-item list-group-item-action bg-light"><i class="fa fa-comment btn-success"></i> Chat</a>
                     {{-- <a href="immune_records" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Immunization form</a> --}}
                     <a type="button" class="list-group-item list-group-item-action text-danger" data-toggle="modal" data-target="#exampleModalCenter">
                         <span class="fa fa-lg fa-warning" style="color: orange"></span> Report Side Effect
@@ -150,5 +188,7 @@
             </div>
     </footer>
     </div>
+    <script src="{{ asset('js/app.js') }}" ></script>
+
 </body>
 </html>

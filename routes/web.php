@@ -58,3 +58,7 @@ Route::get('/immunization',  function () {
     return view('user.immunization');
 });
 Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class, 'report'])->name('report');
+// CHAT
+Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
+Route::get('messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
+Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
