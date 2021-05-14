@@ -55,9 +55,3 @@ Route::get('/immunization',  function () {
     return view('user.immunization');
 });
 
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-    Route::post('/verify-otp', [TCG\Voyager\Http\Controllers\VoyagerUserController::class, 'verify'])->name('verify-otp');
-});
-

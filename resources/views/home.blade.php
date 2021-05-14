@@ -16,7 +16,7 @@
                     <hr>
                     <div class="row">
                         <div class="col">
-                            <img src="{{ Voyager::image(Auth::user()->avatar) }}" class="img-thumbnail pull-right" style="height: 70px; width:70px">
+                            <img src="{{ Auth::user()->avatar }}" class="img-thumbnail pull-right" style="height: 70px; width:70px">
                         </div>
                         <div class="col ">
                             <div class="pull-left"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->gradient(0, 0, 51, 0, 102, 204, 'diagonal')->generate('https://life.segoviagroup.com/verify/' . Auth::user()->id)); !!}" class="img-thumbnail pull-right" style="height: 80px; width:80px"></div>
@@ -50,7 +50,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h3 class="font-weight-bold ">COVID VACCINE PASSPORT</h3>
-                    <img src="{{ Voyager::image(Auth::user()->avatar) }}" class="img-thumbnail " style="height: 70px; width:70px">
+                    <img src="{{ Auth::user()->avatar }}" class="img-thumbnail " style="height: 70px; width:70px">
                 </div>
                 <div class="modal-body text-center">
 

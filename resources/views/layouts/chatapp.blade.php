@@ -9,32 +9,46 @@
 
     <title>{{ config('app.name', 'ActivePass') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/lifepass.js') }}" type="module" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
-    <link href="/css/simple-sidebar.css" rel="stylesheet">
-
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/immune_record.css') }}" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/activepass1.css" rel="stylesheet">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <script>
-        $(window).load(function() {
-            $(".se-pre-con").fadeOut("slow");;
-            $(".navbar-toggler").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-            });
-        });
-    </script>
+    <style>
+        .chat {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .chat li {
+          margin-bottom: 10px;
+          padding-bottom: 5px;
+          border-bottom: 1px dotted #B3A9A9;
+        }
+
+        .chat li .chat-body p {
+          margin: 0;
+          color: #777777;
+        }
+
+        .panel-body {
+          overflow-y: scroll;
+          height: 350px;
+        }
+
+        ::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar {
+          width: 12px;
+          background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: #555;
+        }
+      </style>
+
     </head>
 <body>
     <div id="app">
@@ -74,7 +88,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->fname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -110,12 +124,10 @@
                 <div class="bg-light border-right" id="sidebar-wrapper">
                     <div class="sidebar-heading d-flex justify-content-center" style="">
                         <div class="container">
-                            <img class="row rounded-circle img-thumbnail" src="{{ Auth::user()->avatar }}" style="width: 80px; height: 80px">
-                        <p class="row font-weight-bold mt-3">Welcome, {{ Auth::user()->fname }} !</p>
-                        @if (Auth::user()->role == 'Patient' )
-                        <p class="row font-weight-bold mt-2"><a href="certificate" class="btn btn-dark">Vaccine Passport</a></p>
-                        @elseif (Auth::user()->role_id == '1' )
-                        <p class="row font-weight-bold mt-2"><a href="admin" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
+                            <img class="row rounded-circle img-thumbnail" src="{{ asset('/img/'. Auth::user()->avatar )  }}" style="width: 80px; height: 80px">
+                        <p class="row font-weight-bold mt-3" style="text-transform: capitalize;">Welcome,<br> {{ Auth::user()->fname . ' ' . Auth::user()->mname .' '. Auth::user()->lname }} !</p>
+                        @if (Auth::user()->role_id == '1' )
+                            <p class="row font-weight-bold mt-2"><a href="/admin/dashboard" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
                         @endif
                     </div>
                 </div>
@@ -152,5 +164,7 @@
             </div>
     </footer>
     </div>
+    <script src="{{ asset('js/app.js') }}" ></script>
+
 </body>
 </html>
