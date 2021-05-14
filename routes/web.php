@@ -55,3 +55,7 @@ Route::get('/immunization',  function () {
     return view('user.immunization');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

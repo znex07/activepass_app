@@ -24,7 +24,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/activepass1.css" rel="stylesheet">
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script>
         $(window).load(function() {
@@ -115,7 +115,7 @@
                         @if (Auth::user()->role == 'Patient' )
                         <p class="row font-weight-bold mt-2"><a href="certificate" class="btn btn-dark">Vaccine Passport</a></p>
                         @elseif (Auth::user()->role_id == '1' )
-                        <p class="row font-weight-bold mt-2"><a href="admin" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
+                        <p class="row font-weight-bold mt-2"><a href="admin/dashboard" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
                         @endif
                     </div>
                 </div>
