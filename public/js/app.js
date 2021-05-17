@@ -1905,6 +1905,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['messages']
 });
@@ -43755,26 +43772,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "ul",
-    { staticClass: "chat" },
+    "div",
+    { staticClass: "box-body py-3", staticStyle: { padding: "40px" } },
     _vm._l(_vm.messages, function(message) {
-      return _c("li", { key: message.id, staticClass: "left clearfix" }, [
-        _c("div", { staticClass: "chat-body clearfix" }, [
-          _c("div", { staticClass: "header" }, [
-            _c("strong", { staticClass: "primary-font" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(message.user.fname) +
-                  "\n                "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                " + _vm._s(message.message) + "\n            "
-            )
+      return _c("div", { key: message.id, staticClass: "direct-chat-msg" }, [
+        _c("div", { staticClass: "direct-chat-info clearfix" }, [
+          _c("span", { staticClass: "direct-chat-name pull-left" }, [
+            _vm._v(" " + _vm._s(message.user.fname))
           ])
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "direct-chat-img",
+          attrs: {
+            src: "/img/" + message.user.avatar,
+            alt: "message user image"
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "direct-chat-text" }, [
+          _vm._v(
+            "\n                  " +
+              _vm._s(message.message) +
+              "\n                "
+          )
         ])
       ])
     }),
