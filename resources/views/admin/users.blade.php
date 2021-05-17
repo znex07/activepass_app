@@ -332,6 +332,14 @@
                       <td>Win 95+</td>
                       <td> 4</td>
                       <td>X</td>
+                      <td class="no-sort no-click bread-actions">
+                        <button class="edit-modal btn btn-sm btn-info center" data-info="{{$cargo->id}},{{$cargo->name}},{{$cargo->cargo_code}},{{$cargo->cargo_status}},{{$cargo->cargo_description}},{{$cargo->official_address}},{{$cargo->contact_person}}">
+                        <span class="fa fa-edit"></span> Edit
+                        </button>
+                        <button class="delete-modal btn btn-sm btn-danger center" data-info="{{$cargo->name}},{{$cargo->id}}">
+                            <span class="fa fa-trash"></span> Delete
+                        </button>
+                    </td>
                     </tr>
 
                     </tbody>
