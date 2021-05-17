@@ -1857,6 +1857,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -43739,11 +43744,11 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "btn btn-primary btn-sm",
-          attrs: { id: "btn-chat" },
+          staticClass: "btn btn-warning btn-flat",
+          attrs: { type: "button", id: "btn-chat" },
           on: { click: _vm.sendMessage }
         },
-        [_vm._v("\n            Send\n        ")]
+        [_vm._v("Send")]
       )
     ])
   ])
