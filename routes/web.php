@@ -23,6 +23,11 @@ Route::get('/admin/dashboard', function () {
 
     return view('admin.dashboard', compact('side_effects',$side_effects));
 });
+Route::get('/admin/messages', function () {
+    $side_effects = SideEffects::all();
+
+    return view('admin.messages', compact('side_effects',$side_effects));
+});
 Route::get('/admin/viewusers', function () {
     $side_effects = SideEffects::all();
     $users = User::all();

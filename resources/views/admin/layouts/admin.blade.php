@@ -27,7 +27,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="/home" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -150,7 +150,6 @@
                 Users
                 <i class="fas fa-angle-left right"></i>
 
-                {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -168,8 +167,36 @@
                 </li>
             </ul>
           </li>
+          <li class="nav-item ">
+            <a href="/admin/messages" class="nav-link {{ 'admin/messages' == request()->path() ? 'active' : '' }}">
+              <i class="nav-icon fa fa-envelope"></i>
+              <p>
+                Messages
+                <span class="right badge badge-danger">New</span>
 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/admin/calendar" class="nav-link {{ 'admin/calendar' == request()->path() ? 'active' : '' }}">
+              <i class="nav-icon fa fa-calendar"></i>
+              <p>
+                Calendar
+                {{-- <span class="right badge badge-danger">New</span> --}}
 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/admin/docs" class="nav-link {{ 'admin/docs' == request()->path() ? 'active' : '' }}">
+              <i class="nav-icon fa fa-book"></i>
+              <p>
+                Documentation
+                {{-- <span class="right badge badge-danger">New</span> --}}
+
+              </p>
+            </a>
+          </li>
 
         </ul>
       </nav>
@@ -179,13 +206,11 @@
   </aside>
 
 
-  <div class="content">
     <div class="container-fluid">
 
-
         @yield('content')
+
     </div>
-  </div>
 
 
   <aside class="control-sidebar control-sidebar-dark">
