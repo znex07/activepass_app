@@ -25,7 +25,7 @@
 <div class="content">
     <div class="container-fluid">
 
-    <div class="row d-flex justify-content-center mt-5 " >
+<section class="col-lg-5 connectedSortable ui-sortable">
         {{-- <div class="col-md-3 py-3 col-md-offset-2">
             <div class="card direct-chat direct-chat-primary solid-box" id="app" >
                 <div class="card-header ui-sortable-handle" style="cursor: move;">
@@ -54,8 +54,8 @@
         </div> --}}
 
         <div class="card direct-chat direct-chat-warning" id="app">
-            <div class="card-header">
-              <h3 class="card-title">Direct Chat</h3>
+            <div class="card-header ui-sortable-handle" style="cursor: move;">
+              <h4 class="card-title">Direct Chat</h4>
 
               <div class="card-tools">
                 <span data-toggle="tooltip" title="3 New Messages" class="badge bg-danger">3</span>
@@ -184,7 +184,9 @@
             </div>
             <!-- /.card-footer-->
           </div>
-    </div>
+        </section>
+
+
     </div>
 </div>
 

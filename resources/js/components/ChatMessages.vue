@@ -5,6 +5,7 @@
                       <div class="direct-chat-msg" v-for="message in messages" :key="message.id">
                         <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-left" style="text-transform:capitalize"> {{ message.user.fname + ' ' + message.user.lname }}</span>
+                        <span class="direct-chat-timestamp float-right">{{ moment(message.created_at).fromNow() }}</span>
                         </div>
                         <!-- /.direct-chat-info -->
                         <img class="direct-chat-img" v-bind:src="'/img/'+ message.user.avatar" alt="message user image">
@@ -18,7 +19,14 @@
 </template>
 
 <script>
+var moment = require('moment');
+
   export default {
-    props: ['messages']
+      props: ['messages'],
+        data(){
+            return{
+                moment: moment
+            }
+        }
   };
 </script>
