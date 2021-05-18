@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patient;
 use App\Models\SideEffects;
 use Illuminate\Http\Request;
 
-class PatientController extends Controller
+class SideEffectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +16,7 @@ class PatientController extends Controller
     {
         //
     }
-    public function report(Request $request){
-        // dd($request);
-        SideEffects::create($request->all());
 
-
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -47,10 +41,10 @@ class PatientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  \App\Models\SideEffects  $sideEffects
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show(SideEffects $sideEffects)
     {
         //
     }
@@ -58,10 +52,10 @@ class PatientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  \App\Models\SideEffects  $sideEffects
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit(SideEffects $sideEffects)
     {
         //
     }
@@ -70,10 +64,10 @@ class PatientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patient  $patient
+     * @param  \App\Models\SideEffects  $sideEffects
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Patient $patient)
+    public function update(Request $request, SideEffects $sideEffects)
     {
         //
     }
@@ -81,10 +75,10 @@ class PatientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  \App\Models\SideEffects  $sideEffects
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy(SideEffects $sideEffects)
     {
         //
     }

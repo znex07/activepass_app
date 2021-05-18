@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Role;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,13 +19,15 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         // $role = Role::where('name', 'admin')->firstOrFail();
 
-            // User::create([
-            //     'name'           => 'Admin',
-            //     'is_vaccinated'  => 'yes',
-            //     'email'          => 'admin@admin.com',
-            //     'password'       => bcrypt('password'),
-            //     'remember_token' => Str::random(60),
-            //     'role_id'        => 1,
-            // ]);
+            User::create([
+                'fname'           => 'Admin',
+                'role_id'  => '1',
+                'is_vaccinated'  => true,
+                'avatar'  => 'default.png',
+                'email'          => 'admin@admin.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => Str::random(60),
+                'role_id'        => 1,
+            ]);
     }
 }

@@ -101,62 +101,57 @@
                     </div>
 
                 </div>
+                <input type="hidden" name="user_id" value="{{Auth::user()->id}}" >
                 <hr>
                 <div class="row d-flex justify-content-center">
                     <div class="symp_1 col-md-4 ">
                         <div class="form-check">
                             <label for="">
-                                <input name="allergy" class="form-check-input" type="checkbox" value="" id="">
+                                <input name="allergy" class="form-check-input" type="checkbox" value="allergy" id="">
                                 Allergy
                             </label>
                         </div>
                         <div class="form-check">
                             <label for="">
-                                <input class="form-check-input" type="checkbox" value="" id="">
+                                <input name="fever" class="form-check-input" type="checkbox" value="fever" id="">
                                 Fever
                             </label>
                         </div>
                         <div class="form-check">
                             <label  for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        Musscle Pain
+                        <input name="muscle_pain" class="form-check-input" type="checkbox" value="muscle_pain" id="">
+                        Muscle Pain
                     </label>
                 </div>
                 <div class="form-check">
                     <label  for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <input name="headache" class="form-check-input" type="checkbox" value="headache" id="">
                         Headache
                     </label>
                 </div>
             </div>
             <div class="symp_2 col-md-4">
                 <div class="form-check">
-                    <label  for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
-                        Allergy
-                    </label>
-                </div>
-                <div class="form-check">
                     <label for="">
-                        <input class="form-check-input" type="checkbox" value="" id="">
+                        <input name="chills" class="form-check-input" type="checkbox" value="chills" id="">
                         Chills
                     </label>
                 </div>
                 <div class="form-check">
                       <label for="">
-                          <input class="form-check-input" type="checkbox" value="" id="">
+                          <input name="nausea" class="form-check-input" type="checkbox" value="nausea" id="">
                           Nausea
                         </label>
                     </div>
-                    <input type="text" class="form-control input-sm " placeholder="Others" name="" id="">
+                    <input name="others" type="text" class="form-control input-sm " placeholder="Others" value="" id="">
                 </div>
             </div>
             <hr>
             <div class="form-group text-center">
                 How long did you experience these side effects?
                 <div class="row d-flex justify-content-center">
-                    <input class="form-control col-4" type="text" placeholder="Days" id="txt_d">
-                    <input class="form-control col-4 ml-2" type="text" placeholder="Hours" id="txt_h">
+                    <input name="days" value="" class="form-control col-4" type="text" placeholder="Days" id="txt_d">
+                    <input name="hours" value="" class="form-control col-4 ml-2" type="text" placeholder="Hours" id="txt_h">
                 </div>
             </div>
         </div>
@@ -173,20 +168,5 @@
 </div>
     </div>
 </div>
-<script>
-    $('document').ready(function () {
 
-
-         $('#txt_d').on('change', function () {
-            var text = $('#txt_d');
-            text.val(text.val() + ' Day(s)');
-         });
-         $('#txt_h').on('change', function () {
-            var text = $('#txt_h');
-            text.val(text.val() + ' Hour(s)');
-         });
-
-    });
-
-</script>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\SideEffects;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+    $side_effects = SideEffects::all();
+
+    return view('admin.dashboard', compact('side_effects',$side_effects));
 });
 Route::get('/admin/viewusers', function () {
-    return view('admin.users');
+    $side_effects = SideEffects::all();
+    $users = User::all();
+    return view('admin.users', compact('side_effects', 'users' ));
 });
 Route::get('/admin/addpatient', function () {
-    return view('admin.addpatient');
+    $side_effects = SideEffects::all();
+    return view('admin.addpatient', compact('side_effects',$side_effects));
 });
 Route::get('/terms', function () {
     return view('termscondition');
