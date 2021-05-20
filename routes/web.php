@@ -79,4 +79,10 @@ Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class,
 // CHAT
 Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
 Route::get('messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
-Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
+Route::post('sendMessages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
+
+Route::get('get_city', function(){
+   $ct =  \DB::table('cities')->get();
+
+//    dd($ct);
+});

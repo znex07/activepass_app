@@ -150,7 +150,7 @@
             </div>
             <div class="form-group col-md-4">
               <label for="city">City</label>
-              <select id="city" name="city" class="form-control">
+              <select id="city" name="city" class="form-control city">
                 <option selected>Choose...</option>
                 <option>...</option>
               </select>
@@ -205,4 +205,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#city").change(function(){
+            var selectedCity = $(".city option:selected").val();
+            $.ajax({
+                type: "GET",
+                url: "/get_city",
+                data: { country : selectedCity } 
+            }).done(function(data){
+                console.log(data);
+            });
+        });
+    });
+    </script>
 @endsection

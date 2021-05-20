@@ -6,6 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="{{ asset('js/app.js') }}" ></script>
 
     <title>{{ config('app.name', 'ActivePass') }}</title>
 
@@ -146,7 +147,7 @@
     <script src="{{ asset('js/app.js') }}" ></script>
     <script>
         $(".se-pre-con").fadeOut("slow");;
-        $(window).load('load',function() {
+        $(window).on('load',function() {
 
             $(".navbar-toggler").click(function(e) {
             e.preventDefault();
