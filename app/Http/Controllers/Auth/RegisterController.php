@@ -92,27 +92,28 @@ class RegisterController extends Controller
             'is_vaccinated' => 'Pending...',
             'password' => Hash::make($data['password']),
         ]);
-        $token = getenv("TWILIO_AUTH_TOKEN");
-        $twilio_sid = getenv("TWILIO_SID");
-        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
-        $twilio = new Client($twilio_sid, $token);
-        $twilio->verify->v2->services($twilio_verify_sid)
-            ->verifications
-            ->create($data['phone_code'] . $data['phone_number'], "sms");
+        return redirect('home');
+        // $token = getenv("TWILIO_AUTH_TOKEN");
+        // $twilio_sid = getenv("TWILIO_SID");
+        // $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        // $twilio = new Client($twilio_sid, $token);
+        // $twilio->verify->v2->services($twilio_verify_sid)
+        //     ->verifications
+        //     ->create($data['phone_code'] . $data['phone_number'], "sms");
 
-        return redirect('verify-now')->with([
-            'fname' => $data['fname'],
-            'mname' => $data['mname'],
-            'lname' => $data['lname'],
-            'phone_number' => $data['phone_code'] . $data['phone_number'],
-            'phone_code' => $data['phone_code'],
-            'role' => $data['role'],
-            'is_vaccinated' => $data['is_vaccinated'],
-            'address' => $data['address'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]
-    );
+        // return redirect('verify-now')->with([
+        //     'fname' => $data['fname'],
+        //     'mname' => $data['mname'],
+        //     'lname' => $data['lname'],
+        //     'phone_number' => $data['phone_code'] . $data['phone_number'],
+        //     'phone_code' => $data['phone_code'],
+        //     'role' => $data['role'],
+        //     'is_vaccinated' => $data['is_vaccinated'],
+        //     'address' => $data['address'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]
+    // );
  }
     protected function verify(Request $request)
     {
