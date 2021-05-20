@@ -146,7 +146,7 @@
     <script src="{{ asset('js/app.js') }}" ></script>
     <script>
         $(".se-pre-con").fadeOut("slow");;
-        $(window).load('load',function() {
+        $(window).on('load',function() {
 
             $(".navbar-toggler").click(function(e) {
             e.preventDefault();
