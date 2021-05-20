@@ -18,10 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ADMIN
 Route::get('/admin/dashboard', function () {
     $side_effects = SideEffects::all();
 
     return view('admin.dashboard', compact('side_effects',$side_effects));
+});
+Route::get('/admin/calerda', function () {
+    $side_effects = SideEffects::all();
+
+    return view('admin.calenda', compact('side_effects',$side_effects));
 });
 Route::get('/admin/messages', function () {
     $side_effects = SideEffects::all();

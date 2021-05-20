@@ -29,7 +29,7 @@
 
     </head>
 <body>
-    <div id="app_activepass">
+    <div id="app">
         <div class="se-pre-con"></div>
         <nav class="navbar fixed-top  navbar-expand-md navbar-light bg-light color-white shadow-sm">
             <div class="container">
@@ -54,13 +54,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class=" btn btn-light mx-2" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class=" btn btn-light mx-2" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class=" btn btn-dark" href="register">{{ __('Register') }}</a>
+                                    <a class=" btn btn-dark" href="register">{{ __('REGISTER') }}</a>
                                 </li>
                             @endif
                         @else
@@ -146,7 +146,7 @@
     <script src="{{ asset('js/app.js') }}" ></script>
     <script>
         $(".se-pre-con").fadeOut("slow");;
-        $(window).load(function() {
+        $(window).load('load',function() {
 
             $(".navbar-toggler").click(function(e) {
             e.preventDefault();

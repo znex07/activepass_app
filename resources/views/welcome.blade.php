@@ -10,8 +10,7 @@
     <title>{{ config('app.name', 'ActivePass') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/lifepass.js') }}" type="module" defer></script>
+    {{-- <script src="{{ asset('js/lifepass.js') }}" type="module" defer></script> --}}
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
     <link href="/css/simple-sidebar.css" rel="stylesheet">
@@ -36,7 +35,7 @@
     </script>
     </head>
 <body>
-    <div id="app">
+<div id="app">
         <div class="se-pre-con"></div>
         <nav class="navbar fixed-top  navbar-expand-md navbar-light bg-light color-white shadow-sm">
             <div class="container">
@@ -62,19 +61,19 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item active"> <a href="/" class="nav-link btn btn-light "> HOME</a> </li>
-                        <li class="nav-item"> <a href="/about" class="nav-link btn btn-light "> ABOUT</a> </li>
+                        {{-- <li class="nav-item"> <a href="/about" class="nav-link btn btn-light "> ABOUT</a> </li>
                         <li class="nav-item"> <a href="/contact" class="nav-link btn btn-light ">CONTACT US</a> </li>
-                        <li class="nav-item"> <a href="/news" class="nav-link btn btn-light ">NEWS</a> </li>
+                        <li class="nav-item"> <a href="/news" class="nav-link btn btn-light ">NEWS</a> </li> --}}
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class=" btn btn-light mx-2" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class=" btn btn-light mx-2" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class=" btn btn-dark" href="register">{{ __('Register') }}</a>
+                                    <a class=" btn btn-dark" href="register">{{ __('REGISTER') }}</a>
                                 </li>
                             @endif
                         @else
@@ -117,7 +116,7 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="card text-left col-md-3 mx-2 mb-3">
-              <img class="card-img-top" src="/img/slider1.png" alt="" style="height: 200px" >
+              <img class="card-img-top" src="/img/img1.svg" alt="" style="height: 200px" >
               <div class="card-body" style="height: 200px">
                 <h4 class="card-title">Get a VaxPass now!</h4>
                 <p class="card-text">In this case, the role of the health laboratory is very important to do
@@ -154,48 +153,6 @@
     </main>
 
 <div class="container">
-
-    {{-- <div class="row d-flex justify-content-center p-5">
-        <div class="col-md-4 mt-5" style="padding-top: 50px">
-            <h1>Get a VaxPass now!</h1>
-            <p>Activepass is a secure private online platform which will be used by vaccine immunization providers -- doctors, clinics,
-                hospitals, to allow their patients 24/7 access to vaccination admin certificates.  </p>
-                <a href="/register" class="btn btn-success btn-md">Be a member</a>
-        </div>
-        <div class="col-md-8">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" style="max-width:900px; max-height:400px !important;">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('/img/slider1.png')}}">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div> --}}
-                {{-- <div class="card-body">
-                    <h4 class="card-title font-weight-bold">FitPass</h4>
-                    <p class="card-text">As immunization is delivered in massive quantities, there is need for secure online platforms which facilitate
-                        verification and issuance of online vaccination admin certificates (VACs) by the vaccine immunization providers (VIPs.)</p>
-                        <p>Many establishments, primarily transport carriers, restaurants, schools, hospitals, churches, and event venues will adopt
-                            safety protocols that may require online verification of VACs.</p>
-                        <p><b class="card-text">FitPass</b> is a secure private online platform which will be used by vaccine immunization providers -- doctors, clinics,
-                            hospitals, to allow their patients 24/7 access to vaccination admin certificates.  </p>
-
-                </div> --}}
-                {{-- <div class="card-body"> --}}
-                    {{-- <a href="/verify" class="card-link btn btn-success">Verify Vaccine Certificate now!</a>
-                    <a href="#" class="card-link btn btn-info">FAQ & more Info</a> --}}
-                {{-- </div> --}}
-            {{-- </div> --}}
-        {{-- </div>
-    </div> --}}
-
     <div class="container p-5 ">
         <h1 class="text-center">Our Services</h1>
         <div class="row">
@@ -306,12 +263,13 @@
 <footer class="footer footer-nav py-0 bg-dark">
     <div class="container text-center">
         <small class="m-0 text-center text-white">Copyright &copy; 2021 Segovia Development <a href="/terms" class="nav-link">PRIVACY & TERMS</a></small>
-
-
     </div>
 </footer>
+</body>
+<script src="{{ asset('js/app.js') }}"></script>
 <script>
     $('document').ready(function () {
+
         var lastScrollTop = 0;
         $(window).scroll(function(event){
             var st = $(this).scrollTop();
@@ -326,5 +284,5 @@
         });
     });
 </script>
-</body>
 </html>
+

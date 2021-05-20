@@ -26,34 +26,8 @@
     <div class="container-fluid">
 
 <section class="col-lg-5 connectedSortable ui-sortable">
-        {{-- <div class="col-md-3 py-3 col-md-offset-2">
-            <div class="card direct-chat direct-chat-primary solid-box" id="app" >
-                <div class="card-header ui-sortable-handle" style="cursor: move;">
-                <h3 class="card-title">Direct Chat</h3>
-                <div class="card-tools pull-right">
-                    <span data-toggle="tooltip" title="" class="badge bg-red" data-original-title="3 New Messages">3</span>
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-widget="chat-pane-toggle" data-original-title="Contacts">
-                      <i class="fa fa-comments"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
 
-                        <chat-messages :messages="messages"></chat-messages>
-
-                <div class="card-footer" >
-                    <chat-form
-                        v-on:messagesent="addMessage"
-                        :user="{{ Auth::user() }}"
-                    >
-
-                </chat-form>
-                </div>
-            </div>
-        </div> --}}
-
-        <div class="card direct-chat direct-chat-warning" id="app">
+        <div class="card direct-chat direct-chat-warning" id="app_message">
             <div class="card-header ui-sortable-handle" style="cursor: move;">
               <h4 class="card-title">Direct Chat</h4>
 
@@ -80,7 +54,7 @@
                 <ul class="contacts-list">
                   <li>
                     <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user1-128x128.jpg">
+                      <img class="contacts-list-img" src="/img/default.png">
 
                       <div class="contacts-list-info">
                         <span class="contacts-list-name">
@@ -95,7 +69,7 @@
                   <!-- End Contact Item -->
                   <li>
                     <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user7-128x128.jpg">
+                      <img class="contacts-list-img" src="/img/default.png">
 
                       <div class="contacts-list-info">
                         <span class="contacts-list-name">
@@ -110,7 +84,7 @@
                   <!-- End Contact Item -->
                   <li>
                     <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user3-128x128.jpg">
+                      <img class="contacts-list-img" src="/img/default.png">
 
                       <div class="contacts-list-info">
                         <span class="contacts-list-name">
@@ -125,7 +99,7 @@
                   <!-- End Contact Item -->
                   <li>
                     <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user5-128x128.jpg">
+                      <img class="contacts-list-img" src="/img/default.png">
 
                       <div class="contacts-list-info">
                         <span class="contacts-list-name">
@@ -140,7 +114,7 @@
                   <!-- End Contact Item -->
                   <li>
                     <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user6-128x128.jpg">
+                      <img class="contacts-list-img" src="/img/default.png">
 
                       <div class="contacts-list-info">
                         <span class="contacts-list-name">
@@ -155,7 +129,7 @@
                   <!-- End Contact Item -->
                   <li>
                     <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user8-128x128.jpg">
+                      <img class="contacts-list-img" src="/img/default.png">
 
                       <div class="contacts-list-info">
                         <span class="contacts-list-name">

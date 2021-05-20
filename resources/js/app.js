@@ -11,7 +11,7 @@ Vue.component('chat-messages', require('./components/ChatMessages.vue').default)
 Vue.component('chat-form', require('./components/ChatForm.vue').default);
 
 const app = new Vue({
-    el: '#app',
+    el: '#app_message',
 
     data: {
         messages: [],

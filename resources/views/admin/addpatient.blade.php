@@ -3,7 +3,7 @@
 
 @section('content')
 
-    
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -51,7 +51,7 @@
                                         <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                                     </div>
                                     <select class="form-control" name="user_type" id="user_type">
-                                        <option selected="" disabled> Select User type</option>
+                                        <option selected disabled hidden> Select User type</option>
                                         <option>Healthcare Provider</option>
                                         <option>Patient</option>
                                         <option>Doctor</option>
