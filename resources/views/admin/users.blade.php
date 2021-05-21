@@ -60,7 +60,11 @@
                     <tbody>
                     @foreach ($users as $patients)
                     <tr>
-                        <td class="text-primary"><button type="button" class="btn btn-outline-primary btn-sm btn-block btn-flat"><i class="fa fa-book"></i> {{ $patients->fname }}</button></td>
+                        <td class="text-primary"><button type="button" class="btn btn-outline-primary btn-sm btn-block btn-flat"><i class="fa fa-book"></i>
+                            {{ $patients->fname }}
+                            {{ $patients->mname }}
+                            {{ $patients->lname }}
+                        </button></td>
                         <td>{{ $patients->is_vaccinated }}</td>
                         <td>{{ $patients->vaccine_brand }}</td>
                         <td>{{ Carbon\Carbon::parse($patients->date_1)->formatLocalized('%B %d, %Y')}}</td>

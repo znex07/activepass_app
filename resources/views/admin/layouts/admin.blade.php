@@ -262,11 +262,11 @@
     $(document).ready(function() {
 
         $('#users_table').DataTable({
-            rowReorder: {selector: 'td:nth-child(2)'},
+            // rowReorder: {selector: 'td:nth-child(3)'},
             responsive: true,
             columnDefs: [
                 { responsivePriority: 1, targets: 0 },
-                { responsivePriority: 2, targets: -1 }
+		            { responsivePriority: 2, targets: 5 }
             ],
         });
     });
