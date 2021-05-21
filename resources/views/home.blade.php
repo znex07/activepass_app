@@ -409,9 +409,10 @@
  </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <small>Copyright &copy; 2021 <a href="">Segovia Development Corporation</a>.
-    All rights reserved.
-    </small>
+  <div class="container text-center">
+            <small class="m-0 text-center">
+            Copyright &copy; 2021 Segovia Development <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
+    </div>
     
   </footer>
 
