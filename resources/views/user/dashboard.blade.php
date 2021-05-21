@@ -185,7 +185,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/img/me.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/img/{{Auth::user()->avatar}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{Auth::user()->fname}}</a>
@@ -334,7 +334,7 @@
                   <div class="card-body p-0">
                     <ul class="users-list clearfix">
                     <li>
-                        <img src="/img/me.jpg" alt="User Image">
+                        <img src="/img/{{Auth::user()->avatar}}" alt="User Image">
                         <a class="users-list-name" href="#">Mark</a>
                         <span class="users-list-date">07 Oct</span>
                       </li>
@@ -388,7 +388,7 @@
             
 
             <!-- TO DO List -->
-            <div class="card">
+            <div class="card d-none">
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="ion ion-clipboard mr-1"></i>
