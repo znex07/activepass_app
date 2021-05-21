@@ -44,6 +44,7 @@
                       <th>Patient</th>
                       <th>Status</th>
                       <th>Concern</th>
+                      <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,7 +55,11 @@
                         <td>{{ $patients->fname }} {{ $patients->mname }} {{ $patients->lname }}</td>
                         <td>Pending</td>
                         <td>Side Effect report</td>
-
+                        <td class="no-sort no-click bread-actions">
+                            <button href="/admin/profile/{{ $patients->id }}" class="edit-modal btn btn-sm btn-success">
+                                <span class="fa fa-angle-double-right"></span> Resolve
+                            </button>
+                        </td>
                       </tr>
 
                       @endforeach
