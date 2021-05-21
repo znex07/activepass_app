@@ -409,8 +409,9 @@
  </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2021 <a href="">Segovia Development Corporation</a>.</strong>
+    <small>Copyright &copy; 2021 <a href="">Segovia Development Corporation</a>.
     All rights reserved.
+    </small>
     
   </footer>
 
