@@ -156,8 +156,10 @@
                         </section>
                         <h3>Notes</h3>
                         <section>
+                        <div class="container">
                             <p>Notes</p>
-                            <textarea name="notes" id="" class="form-control" rows="10"></textarea>
+                            <textarea name="notes" id="" class="form-control"  rows="10"></textarea>
+                        </div>
                         </section>
                         <h3>Confirmation</h3>
                         <section>

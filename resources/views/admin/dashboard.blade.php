@@ -183,6 +183,5 @@
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
-<script src="{{ asset('/js/admindash.js') }}"></script>
 
 @endsection
