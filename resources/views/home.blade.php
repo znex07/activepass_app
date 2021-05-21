@@ -312,7 +312,7 @@
                     <hr>
                     <h3 class="modal-title text-success" id="exampleModalLongTitle">Second Dose</h3>
                     <h5 class="modal-title" id="exampleModalLongTitle">Vaccine Name: {{ Auth::user()->vaccine_brand }}</h5>
-                    <h5 class="modal-title" id="exampleModalLongTitle">Date:{{ Carbon\Carbon::parse(Auth::user()->date_1)->format('Y-m-d') }}</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Date:{{ Carbon\Carbon::parse(Auth::user()->date_2)->format('Y-m-d') }}</h5>
                     <hr>
                     <h2>Status: <label class="text-danger">{{ Auth::user()->is_vaccinated }}</label></h2>
                 </div>
