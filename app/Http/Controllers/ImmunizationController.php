@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Twilio\Rest\Client as RestClient;
-
+use App\Models\User;
+use Carbon\Carbon;
 class ImmunizationController extends Controller
 {
     /**
@@ -19,6 +20,15 @@ class ImmunizationController extends Controller
     public function index()
     {
         //
+    }
+    public function give_vac(Request $request){
+        $user = User::where('id',$request->user_id)->first();
+        $user->vaccine_brand = $request->vaccine_brand;
+        $user->is_vaccinated = 'Partially...';
+        $user->date_1 = Carbon::now();
+        $user->date_2 = Carbon::now()->addDays(15);
+        $user->save();
+        return back();
     }
 
     /**

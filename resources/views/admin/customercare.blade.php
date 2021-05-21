@@ -8,7 +8,8 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Users</h1>
+              <span><h1 class="m-0 text-dark"><img src="/img/doctor 1.png" class="img-fluid">Customer Care</h1></span>
+
           </div><!-- /.col -->
           <div class="col-sm-6 d-none">
             <ol class="breadcrumb float-sm-right">
@@ -23,18 +24,7 @@
 <!-- Main content -->
 <div class="content">
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-8">
 
-                <div class="alert alert-info alert-dismissible fade" role="alert" id="message">
-                    <p class="card-text"> <span class="fa fa-info-circle"></span> All personal data you input is confidential and be kept private </p>
-                    <button type="button" class="close" dat a-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-
-          </div>
           <!-- /.col-md-6 -->
 
         </div>
@@ -49,23 +39,22 @@
                   <table id="users_table" class="table table-bordered table-hover dataTable dtr-inline">
                     <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Vaccine Status</th>
-                      <th>Vaccine type</th>
-                      <th>First Dose</th>
-                      <th>Second Dose</th>
-                      <th>Actions</th>
+                      <th>Ticket</th>
+                      <th>Date</th>
+                      <th>Patient</th>
+                      <th>Status</th>
+                      <th>Concern</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($users as $patients)
                     <tr>
-                        <td><a href="/admin/profile/{{ $patients->id }}">{{ $patients->fname }}</a></td>
-                        <td>{{ $patients->is_vaccinated }}</td>
-                        <td>{{ $patients->vaccine_brand }}</td>
+                        <td><a href="/admin/profile/{{ $patients->id }}">#8787</a></td>
                         <td>{{ Carbon\Carbon::parse($patients->date_1)->formatLocalized('%B %d, %Y')}}</td>
-                        <td>{{ Carbon\Carbon::parse($patients->date_2)->formatLocalized('%B %d, %Y')}}</td>
-                        <td class="no-sort no-click bread-actions">
+                        <td>{{ $patients->fname }} {{ $patients->mname }} {{ $patients->lname }}</td>
+                        <td>Pending</td>
+                        <td>Side Effect report</td>
+                        <td class="no-sort no-click bread-actions d-none">
                             <a href="/admin/profile/{{ $patients->id }}" class="edit-modal btn btn-sm btn-info center" ">
                           <span class="fa fa-edit"></span> Edit
                             </a>

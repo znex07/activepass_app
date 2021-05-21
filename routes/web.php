@@ -25,15 +25,22 @@ Route::get('/admin/dashboard', function () {
 
     return view('admin.dashboard', compact('side_effects',$side_effects));
 });
-Route::get('/admin/profile', function () {
+Route::get('/admin/profile/{id}', function ($id) {
+    $user_info = User::where('id',$id)->get();
+    // dd($user_info);
     $side_effects = SideEffects::all();
 
-    return view('admin.profile', compact('side_effects',$side_effects));
+    return view('admin.profile', compact('side_effects','user_info'));
 });
-Route::get('/admin/calerdar', function () {
+Route::get('/admin/calendar', function () {
     $side_effects = SideEffects::all();
 
-    return view('admin.calenda', compact('side_effects',$side_effects));
+    return view('admin.calendar', compact('side_effects',$side_effects));
+});
+Route::get('/admin/customercare', function () {
+    $side_effects = SideEffects::all();
+    $users = User::all();
+    return view('admin.customercare', compact('side_effects', 'users' ));
 });
 Route::get('/admin/messages', function () {
     $side_effects = SideEffects::all();
@@ -77,6 +84,7 @@ Route::post('/register-user', [App\Http\Controllers\Auth\RegisterController::cla
 Route::post('/verify', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verify');
 Route::get('/send_otp', [App\Http\Controllers\ImmunizationController::class, 'send_otp'])->name('send_otp');
 Route::post('/send_vax_mail', [App\Http\Controllers\ImmunizationController::class, 'send_mail'])->name('send_vax_mail');
+Route::post('/add/vaccine', [App\Http\Controllers\ImmunizationController::class, 'give_vac']);
 Route::get('/immunization',  function () {
     return view('user.immunization');
 });

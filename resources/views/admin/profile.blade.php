@@ -41,13 +41,13 @@
                                             <img class="rounded-circle img-thumbnail" src="/img/default.png" alt="User Avatar" style="height: 70px; width: 70px">
                                           </div>
                                         <div class="info">
-                                            <h3 class="mt-3" style="text-transform: capitalize"> {{Auth::user()->fname}} {{Auth::user()->lname}} </h3>
+                                            <h3 class="mt-3" style="text-transform: capitalize"> {{$user_info['0']->fname}} {{$user_info['0']->lname}} </h3>
                                         </div>
                                     </div>
                                     <p>Makati City, Philippines</p>
                                     <div class="">
                                         <small>Registered since February 3, 2021</small>
-                                        <button type="button" class="btn btn-primary btn-sm float-right ">Add Vaccine</button>
+                                        <button type="button" class="btn btn-primary btn-sm float-right "  data-toggle="modal" data-target="#modal_add_vax">Add Vaccine</button>
                                     </div>
                                 </div>
                             </div>
@@ -63,12 +63,12 @@
                                   </div>
                                   <div class="card-body">
 
-                                      <p class="text-success">Type of Vaccine: Sinovac</p>
-                                      <small>1st dose completed on May 3, 2021</small>
+                                      <h4 class="text-success font-weight-bold">Type of Vaccine: {{ $user_info[0]->vaccine_brand }}</h4>
+                                      <small>1st dose completed on {{ Carbon\Carbon::parse($user_info[0]->date_1)->formatLocalized('%B %d, %Y')}}</small>
                                       <div class="callout callout-info">
                                         <h5><i class="fas fa-bullhorn text-pink"></i> Important!</h5>
 
-                                        <p>Next dose will be on June 10, 2021</p>
+                                        <p>Next dose will be on {{ Carbon\Carbon::parse($user_info[0]->date_2)->formatLocalized('%B %d, %Y')}}</p>
                                       </div>
                                   </div>
                               </div>
@@ -142,7 +142,7 @@
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
                             <h3 class="card-title">Patient Overview</h3>
-                            <a href="">Edit</a>
+                            {{-- <a href="">Edit</a> --}}
                         </div>
                   </div>
                   <div class="card-body">
@@ -151,13 +151,14 @@
                         <span class="font-weight-light">{{ Auth::user()->email }}</span>
                         <span class="font-weight-light text-md">Current Address</span>
                         <span class="font-weight-light text-md">{{ Auth::user()->address1 }}</span>
+                        <span class="font-weight-bold text-md text-primary "><a href="#" class="mt-6">{{ Auth::user()->phone_number }}</a></span>
                       </p>
-                      <p class="ml-auto d-flex flex-column text-right">
+                      {{-- <p class="ml-auto d-flex flex-column text-right">
                         <span class="text-success">
                           <i class="fas fa-arrow-up"></i> 33.1%
                         </span>
                         <span class="text-muted">Since last month</span>
-                      </p>
+                      </p> --}}
                     </div>
                     <!-- /.d-flex -->
 
@@ -192,4 +193,78 @@
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
+  {{-- modal --}}
+  <div class="modal fade" id="modal_add_vax" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <span class="fa fa-syringe fa-2x text-success mr-1"></span> <h5 class="modal-title" id="exampleModalLongTitle">  ADD VACCINE</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body p-3">
+           <form action="/add/vaccine" method="post">
+            @csrf
+               <div class="form-group row">
+                   <label class="col-md-2 col-form-label text-md-right">Date</label>
+
+                   <div class='input-group col-md-8 date' id='datetimepicker1'>
+                       <input type='date' class="form-control" name="date_1" value="<?php echo date('Y-m-d'); ?>"/>
+                       <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-syringe"></span>
+                        </span>
+                    </div>
+
+                </div>
+                <input type="hidden" name="user_id" value="{{$user_info['0']->id}}" >
+                <hr>
+                <div class="row d-flex justify-content-center py-3">
+                    <div class="vax col-md-6">
+                        <div class="form-group">
+                            <label>Select Vaccine</label>
+                            <select class="form-control" name="vaccine_brand">
+                              <option>Sinopharm</option>
+                              <option>CoronaVac</option>
+                              <option>CoVaxin</option>
+                              <option>Pfizer</option>
+                              <option>Moderna</option>
+                              <option>AstraZeneca</option>
+                              <option>Sputnik V</option>
+                              <option>Johnson&Johnson</option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="symp_1 col-md-4 ">
+                        <div class="form-group">
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                First Dose
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                Second Dose
+                              </label>
+                            </div>
+                    </div>
+                    </div>
+            <hr>
+            <div class="form-group text-center d-none">
+                Do you have Comorbidity?
+                <div class="row d-flex justify-content-center">
+                    <input name="days" value="" class="form-control col-4" type="text" placeholder="Days" id="txt_d">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add now</button>
+        </div>
+    </form>
+    </div>
+    </div>
+    </div>
 @endsection

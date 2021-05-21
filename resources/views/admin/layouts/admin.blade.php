@@ -134,7 +134,7 @@
           <img src="{{ asset('/img/default.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/home" class="d-block" style="text-transform: capitalize"> {{Auth::user()->fname}} {{Auth::user()->lname}} </a>
+          <a href="/admin/profile/{{Auth::user()->id}}" class="d-block" style="text-transform: capitalize"> {{Auth::user()->fname}} {{Auth::user()->lname}} </a>
         </div>
       </div>
 
@@ -152,7 +152,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path() ? 'menu-open' : '' }}">
-            <a href="" class="nav-link {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path() ? 'active' : '' }}">
+            <a href="" class="nav-link {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path()  || 'admin/profile' == request()->path() ? 'active' : '' }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Users
@@ -176,6 +176,16 @@
             </ul>
           </li>
           <li class="nav-item ">
+            <a href="/admin/customercare" class="nav-link {{ 'admin/customercare' == request()->path() ? 'active' : '' }}">
+              <i class="nav-icon fa fa-hand-holding-medical"></i>
+              <p>
+                Customer Care
+                {{-- <span class="right badge badge-danger">New</span> --}}
+
+              </p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a href="/admin/messages" class="nav-link {{ 'admin/messages' == request()->path() ? 'active' : '' }}">
               <i class="nav-icon fa fa-envelope"></i>
               <p>
@@ -185,7 +195,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item d-none">
             <a href="/admin/calendar" class="nav-link {{ 'admin/calendar' == request()->path() ? 'active' : '' }}">
               <i class="nav-icon fa fa-calendar"></i>
               <p>
