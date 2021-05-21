@@ -7,32 +7,25 @@ use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+|--------------------------------------------------------------------------|
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
-
 // ADMIN
-Route::get('/admin/dashboard', function () {
+Route::get('admin/dashboard', function () {
     $side_effects = SideEffects::all();
 
     return view('admin.dashboard', compact('side_effects',$side_effects));
 });
-Route::get('/admin/profile/{id}', function ($id) {
+Route::get('admin/profile/{id}', function ($id) {
     $user_info = User::where('id',$id)->get();
-    // dd($user_info);
     $side_effects = SideEffects::all();
 
     return view('admin.profile', compact('side_effects','user_info'));
 });
-Route::get('/admin/calendar', function () {
+Route::get('admin/calendar', function () {
     $side_effects = SideEffects::all();
 
     return view('admin.calendar', compact('side_effects',$side_effects));
@@ -77,9 +70,11 @@ Route::get('/verify-now', function () {
 
     return view('auth.verify-otp');
 });
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/view-vax', [App\Http\Controllers\HomeController::class, 'view']);
 Route::post('/register-user', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register-user');
 Route::post('/verify', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verify');
 Route::get('/send_otp', [App\Http\Controllers\ImmunizationController::class, 'send_otp'])->name('send_otp');
@@ -93,3 +88,5 @@ Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class,
 Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
 Route::get('messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
 Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
+
+

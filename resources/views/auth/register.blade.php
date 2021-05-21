@@ -177,7 +177,7 @@
     		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
     		</div>
     		<select class="form-control" >
-    			<option selected="" disabled> Select User type</option>
+    			<option selected hidden disabled> Select User type</option>
     			<option>Healthcare Provider</option>
     			<option>Patient</option>
     			<option>Doctor</option>

@@ -38,7 +38,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand pull-left" href="{{ url('/') }}">
-                    <img src="{{asset('/img/sg-logo.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
+                    <img src="{{asset('/img/plus.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
                     <b>{{ config('app.name', 'FitPass') }}</b>
                 </a>
 

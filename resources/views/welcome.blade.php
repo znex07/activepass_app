@@ -43,7 +43,7 @@
                 {{-- <button class="navbar-toggler d-block navbar-light" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button> --}}
-                <img src="{{asset('/img/sg-logo.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
+                <img src="{{asset('/img/plus.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'ActivePass') }}
                 </a>
