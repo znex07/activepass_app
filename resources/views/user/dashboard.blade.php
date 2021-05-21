@@ -86,7 +86,7 @@
               <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Brad 
+                  Brad
                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">Call me whenever you can...</p>
@@ -102,7 +102,7 @@
               <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  John 
+                  John
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">I got your message bro</p>
@@ -115,7 +115,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              
+
             </div>
             <!-- Message End -->
           </a>
@@ -182,7 +182,7 @@
         <div class="info">
           <a href="#" class="d-block">{{Auth::user()->fname}}</a>
         </div>
-        
+
       </div>
 
       <!-- SidebarSearch Form -->
@@ -210,25 +210,25 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            
+
           </li>
         </ul>
          @if (Auth::user()->role_id == '1' )
         <ul class="nav nav-pills nav-sidebar flex-column">
 
           <li class="nav-item menu-open">
-              
+
               <p>
 
                 <a href="/admin/dashboard" class="nav-link active"><i class="nav-icon fas fa-user-cog"></i>Admin Dashboard</a>
                 </p>
-            
+
           </li>
           </ul>
         @endif
         </nav>
 
-          
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -278,12 +278,12 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>53</h3>
 
                 <p>Messages</p>
               </div>
               <div class="icon">
-                <i class="ion ion-mail-unread"></i>
+                <i class="ion ion-email"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -367,8 +367,8 @@
                         <a class="users-list-name" href="#">Elon</a>
                         <span class="users-list-date">13 Jan</span>
                       </li>
-                      
-                      
+
+
                     </ul>
                     <!-- /.users-list -->
                   </div>
@@ -380,7 +380,7 @@
                 </div>
             <!-- /.card -->
 
-            
+
 
             <!-- TO DO List -->
             <div class="card d-none">
@@ -789,8 +789,8 @@
             </div>
             <!-- /.card -->
 
-           
-            
+
+
             <!-- /.card -->
           </section>
           <!-- right col -->
@@ -806,7 +806,7 @@
             <small class="m-0 text-center">
             Copyright &copy; 2021 Segovia Development <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
     </div>
-    
+
   </footer>
 
   <!-- Control Sidebar -->
