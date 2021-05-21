@@ -47,7 +47,7 @@
                                     <p>Makati City, Philippines</p>
                                     <div class="">
                                         <small>Registered since February 3, 2021</small>
-                                        <button type="button" class="btn btn-primary btn-sm float-right "  data-toggle="modal" data-target="#modal_add_vax">Add Vaccine</button>
+                                        <button type="button" class="btn btn-primary btn-sm float-right">Add Vaccine</button>
                                     </div>
                                 </div>
                             </div>
@@ -59,6 +59,8 @@
                                 <div class="card-header border-0">
                                     <div class="d-flex justify-content-between">
                                         <h3 class="card-title">Vaccine Schedule</h3>
+
+                                        <button type="button" class="btn bg-warning btn-sm float-right "  ><span class="fa fa-bell "></span> Remind me</button>
                                       </div>
                                   </div>
                                   <div class="card-body">
