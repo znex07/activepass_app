@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'fname' => $data['fname'],
             'mname' => $data['mname'],
             'lname' => $data['lname'],
-            'role_id' => '2',
+            'role_id' => '1',
             'phone_number' => $data['phone_code'] . $data['phone_number'],
             'email' => $data['email'],
             'avatar' => 'default.png',
