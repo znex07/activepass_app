@@ -163,7 +163,7 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item d-none">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
@@ -357,7 +357,7 @@
                       </li>
                       <li>
                         <img src="dist/img/user1-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Alexander Pierce</a>
+                        <a class="users-list-name" href="#">Alexander</a>
                         <span class="users-list-date">Today</span>
                       </li>
                       <li>
@@ -366,30 +366,16 @@
                         <span class="users-list-date">Yesterday</span>
                       </li>
                       <li>
-                        <img src="dist/img/user7-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Jane</a>
-                        <span class="users-list-date">12 Jan</span>
-                      </li>
-                      <li>
                         <img src="dist/img/user6-128x128.jpg" alt="User Image">
                         <a class="users-list-name" href="#">John</a>
                         <span class="users-list-date">12 Jan</span>
                       </li>
                       <li>
                         <img src="dist/img/user2-160x160.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Alexander</a>
+                        <a class="users-list-name" href="#">Elon</a>
                         <span class="users-list-date">13 Jan</span>
                       </li>
-                      <li>
-                        <img src="dist/img/user5-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Sarah</a>
-                        <span class="users-list-date">14 Jan</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/user4-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Nora</a>
-                        <span class="users-list-date">15 Jan</span>
-                      </li>
+                      
                       
                     </ul>
                     <!-- /.users-list -->
