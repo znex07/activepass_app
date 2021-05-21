@@ -190,6 +190,7 @@
         <div class="info">
           <a href="#" class="d-block">{{Auth::user()->fname}}</a>
         </div>
+        
       </div>
 
       <!-- SidebarSearch Form -->
@@ -219,6 +220,22 @@
             </a>
             
           </li>
+        </ul>
+         @if (Auth::user()->role_id == '1' )
+        <ul class="nav nav-pills nav-sidebar flex-column">
+
+          <li class="nav-item menu-open">
+              
+              <p>
+
+                <a href="/admin/dashboard" class="nav-link active"><i class="nav-icon fas fa-user-cog"></i>Admin Dashboard</a>
+                </p>
+            
+          </li>
+          </ul>
+        @endif
+        </nav>
+
           
       <!-- /.sidebar-menu -->
     </div>
@@ -379,7 +396,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-center">
-                    <a href="javascript:">View All Users</a>
+                    <a href="javascript:">View All Doctors</a>
                   </div>
                   <!-- /.card-footer -->
                 </div>
