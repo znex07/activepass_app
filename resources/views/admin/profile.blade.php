@@ -89,7 +89,7 @@
                                         <img src="{{ asset('/img/doc2.png') }}" class="img-circle elevation-2" alt="User Image">
                                     </div>
                                         <div class="info">
-                                            <textarea name="comment" id="" placeholder="Leave a comment" class="form-control" rows="2"></textarea>
+                                            <textarea name="comment" id="" placeholder="Leave a comment" class="form-control" rows="2" cols="50"></textarea>
 
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                                     <div class="timeline">
                                         <!-- timeline time label -->
                                         <div class="time-label">
-                                          <span class="bg-red"><small>10 Feb. 2021</small> </span>
+                                          <span class="bg-info"><small>10 Feb. 2021</small> </span>
                                         </div>
                                         <!-- /.timeline-label -->
                                         <!-- timeline item -->
@@ -175,10 +175,30 @@
 
                     </div>
                     </div>
-                  </div>
+                    {{-- //Delete --}}
+
                 </div>
                 <!-- /.card -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="float-left">
+                            This is a permanent action and cannot be undone.
+                        </div>
 
+                        <div class="position-relative ">
+                            <button class="delete-modal btn btn-sm btn-danger float-right mt-4" data-info="">
+                                <span class="fa fa-trash "></span> Delete
+                            </button>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end">
+
+
+                        </div>
+                        </div>
+
+                  </div>
+                </div>
 
               </div>
             <!-- /.row -->

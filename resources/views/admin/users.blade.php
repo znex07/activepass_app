@@ -69,9 +69,7 @@
                             <a href="/admin/profile/{{ $patients->id }}" class="edit-modal btn btn-sm btn-info center" ">
                           <span class="fa fa-edit"></span> Edit
                             </a>
-                          <button class="delete-modal btn btn-sm btn-danger center" data-info="{{$patients->fname}}}}">
-                              <span class="fa fa-trash"></span> Delete
-                          </button>
+                          
                       </td>
                       </tr>
 
