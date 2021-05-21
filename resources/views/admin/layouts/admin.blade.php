@@ -238,12 +238,12 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2021 Segovia Development Corporation
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
+  <div class="container text-center">
+            <small class="m-0 text-center">
+            Copyright &copy; 2021 Segovia Development <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
     </div>
+    
   </footer>
-</div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
