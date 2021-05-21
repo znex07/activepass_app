@@ -226,7 +226,22 @@
           </li>
           </ul>
         @endif
-        </nav>
+        <ul class="nav nav-pills nav-tree nav-sidebar flex-column">
+
+            <li class="nav-item menu-open">
+
+                <p>
+                    <a href="{{ route('logout') }}" class="list-group-item list-group-item-action bg-light" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    <i class="fa fa-times-circle text-danger fa-lg"></i> Logout </a>
+                    <form action="{{ route('logout') }}" id="logout-form" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </p>
+
+            </li>
+            </ul>
+          </nav>
 
 
       <!-- /.sidebar-menu -->
@@ -346,11 +361,6 @@
                         <img src="/img/{{Auth::user()->avatar}}" alt="User Image">
                         <a class="users-list-name" href="#">Mark</a>
                         <span class="users-list-date">07 Oct</span>
-                      </li>
-                      <li>
-                        <img src="dist/img/user1-128x128.jpg" alt="User Image">
-                        <a class="users-list-name" href="#">Alexander</a>
-                        <span class="users-list-date">Today</span>
                       </li>
                       <li>
                         <img src="dist/img/user8-128x128.jpg" alt="User Image">
