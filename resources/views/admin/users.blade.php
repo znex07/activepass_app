@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Users</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-6 d-none">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             </ol>
@@ -46,7 +46,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
+                  <table id="users_table" class="table table-bordered table-hover dataTable dtr-inline">
                     <thead>
                     <tr>
                       <th>Name</th>
@@ -60,7 +60,7 @@
                     <tbody>
                     @foreach ($users as $patients)
                     <tr>
-                        <td>{{ $patients->fname }}</td>
+                        <td><a href="/admin/profile/">{{ $patients->fname }}</a></td>
                         <td>{{ $patients->vaccine_status }}</td>
                         <td>{{ $patients->vaccine_type }}</td>
                         <td>{{ $patients->role_id }}</td>
@@ -84,5 +84,20 @@
         </div>
     </div>
         <!-- /.row -->
+</div>
+  </div>
 
+ <script>
+    $(document).ready(function() {
+
+        $('#users_table').DataTable({
+            rowReorder: {selector: 'td:nth-child(2)'},
+            responsive: true,
+            columnDefs: [
+                { responsivePriority: 1, targets: 0 },
+                { responsivePriority: 2, targets: -1 }
+            ],
+        });
+    });
+</script>
 @endsection

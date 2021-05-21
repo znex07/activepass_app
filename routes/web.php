@@ -25,7 +25,12 @@ Route::get('/admin/dashboard', function () {
 
     return view('admin.dashboard', compact('side_effects',$side_effects));
 });
-Route::get('/admin/calerda', function () {
+Route::get('/admin/profile', function () {
+    $side_effects = SideEffects::all();
+
+    return view('admin.profile', compact('side_effects',$side_effects));
+});
+Route::get('/admin/calerdar', function () {
     $side_effects = SideEffects::all();
 
     return view('admin.calenda', compact('side_effects',$side_effects));
