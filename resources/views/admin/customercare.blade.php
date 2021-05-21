@@ -54,14 +54,7 @@
                         <td>{{ $patients->fname }} {{ $patients->mname }} {{ $patients->lname }}</td>
                         <td>Pending</td>
                         <td>Side Effect report</td>
-                        <td class="no-sort no-click bread-actions d-none">
-                            <a href="/admin/profile/{{ $patients->id }}" class="edit-modal btn btn-sm btn-info center" ">
-                          <span class="fa fa-edit"></span> Edit
-                            </a>
-                          <button class="delete-modal btn btn-sm btn-danger center" data-info="{{$patients->fname}}}}">
-                              <span class="fa fa-trash"></span> Delete
-                          </button>
-                      </td>
+
                       </tr>
 
                       @endforeach
@@ -72,21 +65,8 @@
             </div>
         </div>
     </div>
-        <!-- /.row -->
 </div>
-  </div>
+</div>
 
- <script>
-    $(document).ready(function() {
 
-        $('#users_table').DataTable({
-            rowReorder: {selector: 'td:nth-child(2)'},
-            responsive: true,
-            columnDefs: [
-                { responsivePriority: 1, targets: 0 },
-                { responsivePriority: 2, targets: -1 }
-            ],
-        });
-    });
-</script>
 @endsection
