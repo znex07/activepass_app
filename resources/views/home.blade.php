@@ -302,7 +302,7 @@
                 </div>
                 <div class="modal-body text-center">
 
-                    <h5 class="modal-title" id="exampleModalLongTitle" style="text-transform: capitalize;">Name: {{ Auth::user()->fname . ' ' . Auth::user()->mname .' '. Auth::user()->lname }}</h5>
+                    <h3 class="modal-title font-weight-bold" id="exampleModalLongTitle" style="text-transform: capitalize;">Name: {{ Auth::user()->fname . ' ' . Auth::user()->mname .' '. Auth::user()->lname }}</h3>
                     <h4 class="modal-title text-success" id="exampleModalLongTitle">First Dose</h4>
                     <h5 class="modal-title" id="exampleModalLongTitle">Vaccine Provider:</h5>
                     <h5 class="modal-title" id="exampleModalLongTitle">Doctor: </h5>
