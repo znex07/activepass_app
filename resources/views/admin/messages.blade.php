@@ -42,7 +42,7 @@
               </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
+            <div class="card-body"  >
               <!-- Conversations are loaded here -->
 
             <chat-messages :messages="messages"></chat-messages>
@@ -163,5 +163,6 @@
 
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}" ></script>
 
 @endsection

@@ -1,7 +1,7 @@
 <template>
 
 
-                  <div class="direct-chat-messages" >
+                  <div class="direct-chat-messages" id="cont">
                       <div class="direct-chat-msg" v-for="message in messages" :key="message.id">
                         <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-left" style="text-transform:capitalize"> {{ message.user.fname + ' ' + message.user.lname }}</span>

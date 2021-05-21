@@ -27,20 +27,27 @@ const app = new Vue({
           });
         });
     },
-
+    updated() {
+        // whenever data changes and the component re-renders, this is called.
+        // this.$el.scrollTop = this.$el.lastElementChild.offsetTop;
+        this.scroll();
+    },
     methods: {
         fetchMessages() {
             axios.get('/messages').then(response => {
                 this.messages = response.data;
             });
         },
-
         addMessage(message) {
             this.messages.push(message);
 
             axios.post('/messages', message).then(response => {
               console.log(response.data);
+
             });
-        }
+        },
+        scroll() {
+            document.getElementById('cont').scrollTop = document.getElementById('cont').scrollHeight;
+          }
     }
 });
