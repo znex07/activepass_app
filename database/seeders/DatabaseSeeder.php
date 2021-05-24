@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'fname'           => 'Admin',
             'role_id'  => '1',
-            'is_vaccinated'  => true,
+            'is_vaccinated'  => 'Partially...',
             'avatar'  => 'default.png',
             'email'          => 'admin@admin.com',
             'password'       => bcrypt('password'),
