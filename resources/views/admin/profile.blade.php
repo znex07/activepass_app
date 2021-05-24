@@ -47,7 +47,7 @@
                                     <p>Makati City, Philippines</p>
                                     <div class="">
                                         <small>Registered since February 3, 2021</small>
-                                        <button type="button" class="btn btn-primary btn-sm float-right">Add Vaccine</button>
+                                        <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#modal_add_vax">Add Vaccine</button>
                                     </div>
                                 </div>
                             </div>
