@@ -8,6 +8,7 @@ use App\Models\User;
 use Twilio\Rest\Client;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,10 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
-
+    // use RegistersUsers;
+    use RegistersUsers {
+        showRegistrationForm as laravelShowRegistrationForm;
+    }
     /**
      * Where to redirect users after registration.
      *
@@ -42,7 +45,17 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    public function showRegistrationForm()
+    {
+        $province = DB::table('provinces')->get();
+        return view('auth.register',compact('province'));
+    }
+    public function fetchCity($id)
+    {
+        $city = DB::table('cities')->where('province_id',$id)->pluck('name');
 
+        return $city;
+    }
     /**
      * Get a validator for an incoming registration request.
      *

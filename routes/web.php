@@ -87,6 +87,7 @@ Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class,
 // CHAT
 Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
 Route::get('messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
+Route::get('fetchCity/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'fetchCity']);
 Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 
 

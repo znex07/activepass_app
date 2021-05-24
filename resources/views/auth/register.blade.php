@@ -115,9 +115,9 @@
     		<div class="input-group-prepend">
     		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
     		 </div>
-             <input id="fname" name="fname" class="form-control" placeholder="First name" type="text">
-             <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text">
-             <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text">
+             <input id="fname" name="fname" class="form-control" placeholder="First name" type="text" required>
+             <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text" required>
+             <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text" required>
         </div> <!-- form-group// -->
         <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
         	<div class="input-group-prepend">
@@ -144,18 +144,29 @@
             </div>
         </div>
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col">
+                <label for="brgy">Province</label>
+                <select id="province" name="province" class="form-control">
+                    <option selected hidden disabled>Choose Province</option>
+                    @foreach ($province as $prov)
+                    <option value="{{$prov->id}}">{{$prov->name}}</option>
+                    @endforeach
+                  </select>
+              </div>
+              <div class="form-group col">
+                <label for="city">City</label>
+                <select id="city" name="city" class="form-control">
+                  <option selected disabled hidden>City</option>
+                  <option>...</option>
+
+                </select>
+              </div>
+
+            <div class="form-group col">
               <label for="brgy">Barangay</label>
               <input id="brgy" type="text" class="form-control" >
             </div>
-            <div class="form-group col-md-4">
-              <label for="city">City</label>
-              <select id="city" name="city" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col">
               <label for="inputZip">Zip</label>
               <input type="text" name="zip" class="form-control" id="inputZip">
             </div>
@@ -187,13 +198,13 @@
         	<div class="input-group-prepend">
     		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
     		</div>
-            <input class="form-control" name="password" placeholder="Create password" type="password">
+            <input class="form-control" name="password" placeholder="Create password" type="password" required>
         </div> <!-- form-group// -->
         <div class="form-group input-group">
         	<div class="input-group-prepend">
     		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
     		</div>
-            <input class="form-control" placeholder="Repeat password" type="password">
+            <input class="form-control" placeholder="Repeat password" type="password" required>
         </div> <!-- form-group// -->
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
@@ -205,4 +216,22 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#province').on('change', function(){
+            $("#city option").remove();
+            $.ajax({
+                type: 'GET',
+                url: '/fetchCity/'+$(this).val(),
+                success: function(data){
+                    $.each( data, function(id, value){
+                        $('#city').append('<option > '+data[id]+'</option>');
+                    })
+                }
+            });
+
+        });
+    });
+
+</script>
 @endsection

@@ -91,7 +91,8 @@
                 </div>
             </div>
         </nav>
-
+        <script src="{{ asset('js/app.js') }}" ></script>
+        
         <main class="py-5">
             @guest
             @if (Route::has('login'))
@@ -143,7 +144,6 @@
             </div>
     </footer>
     </div>
-    <script src="{{ asset('js/app.js') }}" ></script>
     <script>
         $(".se-pre-con").fadeOut("slow");;
         $(window).on('load',function() {

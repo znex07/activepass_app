@@ -15,10 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call('CountryTableSeeder');
-        // $this->call('ProvincesTableSeeder');
-        // $this->call('CitiesTableSeeder');
-        // $this->call('BarangayTableSeeder');
+        $this->call([
+            CountryTableSeeder::class,
+            ProvincesTableSeeder::class,
+            CitiesTableSeeder::class,
+        ]);
 
         User::create([
             'fname'           => 'Admin',
