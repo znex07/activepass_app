@@ -119,7 +119,7 @@
                       <h2 class="card-title font-weight-bold">ActivePass</h2>
                       <p class="card-text"><h5><i>Secure</i> private online platform which will be used by vaccine immunization providers -- doctors, clinics,
                         hospitals, to allow their patients 24/7 access to vaccination admin certificates.</h5></p>
-                        <p class="card-text"><h5><i>Report</i> any adverse events due to vaccination to our doctors and healthcare providers & partners.</h5></p>
+                        <p class="card-text"><h5><i>Report</i> any adverse events due to vaccination to our Doctors, Healthcare providers & Partners.</h5></p>
                         <button type="button" class="btn bg-orange btn-sm " style="opacity: .6"  ><span class="fa fa-flag "></span> Report Adverse effect</button>
 
                     </div>
