@@ -86,7 +86,7 @@
               <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Brad 
+                  Brad
                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">Call me whenever you can...</p>
@@ -102,7 +102,7 @@
               <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  John 
+                  John
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">I got your message bro</p>
@@ -115,7 +115,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              
+
             </div>
             <!-- Message End -->
           </a>
@@ -167,7 +167,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/home" class="brand-link">
       <img src="/img/plus.png" alt="Activepass Logo" class="" style="opacity: .8">
       <span class="brand-text font-weight-bold">ACTIVEPASS</span>
     </a>
@@ -209,9 +209,9 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            
+
           </li>
-          
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -413,7 +413,7 @@
             <small class="m-0 text-center">
             Copyright &copy; 2021 Segovia Development <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
     </div>
-    
+
   </footer>
 
   <!-- Control Sidebar -->

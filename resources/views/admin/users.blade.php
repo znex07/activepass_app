@@ -46,7 +46,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="users_table" class="table table-bordered table-hover dataTable dtr-inline">
+                  <table id="prov_table" class="table table-bordered table-hover dataTable dtr-inline">
                     <thead>
                     <tr>
                       <th>Name</th>
@@ -89,5 +89,17 @@
 </div>
   </div>
 
+  <script>
+    $(document).ready(function() {
 
+        $('#prov_table').DataTable({
+            // rowReorder: {selector: 'td:nth-child(3)'},
+            responsive: true,
+            columnDefs: [
+                { responsivePriority: 1, targets: 0 },
+		            { responsivePriority: 2, targets: 5 }
+            ],
+        });
+    });
+</script>
 @endsection

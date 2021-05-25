@@ -110,7 +110,7 @@
     	<p class="divider-text">
             <span class="bg-light">OR</span>
         </p> --}}
-    	<form>
+    	{{-- <form> --}}
     	<div class="form-group input-group">
     		<div class="input-group-prepend">
     		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>

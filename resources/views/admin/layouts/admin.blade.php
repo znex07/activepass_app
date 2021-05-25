@@ -169,8 +169,29 @@
                     <p>Add new User</p>
                   </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="/admin/patient/request" class="nav-link {{ 'admin/patient/request' == request()->path() ? 'active' : '' }}">
+                      <i class="nav-icon fa fa-laptop-medical"></i>
+                      <p>
+                        Patient Request
+                        {{-- <span class="right badge badge-danger">New</span> --}}
+
+                      </p>
+                    </a>
+                  </li>
             </ul>
           </li>
+          <li class="nav-item ">
+            <a href="/admin/clinic" class="nav-link {{ 'admin/clinic' == request()->path() ? 'active' : '' }}">
+              <i class="nav-icon fa fa-clinic-medical"></i>
+              <p>
+                Clinic Management
+                {{-- <span class="right badge badge-danger">New</span> --}}
+
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item ">
             <a href="/admin/customercare" class="nav-link {{ 'admin/customercare' == request()->path() ? 'active' : '' }}">
               <i class="nav-icon fa fa-hand-holding-medical"></i>
@@ -235,7 +256,7 @@
   <footer class="main-footer">
   <div class="container text-center">
             <small class="m-0 text-center">
-            Copyright &copy; 2021 Segovia Development <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
+            Copyright &copy; 2021 Activepass <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
     </div>
 
   </footer>

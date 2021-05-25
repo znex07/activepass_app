@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Clinic;
 use Illuminate\Http\Request;
@@ -16,7 +17,10 @@ class ClinicController extends Controller
     {
         //
     }
+    public function fetchClinic($id){
+        return Clinic::get();
 
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -59,7 +63,12 @@ class ClinicController extends Controller
     {
         //
     }
+    public function fetchCity($id)
+    {
+        $city = DB::table('cities')->where('province_id',$id)->pluck('name');
 
+        return $city;
+    }
     /**
      * Update the specified resource in storage.
      *

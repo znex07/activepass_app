@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
+use App\Models\Clinic;
 use App\Models\SideEffects;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        $users = Clinic::get();
+        return view('search', compact('users'));
+
     }
     public function report(Request $request){
         // dd($request);

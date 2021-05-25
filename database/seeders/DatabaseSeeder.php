@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CountryTableSeeder::class,
             ProvincesTableSeeder::class,
             CitiesTableSeeder::class,
+            ClinicSeeder::class
         ]);
 
         User::create([
@@ -27,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'is_vaccinated'  => 'Partially...',
             'avatar'  => 'default.png',
             'email'          => 'admin@admin.com',
-            'password'       => bcrypt('password'),
+            'password'       => bcrypt('sgweb123'),
             'remember_token' => Str::random(60),
             'role_id'        => 1,
         ]);

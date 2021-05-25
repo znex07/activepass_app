@@ -9,6 +9,8 @@ class Clinic extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'name',
+        'img',
         'clinic_hours',
         'clinic_days',
         'availability',

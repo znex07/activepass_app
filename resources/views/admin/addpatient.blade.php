@@ -57,6 +57,18 @@
                                         <option>Doctor</option>
                                     </select>
                                 </div> <!-- form-group end.// -->
+                                <div class="form-group input-group" id="clinic">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-clinic-medical"></i> </span>
+                                    </div>
+                                    <select class="form-control" name="clinic" >
+                                        <option selected disabled hidden> Select Clinic</option>
+                                        @foreach ($clinic as $clinics)
+                                        <option value="{{$clinics->name}}">{{$clinics->name}}</option>
+
+                                        @endforeach
+                                    </select>
+                                </div> <!-- form-group end.// -->
                               <div class="form-group input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -76,36 +88,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div> <!-- form-group// --><div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <div class="form-row">
-
-                                    <div class="form-group col">
-                                        <label for="inputAddress">Address</label>
-                                        <input id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
-                                    </div>
-
-                                    <div class="form-group col">
-                                        <label for="inputAddress2">Address 2</label>
-                                        <input id="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
-                                    </div>
-                                </div>
-                                  <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                      <label for="brgy">Barangay</label>
-                                      <input id="brgy" type="text" class="form-control" >
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                      <label for="city">City</label>
-                                      <select id="city" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                      </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                      <label for="inputZip">Zip</label>
-                                      <input type="text" class="form-control" id="inputZip">
-                                    </div>
-                                  </div>
+                            </div> <!-- form-group// -->
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
@@ -118,6 +101,48 @@
                                 </select>
                                 <input name="phone_number" id="phone" class="form-control" placeholder="Phone number" type="text">
                             </div> <!-- form-group// -->
+                            <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress">Address</label>
+                                        <input id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress2">Address 2</label>
+                                        <input id="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
+                                    </div>
+                                </div>
+                                  <div class="form-row">
+
+                                    <div class="form-group col-md-4">
+                                        <label for="brgy">Province</label>
+                                        <select id="province" name="province" class="form-control">
+                                            <option selected hidden disabled>Choose Province</option>
+                                            @foreach ($province as $prov)
+                                            <option value="{{$prov->id}}">{{$prov->name}}</option>
+                                            @endforeach
+                                          </select>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                        <label for="city">City</label>
+                                        <select id="city" name="city" class="form-control">
+                                          <option selected disabled hidden>City</option>
+                                          <option>...</option>
+
+                                        </select>
+                                      </div>
+                                      <div class="form-group col-md-2">
+                                        <label for="brgy">Barangay</label>
+                                        <input id="brgy" type="text" class="form-control" >
+                                      </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="inputZip">Zip</label>
+                                      <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                  </div>
+
 
                         </section>
                         <h3>Security</h3>
@@ -283,4 +308,36 @@
         </div>
         <!-- /.row -->
       </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $("#clinic").hide();
+    $(document).on('change','#user_type',function(){
+        var value = $(this).val();
+        if(value == 'Healthcare Provider')
+        {
+
+            $("#clinic").show(100);
+        }else{
+            $("#clinic").hide(100);
+
+        }
+
+    });
+    $(document).on('change','#province', function(){
+            $("#city option").remove();
+            $.ajax({
+                type: 'GET',
+                url: '/fetchCity/'+$(this).val(),
+                success: function(data){
+                    console.log(data);
+                    $.each( data, function(id, value){
+                        $('#city').append('<option > '+data[id]+'</option>');
+                    })
+                }
+            });
+
+        });
+
+</script>
 @endsection

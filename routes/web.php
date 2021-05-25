@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\User;
+use App\Models\Patient;
+use App\Models\Clinic;
 use App\Models\SideEffects;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,16 @@ Route::get('admin/calendar', function () {
 
     return view('admin.calendar', compact('side_effects',$side_effects));
 });
+Route::get('admin/clinic', function () {
+    $side_effects = SideEffects::all();
+    $clinic = Clinic::get();
+    return view('admin.clinic', compact('side_effects','clinic'));
+});
+Route::get('admin/patient/request', function () {
+    $side_effects = SideEffects::all();
+    $patient = Patient::get();
+    return view('admin.request', compact('side_effects','patient'));
+});
 Route::get('/admin/customercare', function () {
     $side_effects = SideEffects::all();
     $users = User::all();
@@ -47,7 +59,9 @@ Route::get('/admin/viewusers', function () {
 });
 Route::get('/admin/addpatient', function () {
     $side_effects = SideEffects::all();
-    return view('admin.addpatient', compact('side_effects',$side_effects));
+    $clinic = Clinic::get();
+    $province = DB::table('provinces')->get();
+    return view('admin.addpatient', compact('side_effects','clinic','province'));
 });
 Route::get('/terms', function () {
     return view('termscondition');
@@ -73,9 +87,11 @@ Route::get('/verify-now', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/view-vax', [App\Http\Controllers\HomeController::class, 'view']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);;
+Route::get('/search_vax', [App\Http\Controllers\PatientController::class, 'index']);
 Route::post('/register-user', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register-user');
+Route::get('/request_vax', [App\Http\Controllers\Auth\RegisterController::class, 'request_vax']);
+Route::post('/request_now', [App\Http\Controllers\Auth\RegisterController::class, 'request_now']);
 Route::post('/verify', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verify');
 Route::get('/send_otp', [App\Http\Controllers\ImmunizationController::class, 'send_otp'])->name('send_otp');
 Route::post('/send_vax_mail', [App\Http\Controllers\ImmunizationController::class, 'send_mail'])->name('send_vax_mail');
@@ -87,7 +103,8 @@ Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class,
 // CHAT
 Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
 Route::get('messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
-Route::get('fetchCity/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'fetchCity']);
+Route::get('fetchCity/{id}', [App\Http\Controllers\ClinicController::class, 'fetchCity']);
+Route::get('fetchClinic/{id}', [App\Http\Controllers\ClinicController::class, 'fetchClinic']);
 Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 
 

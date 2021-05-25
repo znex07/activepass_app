@@ -17,10 +17,11 @@ class CreateClinicsTable extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->string('name');
+            $table->string('img');
             $table->string('clinic_hours');
             $table->string('clinic_days');
             $table->string('availability');
-            $table->string('number_patients');
+            $table->string('patients_number');
             $table->timestamps();
         });
     }

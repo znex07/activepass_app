@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Patient;
 use Twilio\Rest\Client;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -50,12 +51,25 @@ class RegisterController extends Controller
         $province = DB::table('provinces')->get();
         return view('auth.register',compact('province'));
     }
-    public function fetchCity($id)
+    public function request_vax()
     {
-        $city = DB::table('cities')->where('province_id',$id)->pluck('name');
-
-        return $city;
+        $province = DB::table('provinces')->get();
+        return view('request',compact('province'));
     }
+    public function request_now(Request $request)
+    {
+        Patient::create([
+            'fname' => $request->fname,
+            'mname' => $request->mname,
+            'lname' => $request->lname,
+            'phone_number' => $request->phone_number,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+
+        ]);
+        return view('request_completed',compact('request'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
