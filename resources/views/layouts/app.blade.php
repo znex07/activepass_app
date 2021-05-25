@@ -92,7 +92,7 @@
             </div>
         </nav>
         <script src="{{ asset('js/app.js') }}" ></script>
-        
+
         <main class="py-5">
             @guest
             @if (Route::has('login'))
@@ -139,7 +139,7 @@
         </main>
         <footer class="footer py-3 bg-dark">
             <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; 2021 Segovia Development</p>
+                <p class="m-0 text-center text-white">Copyright &copy; 2021 SG web</p>
                 <p class="m-0 text-center"><a href="/terms" >Terms and Condition</a></p>
             </div>
     </footer>

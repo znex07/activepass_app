@@ -107,49 +107,44 @@
 
 
 <main class="py-5">
-    <div class="container" style="margin-top: 100px">
-        <div class="row d-flex justify-content-center mt-4">
-            <div class="col-lg-4">
-                {{-- <h3 class="mt-5">Check out our latest article</h3> --}}
-                {{-- <hr> --}}
-            </div>
-        </div>
+    <div class="container" style="margin-top: 20px">
         <div class="row d-flex justify-content-center">
-            <div class="card text-left col-md-3 mx-2 mb-3">
-              <img class="card-img-top" src="/img/img1.svg" alt="" style="height: 200px" >
-              <div class="card-body" style="height: 200px">
-                <h4 class="card-title">Get a VaxPass now!</h4>
-                <p class="card-text">In this case, the role of the health laboratory is very important to do
-                    a disease detection...</p>
+            <div class="col-md-6">
+                <div class="card text-left" style="height: 100%">
+                    <img class="card-img-top" src="/img/apps-1.png" alt=""  >
+                    <div class="card-body" >
+                      <h2 class="card-title font-weight-bold">ActivePass</h2>
+                      <p class="card-text"><h5><i>Secure</i> private online platform which will be used by vaccine immunization providers -- doctors, clinics,
+                        hospitals, to allow their patients 24/7 access to vaccination admin certificates.</h5></p>
+                        <p class="card-text"><h5><i>Report</i> any adverse events due to vaccination to our doctors and healthcare providers & partners.</h5></p>
+                        <button type="button" class="btn bg-orange btn-sm " style="opacity: .6"  ><span class="fa fa-flag "></span> Report Adverse effect</button>
 
-                </div>
-                <div class="card-footer">
-                    <a href="/register" class="btn btn-block btn-success btn-md">Be a member</a>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/register" class="btn btn-block  btn-success btn-md">Get your ActivePass now!</a>
+                    </div>
                 </div>
             </div>
-            <div class="card text-left col-md-3 mx-2 mb-3">
-                <img class="card-img-top" src="/img/apps-3.jpg" alt="" style="height: 200px">
-                <div class="card-body" style="height: 200px">
-                  <h4 class="card-title">Vaccine Record</h4>
-                  <p class="card-text">Vaccine Record Admin Panel</p>
-                </div>
-                <div class="card-footer">
-                <a href="/admin" class="btn btn-block btn-success btn-md">Admin</a>
-                </div>
-              </div>
-              <div class="card text-left col-md-3 mx-2 mb-3">
-                <img class="card-img-top" src="/img/apps-1.png" alt="" style="height: 200px" >
-                <div class="card-body" style="height: 200px">
-                  <h4 class="card-title">ActivePass</h4>
-                  <p class="card-text">secure private online platform which will be used by vaccine immunization providers -- doctors, clinics,
-                    hospitals, to allow their patients 24/7 access to vaccination admin certificates.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="/register" class="btn btn-block  btn-success btn-md">Get your VaxPass now</a>
-                </div>
-              </div>
-        </div>
+            <div class="col-md-4">
+                <div class="card text-left" style="height: 100%">
+                    <img class="card-img-top" src="/img/apps-3.jpg" alt="" >
+                    <div class="card-body" >
+                        <h4 class="card-title">List of Healthcare Partners</h4>
 
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><img class="img-fluid img-thumbnail" style="height: 100px; width: 100px" alt="" src="/img/provider1.png"> MAKATI MEDICAL CENTER</li>
+                        <li class="list-group-item"><img class="img-fluid img-thumbnail" style="height: 100px; width: 100px" alt="" src="/img/provider2.png"> HMI CARE</li>
+                        <li class="list-group-item"><img class="img-fluid img-thumbnail" style="height: 100px; width: 100px" alt="" src="/img/provider3.jpg"> ST. LUKE MEDICAL CENTER</li>
+                        <li class="list-group-item d-none"><img class="img-fluid img-thumbnail" alt="" src="/img/provider4.png">...</li>
+                      </ul>
+                    <div class="card-footer">
+                    <a href="/" class="btn btn-block btn-success btn-md">View All</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
 
 <div class="container">
