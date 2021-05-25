@@ -120,7 +120,7 @@ class RegisterController extends Controller
             'is_vaccinated' => 'Pending...',
             'password' => Hash::make($data['password']),
         ]);
-        redirect()->back();
+        return redirect()->back();
         // $token = getenv("TWILIO_AUTH_TOKEN");
         // $twilio_sid = getenv("TWILIO_SID");
         // $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
