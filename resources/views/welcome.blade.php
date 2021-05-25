@@ -60,6 +60,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
+                        <li class="nav-item active"> <a href="#" class="nav-link  "><span class="fa fa-phone"></span> TEL: 8-899-6356</a>  </li>
+                        <li class="nav-item active"> <a href="#" class="nav-link  "><span class="fa fa-envelope"></span> Email: info@activepass.app</a> </li>
                         <li class="nav-item active"> <a href="/" class="nav-link btn btn-light "> HOME</a> </li>
                         {{-- <li class="nav-item"> <a href="/about" class="nav-link btn btn-light "> ABOUT</a> </li>
                         <li class="nav-item"> <a href="/contact" class="nav-link btn btn-light ">CONTACT US</a> </li>
@@ -257,7 +260,7 @@
 
 <footer class="footer footer-nav py-0 bg-dark">
     <div class="container text-center">
-        <small class="m-0 text-center text-white">Copyright &copy; 2021 Segovia Development <a href="/terms" class="nav-link">PRIVACY & TERMS</a></small>
+        <small class="m-0 text-center text-white">Copyright &copy; 2021 ActivePass <a href="/terms" class="nav-link">PRIVACY & TERMS</a></small>
     </div>
 </footer>
 </body>
