@@ -3,7 +3,7 @@ $(window).on('load',function() {
     $("#example-basic").steps({
         headerTag: "h3",
         bodyTag: "section",
-        transitionEffect: "slideLeft",
+        transitionEffect: "fade",
         autoFocus: true,
         onStepChanging: function (event, currentIndex, newIndex) {
             console.log($('#fname').val());

@@ -35,17 +35,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
     public function showRegistrationForm()
     {
         $province = DB::table('provinces')->get();
@@ -99,11 +99,12 @@ class RegisterController extends Controller
         $messages = [
             'email.required' => 'We need to know your email address!',
         ];
-        if ($validator->fails()) {
-        return redirect('register')
-                    ->withErrors($validator)
-                    ->withInput();
-        }
+        // if ($validator->fails()) {
+        // return redirect('register')
+        //             ->withErrors($validator)
+        //             ->withInput();
+        // }
+        // dd($data);
         User::create([
             'fname' => $data['fname'],
             'mname' => $data['mname'],
@@ -119,7 +120,7 @@ class RegisterController extends Controller
             'is_vaccinated' => 'Pending...',
             'password' => Hash::make($data['password']),
         ]);
-        return redirect('home');
+        // return redirect('home');
         // $token = getenv("TWILIO_AUTH_TOKEN");
         // $twilio_sid = getenv("TWILIO_SID");
         // $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
