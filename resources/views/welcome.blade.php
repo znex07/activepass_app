@@ -113,7 +113,7 @@
     <div class="container" style="margin-top: 20px">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
-                <div class="card text-left" style="height: 100%">
+                <div class="card text-left " style="height: 100%">
                     <img class="card-img-top" src="/img/apps-1.png" alt=""  >
                     <div class="card-body" >
                       <h2 class="card-title font-weight-bold">ActivePass</h2>
@@ -128,6 +128,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="card text-left" style="height: 100%">
                     <img class="card-img-top" src="/img/apps-3.jpg" alt="" >
