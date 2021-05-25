@@ -5,7 +5,7 @@
         <div class="row mt-5 d-flex justify-content-center">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title"><img class="img-fluid img-thumbnail" style="height: 65px; width: 50px" alt="" src="/img/Patient 3.png">Choose your Healthcare Provider</h3>
+                    <h3 class="card-title"><img class="img-fluid img-thumbnail" style="height: 65px; width: 50px" alt="" src="/img/Patient3.png">Choose your Healthcare Provider</h3>
                         <div class="form-group ">
                             <small class="d-none"><span class="fa fa-info-circle text-info"></span> All personal data you input is confidential and be kept private</small>
                         </div>
