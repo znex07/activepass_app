@@ -79,6 +79,7 @@ Route::get('/verify/{id}', function ($id) {
     $vaccine_status = User::where('id', $id)->get();
     return view('verify_vax', compact('vaccine_status'));
 });
+Route::get('/mprofile', function(){ return view('user.profile');});
 Route::get('/verify-now', function () {
     // $vaccine_status = User::where('id', $id)->get();
 
