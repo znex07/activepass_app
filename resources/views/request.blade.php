@@ -10,7 +10,7 @@
                             <small class="d-none"><span class="fa fa-info-circle text-info"></span> All personal data you input is confidential and be kept private</small>
                         </div>
 
-                    <form method="POST" action="/register-user">
+                    <form method="POST" action="/request_now">
                         @csrf
                         <div class="form-group input-group border border-primary">
                             <div class="input-group-prepend">

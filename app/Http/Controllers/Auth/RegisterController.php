@@ -58,15 +58,22 @@ class RegisterController extends Controller
     }
     public function request_now(Request $request)
     {
-        Patient::create([
-            'fname' => $request->fname,
-            'mname' => $request->mname,
-            'lname' => $request->lname,
-            'phone_number' => $request->phone_number,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-
+        User::create([
+            'fname' => $request['fname'],
+            'mname' => $request['mname'],
+            'lname' => $request['lname'],
+            'role_id' => '2',
+            'phone_number' => $request['phone_code'] . $request['phone_number'],
+            'email' => $request['email'],
+            'avatar' => 'default.png',
+            'address1' => '',
+            'address2' => '',
+            'city' => '',
+            'zip' => '',
+            'is_vaccinated' => 'Pending...',
+            'password' => Hash::make($request['password']),
         ]);
+
         return view('request_completed',compact('request'));
     }
 
