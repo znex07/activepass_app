@@ -44,8 +44,8 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="home" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+      <li class="nav-item d-none d-sm-inline-block ">
+        <a href="#" class="nav-link d-none">Contact</a>
       </li>
     </ul>
 
@@ -730,7 +730,7 @@
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
-                            Count Dracula
+                            ...
                             <small class="contacts-list-date float-right">2/28/2015</small>
                           </span>
                           <span class="contacts-list-msg">How have you been? I was...</span>
@@ -745,7 +745,7 @@
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
-                            Sarah Doe
+                            ...
                             <small class="contacts-list-date float-right">2/23/2015</small>
                           </span>
                           <span class="contacts-list-msg">I will be waiting for...</span>
@@ -775,7 +775,7 @@
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
-                            Nora
+                            ...
                             <small class="contacts-list-date float-right">2/10/2015</small>
                           </span>
                           <span class="contacts-list-msg">Where is your new...</span>
@@ -805,7 +805,7 @@
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
-                            Kenneth M.
+                            ...
                             <small class="contacts-list-date float-right">1/4/2015</small>
                           </span>
                           <span class="contacts-list-msg">Never mind I found...</span>
