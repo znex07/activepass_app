@@ -117,7 +117,7 @@
 
                       <!-- /.user-block -->
                       <div class="alert alert-info" role="alert">
-                        Hello! Thank you for visiting my profile page. Im a web developer based in Makati City Philippines ready to take challenges in programming. Below is sample of websites I work with.
+                        Hello! Thank you for visiting my profile page. Im a web developer based in Makati City Philippines ready to take challenges in programming. Below are sample of websites I work with.
                       </div>
 
                     </div>
