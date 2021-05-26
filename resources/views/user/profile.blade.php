@@ -138,7 +138,7 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <a href="https://realtymlp.com/" target="_blank" ><img class="img-fluid mb-3" src="../../dist/img/photo2.png"></a>
-                              <a href="https://activepass.app/" target="_blank"></a><img class="img-fluid" src="/img/activepass.PNG">
+                              <a href="https://activepass.app/" target="_blank"><img class="img-fluid" src="/img/activepass.PNG"></a>
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
