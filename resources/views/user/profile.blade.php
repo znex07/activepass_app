@@ -116,9 +116,9 @@
                     <div class="post">
 
                       <!-- /.user-block -->
-                      <p>
-                        Hello! Thank you for visiting my profile page. Im a web developer based in Makati City Philippines ready to take challenges in programming.
-                      </p>
+                      <div class="alert alert-info" role="alert">
+                        Hello! Thank you for visiting my profile page. Im a web developer based in Makati City Philippines ready to take challenges in programming. Below is sample of webisites I work with.
+                      </div>
 
                     </div>
                     <!-- /.post -->
@@ -131,19 +131,19 @@
                       <!-- /.user-block -->
                       <div class="row mb-3">
                         <div class="col-sm-6">
-                          <img class="img-fluid" src="/img/realtymlp.PNG">
+                            <a href="https://realtymlp.com/" target="_blank" ><img class="img-fluid" src="/img/realtymlp.PNG"></a>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                           <div class="row">
                             <div class="col-sm-6">
-                              <img class="img-fluid mb-3" src="../../dist/img/photo2.png">
-                              <img class="img-fluid" src="/img/activepass.PNG">
+                              <a href="https://realtymlp.com/" target="_blank" ><img class="img-fluid mb-3" src="../../dist/img/photo2.png"></a>
+                              <a href="https://activepass.app/" target="_blank"></a><img class="img-fluid" src="/img/activepass.PNG">
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
-                              <img class="img-fluid mb-3" src="/img/msuites.PNG" alt="Photo">
-                              <img class="img-fluid" src="/img/sg.PNG" alt="Photo">
+                              <a href="http://msuitesmakati.com/" target="_blank" ><img class="img-fluid mb-3" src="/img/msuites.PNG" ></a>
+                              <a href="https://www.segoviagroup.com/" target="_blank" ><img class="img-fluid" src="/img/sg.PNG">
                             </div>
                             <!-- /.col -->
                           </div>
@@ -204,7 +204,7 @@
                         <div class="timeline-item">
                           <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
 
-                          <h3 class="timeline-header border-0"><a href="#">Sarah Loveres</a> accepted your code change request
+                          <h3 class="timeline-header border-0"><a href="#">Aryan</a> accepted your code change request
                           </h3>
                         </div>
                       </div>
