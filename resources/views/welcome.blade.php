@@ -120,7 +120,7 @@
                       <p class="card-text"><h5><i>Secure</i> private online platform which will be used by vaccine immunization providers -- doctors, clinics,
                         hospitals, to allow their patients 24/7 access to vaccination admin certificates.</h5></p>
                         <p class="card-text"><h5><i>Report</i> any adverse events due to vaccination to our Doctors, Healthcare providers & Partners.</h5></p>
-                        <button type="button" class="btn bg-orange btn-sm " style="opacity: .6"  ><span class="fa fa-flag "></span> Report Adverse effect</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm" style="opacity: .9"  ><span class="fa fa-flag "></span> Report Adverse effect</button>
 
                     </div>
                     <div class="card-footer">
