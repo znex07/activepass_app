@@ -16,4 +16,10 @@ class Clinic extends Model
         'availability',
         'patient_numbers'
     ];
+
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }
