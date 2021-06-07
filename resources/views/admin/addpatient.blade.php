@@ -147,7 +147,7 @@
                         </section>
                         <h3>Security</h3>
                         <section>
-                            <div class="form-group input-group">
+                            <div class="form-group input-group d-none">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-question"></i> </span>
                                 </div>
@@ -158,7 +158,7 @@
                                     <option value="3"></option>
                                 </select>
                             </div>
-                            <div class="form-group input-group">
+                            <div class="form-group input-group d-none">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                 </div>
