@@ -26,7 +26,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
 
-                <div class="alert alert-info alert-dismissible fade" role="alert" id="message">
+                <div class="alert alert-info alert-dismissible d-none" role="alert" id="message">
                     <p class="card-text"> <span class="fa fa-info-circle"></span> All personal data you input is confidential and be kept private </p>
                     <button type="button" class="close" dat a-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

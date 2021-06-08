@@ -7,23 +7,29 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
         <div class="container-fluid">
+            <div class="row">
+
+            <div class="col-sm-12">
+                <h1 class="m-3 text-dark">Doctors Dashboard</h1>
+              </div><!-- /.col -->
+            </div>
                 <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-info ">
               <div class="inner">
-                <h3>VaxPass</h3>
+                <h3>Patients</h3>
 
-                <p>VaxPass</p>
+                <p>Patients</p>
               </div>
               <div class="icon">
                 <i class="ion ion-qr-scanner"></i>
               </div>
-              <a href="/view-vax" class="small-box-footer">View your VaxPass <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/admin/viewusers" class="small-box-footer">View Patients <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6 d-none">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -38,7 +44,7 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6 d-none">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -57,22 +63,20 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>0</h3>
 
-                <p>Unique Visitors</p>
+                <p>Reports</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/admin/customercare" class="small-box-footer">View Reports <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
         </div>
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Admin Dashboard</h1>
-          </div><!-- /.col -->
+
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               {{-- <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
@@ -87,48 +91,7 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Patient Vaccine</h3>
-                  <a href="javascript:void(0);">View Report</a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">820</span>
-                    <span>Visitors Over Time</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
-                    </span>
-                    <span class="text-muted">Since last week</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
 
-                <div class="position-relative mb-4">
-                  <canvas id="visitors-chart" height="200"></canvas>
-                </div>
-
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- /.card -->
-
-
-          </div>
           <section class="col-lg-5 connectedSortable">
             <!-- DIRECT CHAT -->
               <div class="card direct-chat direct-chat-primary" id="app_message">
@@ -138,7 +101,7 @@
                   Doctors Chat</h3>
 
                   <div class="card-tools">
-                    <span title="3 New Messages" class="badge badge-primary">3</span>
+                    <span title="3 New Messages" class="badge badge-primary d-none">3</span>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                       <i class="fas fa-minus"></i>
                     </button>
@@ -270,145 +233,58 @@
               </div>
               <!--/.direct-chat -->
               <!-- Calendar -->
-              <div class="card bg-gradient-success collapsed-card">
-                <div class="card-header border-0">
 
-                  <h3 class="card-title">
-                    <i class="far fa-calendar-alt"></i>
-                    Calendar
-                  </h3>
-                  <!-- tools card -->
-                  <div class="card-tools">
-                    <!-- button with a dropdown -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
-                        <i class="fas fa-bars"></i>
-                      </button>
-                      <div class="dropdown-menu" role="menu">
-                        <a href="#" class="dropdown-item">Add new event</a>
-                        <a href="#" class="dropdown-item">Clear events</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">View calendar</a>
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                  <!-- /. tools -->
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body pt-0">
-                  <!--The calendar -->
-                  <div id="calendar" style="width: 100%"></div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- Map card -->
-              <div class="card bg-gradient-primary collapsed-card">
-                <div class="card-header border-0">
-                  <h3 class="card-title">
-                    <i class="fas fa-map-marker-alt mr-1"></i>
-                    Healthcare Providers Branch Map
-                  </h3>
-                  <!-- card tools -->
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                      <i class="far fa-calendar-alt"></i>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                  </div>
-                  <!-- /.card-tools -->
-                </div>
-                <div class="card-body">
-                  <div id="makati-map" style="height: 250px; width: 100%;"></div>
-                </div>
-                <!-- /.card-body-->
-                <div class="card-footer bg-transparent">
-                  <div class="row">
-                    <div class="col-4 text-center">
-                      <div id="sparkline-1"></div>
-                      <div class="text-white">Visitors</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-4 text-center">
-                      <div id="sparkline-2"></div>
-                      <div class="text-white">Online</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-4 text-center">
-                      <div id="sparkline-3"></div>
-                      <div class="text-white">Sales</div>
-                    </div>
-                    <!-- ./col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-              </div>
-              <!-- /.card -->
-
-              <!-- solid sales graph -->
-              <div class="card bg-gradient-info collapsed-card">
-                <div class="card-header border-0">
-                  <h3 class="card-title">
-                    <i class="fas fa-th mr-1"></i>
-                    Doctors Graph
-                  </h3>
-
-                  <div class="card-tools">
-                    <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer bg-transparent">
-                  <div class="row">
-                    <div class="col-4 text-center">
-                      <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                             data-fgColor="#39CCCC">
-
-                      <div class="text-white">VaxPass</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-4 text-center">
-                      <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                             data-fgColor="#39CCCC">
-
-                      <div class="text-white">Patients</div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-4 text-center">
-                      <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                             data-fgColor="#39CCCC">
-
-                      <div class="text-white">Billing</div>
-                    </div>
-                    <!-- ./col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-                <!-- /.card-footer -->
-              </div>
-              <!-- /.card -->
 
 
 
               <!-- /.card -->
             </section>
+            <div class="col-lg-6">
+
+                <div class="card d-none">
+                  <div class="card-header border-0">
+                    <div class="d-flex justify-content-between">
+                      <h3 class="card-title">Patient Vaccine</h3>
+                      <a href="javascript:void(0);">View Report</a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <p class="d-flex flex-column">
+                        <span class="text-bold text-lg">820</span>
+                        <span>Visitors Over Time</span>
+                      </p>
+                      <p class="ml-auto d-flex flex-column text-right">
+                        <span class="text-success">
+                          <i class="fas fa-arrow-up"></i> 12.5%
+                        </span>
+                        <span class="text-muted">Since last week</span>
+                      </p>
+                    </div>
+                    <!-- /.d-flex -->
+
+                    <div class="position-relative mb-4">
+                      <canvas id="visitors-chart" height="200"></canvas>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-end">
+                      <span class="mr-2">
+                        <i class="fas fa-square text-primary"></i> This Week
+                      </span>
+
+                      <span>
+                        <i class="fas fa-square text-gray"></i> Last Week
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+
+
+              </div>
           <!-- /.col-md-6 -->
           <div class="col-lg-6">
+
             {{-- <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
