@@ -141,7 +141,7 @@
     <section>
         <h3>Healthcare Partner Confirmation Information</h3>
         <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <div class="card ">
                 <div class="card-header">
                         Name
@@ -151,10 +151,25 @@
 
                 </div>
                 <div class="card-body">
-                    <h6>Business Name or company Name</h6>
-                    <h6>Type of Healthcare Partner</h6>
-                    <h6>Hospital/Clinic</h6>
-                    <h6>Company Address</h6>
+                    <h4>Business Name or company Name</h4>
+                    <p class="text-info">Null</p>
+                    <h4>Type of Healthcare Partner</h4>
+                    <p class="text-info">Null</p>
+                    <h4>Hospital/Clinic</h4>
+                    <p class="text-info">Null</p>
+                    <h4>Company Address</h4>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h4>House/ Building no., Street</h4>
+                            <p class="text-info">Null</p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <h4>Postal Code</h4>
+                            <p class="text-info">Null</p>
+                        </div>
+                    </div>
+                    <h4>Apartment, Suite No., etc. (Optional)</h4>
+                    <h4>Apartment, Suite No., etc. (Optional)</h4>
                 </div>
 
             </div>

@@ -99,16 +99,23 @@
                                 Vaccination Providers
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="reg_health_partner">Register as New VP </a>
-                              <a class="dropdown-item" href="#">Log in As VP </a>
+                              <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
+                              <a class="dropdown-item" href="#">Go to VP Dashboard</a>
                             </div>
                           </div>
-                        <li class="nav-item"> <a href="/about" class="nav-link">Vaccination Certificate</a> </li>
-                        <li class="nav-item"> <a href="/vacc_info" class="nav-link">Vaccination Info</a> </li>
-                        <li class="nav-item"> <a href="/news" class="nav-link">NEWS</a> </li>
+                        <li class="nav-item"> <a href="/about" class="nav-link">Patient Dashboard</a> </li>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Vaccination Providers
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="reg_health_partner">See Vax Certificate </a>
+                              <a class="dropdown-item" href="#">Report Adverse Events </a>
+                            </div>
+                          </div>
+
+                        <li class="nav-item"> <a href="/vacc_info" class="nav-link">About Covid Vaccines</a> </li>
                     </ul>
-
-
 
                 </div>
             </div>
@@ -123,9 +130,9 @@
             <div class="col-md-6">
                 <h3 class="mt-">ActivePass supports COVID-19 vaccinations.</h3>
                 <ul>
-                    <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> Vaccination providers (VPs) can create a private cloud-based data based of patients inoculated, track status ans see reports. </li>
+                    <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> Vaccination providers (VPs) can create a private cloud-based database of patients innoculated, track status and see reports. </li>
 
-                    <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> Patients can check dates for second doses, submit adverse event reports. </li>
+                    <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> Patients can check dates for second and booster jabs, see their vax certificate, and submit adverse event reports. </li>
 
                     <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> VPs and Patients can chat or message each other.</li>
 
