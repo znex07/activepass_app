@@ -8,20 +8,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'ActivePass') }}</title>
-
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/lifepass.js') }}" type="module" defer></script> --}}
-
+    <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
     <link href="/css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- <link href="https://bootswatch.com/4/lux/bootstrap.min.css" rel="stylesheet"> --}}
     <link href="{{ asset('css/immune_record.css') }}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('css/activepass1.css') }}" rel="stylesheet">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script>
@@ -33,6 +26,8 @@
             });
         });
     </script>
+      <link rel="stylesheet" href="{{ asset('css/jquery.steps.css') }}">
+
     </head>
 <body>
 <div id="app">
@@ -99,7 +94,7 @@
                                 Vaccination Providers
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="reg_health_partner">Register as New VP </a>
+                              <a class="dropdown-item" href="#">Register as New VP </a>
                               <a class="dropdown-item" href="#">Log in As VP </a>
                             </div>
                           </div>
@@ -118,32 +113,15 @@
 
 
 <main class="py-5">
-    <div class="container" style="margin-top: 80px; ">
-        <div class="row d-flex justify-content-center" >
-            <div class="col-md-6">
-                <h3 class="mt-">ActivePass supports COVID-19 vaccinations.</h3>
-                <ul>
-                    <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> Vaccination providers (VPs) can create a private cloud-based data based of patients inoculated, track status ans see reports. </li>
+    <div class="container" style="padding: 5%; margin-top:30px">
+        @yield('content')
 
-                    <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> Patients can check dates for second doses, submit adverse event reports. </li>
-
-                    <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> VPs and Patients can chat or message each other.</li>
-
-                </ul>
-                <a href="reg_health_partner" type="button" class="btn btn-primary mb-1">Be a Vaccination Provider</a>
-                <button type="button" class="btn btn-primary">View certificate</button>
-            </div>
-
-            <div class="col-md-4">
-                <img src="/img/slider3.png" alt="" srcset="" height="592" width="583">
-            </div>
-
-        </div>
-    </main>
+    </div>
+</main>
 
 
 
-<footer class="footer footer-nav " style="background:#F1F1F1 !important">
+<footer class="footer footer-nav p-2" style="background:#F1F1F1 !important">
     <div class="container">
         <div class="row">
 
@@ -160,9 +138,25 @@
 </footer>
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.steps.min.js') }}"></script>
+
 <script>
     $('document').ready(function () {
+        $("#health-reg").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            autoFocus: true,
+            onStepChanging: function (event, currentIndex, newIndex) {
 
+                // $('#inputphone').text('Phone Number: ' + $('#phone_prefix').val() + $('#phone').val());
+                return true;
+            },
+            onFinished: function(){
+                // alert('submitted');
+                // $("#patient-new").submit();
+            }
+        });
         var lastScrollTop = 0;
         $(window).scroll(function(event){
             var st = $(this).scrollTop();

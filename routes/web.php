@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 // ADMIN
 Route::get('admin/dashboard', function () {
@@ -65,6 +65,12 @@ Route::get('/admin/addpatient', function () {
 });
 Route::get('/terms', function () {
     return view('termscondition');
+});
+Route::get('/news', function () {
+    return view('news');
+});
+Route::get('/reg_health_partner', function () {
+    return view('healthprovider.register');
 });
 Route::get('/register', function () {
     return view('auth.register');
