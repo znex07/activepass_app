@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca7869fa0542a4322c7c27c46c77550c",
+    "content-hash": "b6b5744bc3d8fb02c7ae3d6db01ac86e",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -907,6 +907,58 @@
                 }
             ],
             "time": "2021-04-26T11:24:25+00:00"
+        },
+        {
+            "name": "google/recaptcha",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/recaptcha.git",
+                "reference": "3875d025d0465f36f32452f614e7ffc1462c889f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/3875d025d0465f36f32452f614e7ffc1462c889f",
+                "reference": "3875d025d0465f36f32452f614e7ffc1462c889f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.2.20|^2.12",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^4.8.36|^5.7.27|^6.59|^7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReCaptcha\\": "src/ReCaptcha"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Client library for reCAPTCHA, a free service that protects websites from spam and abuse.",
+            "homepage": "https://www.google.com/recaptcha/",
+            "keywords": [
+                "Abuse",
+                "captcha",
+                "recaptcha",
+                "spam"
+            ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/recaptcha",
+                "issues": "https://github.com/google/recaptcha/issues",
+                "source": "https://github.com/google/recaptcha"
+            },
+            "time": "2018-08-01T11:58:31+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2165,6 +2217,72 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
+        },
+        {
+            "name": "mostafaznv/recaptcha",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mostafaznv/recaptcha.git",
+                "reference": "51fc6043f58d117383e2853b4338684db28e5f6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mostafaznv/recaptcha/zipball/51fc6043f58d117383e2853b4338684db28e5f6f",
+                "reference": "51fc6043f58d117383e2853b4338684db28e5f6f",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "6.* || 7.*",
+                "laravel/framework": "5.3.* || 5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.* || 6.* || 7.* || 8.*",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mostafaznv\\Recaptcha\\RecaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "Recaptcha": "Mostafaznv\\Recaptcha\\Facades\\Recaptcha"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mostafaznv\\Recaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mostafaznv",
+                    "email": "mostafa.zeinivand@gmail.com"
+                }
+            ],
+            "description": "Laravel package for Google Recaptcha v3",
+            "keywords": [
+                "Google ReCaptcha",
+                "laravel",
+                "laravel 5",
+                "laravel 6",
+                "laravel 7",
+                "laravel 8",
+                "mostafaznv",
+                "no captcha",
+                "packalyst",
+                "recaptcha",
+                "recaptcha v3"
+            ],
+            "support": {
+                "docs": "https://github.com/mostafaznv/recaptcha/blob/master/README.md",
+                "issues": "https://github.com/mostafaznv/recaptcha/issues",
+                "source": "https://github.com/mostafaznv/recaptcha"
+            },
+            "time": "2021-02-25T16:12:05+00:00"
         },
         {
             "name": "myclabs/php-enum",

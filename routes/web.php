@@ -91,7 +91,9 @@ Route::get('/verify-now', function () {
 
     return view('auth.verify-otp');
 });
-
+Route::get('/recap', function () {
+    return view('recap');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);;
