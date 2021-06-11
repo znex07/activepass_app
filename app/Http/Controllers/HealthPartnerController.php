@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HealthPartner;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HealthPartnerController extends Controller
@@ -24,19 +25,41 @@ class HealthPartnerController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        //representative 1
+        $user->fname = $request->fname1;
+        $user->mname = $request->mname1;
+        $user->lname = $request->lname1;
+        $user->email = $request->email1;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        //representative 2
+        $user = new User;
+        $user->fname = $request->fname2;
+        $user->mname = $request->mname2;
+        $user->lname = $request->lname2;
+        $user->email = $request->email2;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        //store new health partner
+        $healthPartner = new HealthPartner;
+        $healthPartner->business_name = $request->business_name;
+        $healthPartner->business_type = $request->business_type;
+        $healthPartner->telephone = $request->tel;
+        $healthPartner->cellphone = $request->cp;
+        $healthPartner->business_email = $request->company_email;
+        $healthPartner->save();
+        return $request;
+
     }
+
 
     /**
      * Display the specified resource.
@@ -80,6 +103,6 @@ class HealthPartnerController extends Controller
      */
     public function destroy(HealthPartner $healthPartner)
     {
-        //
+
     }
 }

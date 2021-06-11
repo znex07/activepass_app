@@ -94,6 +94,7 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"> <a href="/" class="nav-link"> HOME</a> </li>
+                        <li class="nav-item mx-1">
                         <div class="dropdown">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Vaccination Providers
@@ -103,17 +104,18 @@
                               <a class="dropdown-item" href="#">Go to VP Dashboard</a>
                             </div>
                           </div>
-                        <li class="nav-item"> <a href="/about" class="nav-link">Patient Dashboard</a> </li>
+                        </li>
+                          <li class="nav-item">
                         <div class="dropdown">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Vaccination Providers
+                                Patient Dashboard
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="reg_health_partner">See Vax Certificate </a>
                               <a class="dropdown-item" href="#">Report Adverse Events </a>
                             </div>
                           </div>
-
+                        </li>
                         <li class="nav-item"> <a href="/vacc_info" class="nav-link">About Covid Vaccines</a> </li>
                     </ul>
 

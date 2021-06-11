@@ -141,6 +141,7 @@
 <script src="{{ asset('js/jquery.steps.min.js') }}"></script>
 
 <script>
+
     $('document').ready(function () {
         $("#health-reg").steps({
             headerTag: "h3",
@@ -148,13 +149,24 @@
             transitionEffect: "fade",
             autoFocus: true,
             onStepChanging: function (event, currentIndex, newIndex) {
+                var business_name = $('#in_business_name').val();
+                var business_type = $('#in_business_name').val();
+                var address = $('#in_business_name').val();
+                var tel = $('#in_business_name').val();
+                var cp = $('#in_business_name').val();
+                var email = $('#in_business_name').val();
+                var name1 = $('#in_business_name').val();
+                var name2 = $('#in_business_name').val();
+                var gender = $('#in_business_name').val();
+
+                $('#conf_business_name').text(business_name);
 
                 // $('#inputphone').text('Phone Number: ' + $('#phone_prefix').val() + $('#phone').val());
                 return true;
             },
             onFinished: function(){
                 // alert('submitted');
-                // $("#patient-new").submit();
+                $("#provider-new").submit();
             }
         });
         var lastScrollTop = 0;

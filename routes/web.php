@@ -115,5 +115,6 @@ Route::get('messages', [App\Http\Controllers\ChatsController::class, 'fetchMessa
 Route::get('fetchCity/{id}', [App\Http\Controllers\ClinicController::class, 'fetchCity']);
 Route::get('fetchClinic/{id}', [App\Http\Controllers\ClinicController::class, 'fetchClinic']);
 Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
+Route::post('/health_reg', [App\Http\Controllers\HealthPartnerController::class, 'store']);
 
 
