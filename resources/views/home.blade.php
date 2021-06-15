@@ -98,7 +98,7 @@
                         <div class="dropdown">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Vaccination Providers
-                            </button>
+                            </butto n>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
                               <a class="dropdown-item" href="#">Go to VP Dashboard</a>

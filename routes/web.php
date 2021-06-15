@@ -92,7 +92,7 @@ Route::get('/verify-now', function () {
     return view('auth.verify-otp');
 });
 Route::get('/recap', function () {
-    return view('recap');
+    return view('recaptcha');
 });
 Auth::routes();
 
@@ -116,5 +116,4 @@ Route::get('fetchCity/{id}', [App\Http\Controllers\ClinicController::class, 'fet
 Route::get('fetchClinic/{id}', [App\Http\Controllers\ClinicController::class, 'fetchClinic']);
 Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 Route::post('/health_reg', [App\Http\Controllers\HealthPartnerController::class, 'store']);
-
-
+Route::post('/recaptcha-page', [App\Http\Controllers\DevController::class, 'verifyRecaptcha']);

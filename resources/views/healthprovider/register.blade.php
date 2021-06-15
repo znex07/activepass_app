@@ -318,6 +318,7 @@
             </div>
 
         </div>
+        <div class="g-recaptcha" data-sitekey="6LeszzQbAAAAAGH6CY3279MGaykLrlo0-acv3FUj"></div>
     </section>
 </div>
 </form>
