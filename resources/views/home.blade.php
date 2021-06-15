@@ -98,7 +98,7 @@
                         <div class="dropdown">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Vaccination Providers
-                            </butto n>
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
                               <a class="dropdown-item" href="#">Go to VP Dashboard</a>
@@ -111,7 +111,7 @@
                                 Patient Dashboard
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="reg_health_partner">See Vax Certificate </a>
+                              <a class="dropdown-item" href="home">See Vax Certificate </a>
                               <a class="dropdown-item" href="#">Report Adverse Events </a>
                             </div>
                           </div>
@@ -139,7 +139,7 @@
                     <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> VPs and Patients can chat or message each other.</li>
 
                 </ul>
-                <a href="reg_health_partner" type="button" class="btn btn-primary mb-1">Be a Vaccination Provider</a>
+                <a href="reg_health_partner" type="button" class="btn btn-primary">Be a Vaccination Provider</a>
                 <button type="button" class="btn btn-primary">View certificate</button>
             </div>
 

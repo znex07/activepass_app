@@ -70,7 +70,8 @@ Route::get('/news', function () {
     return view('news');
 });
 Route::get('/reg_health_partner', function () {
-    return view('healthprovider.register');
+    $province = DB::table('provinces')->get();
+    return view('healthprovider.register',compact('province'));
 });
 Route::get('/register', function () {
     return view('auth.register');
