@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Mostafaznv\Recaptcha\RecaptchaServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -230,7 +231,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Client' => Twilio\Rest\Client::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-
+        'Recaptcha' => Mostafaznv\Recaptcha\Facades\Recaptcha::class
     ],
 
 ];
