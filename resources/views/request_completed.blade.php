@@ -7,7 +7,7 @@
             <div class="card-body">
                 <div class="row p-3 text-center d-flex justify-content-center" >
                     <img src="/img/sign-check-icon.png" class="img-thumbnail rounded-circle" style="height: 70px; width:70px">
-                    <h1 class="text-info">Hi {{ $request->fname }} !</h1>
+                    <h1 class="text-info text-capitalize">Hi {{ $fname }} !</h1>
                     <label>You have completed the Patient’s Registration!</label>
                     <p>Your information will be verified by our agents. Thank you.</p>
                 </div>

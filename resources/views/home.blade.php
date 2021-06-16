@@ -111,7 +111,7 @@
                                 Patient Dashboard
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="reg_health_partner">See Vax Certificate </a>
+                              <a class="dropdown-item" href="home">See Vax Certificate </a>
                               <a class="dropdown-item" href="#">Report Adverse Events </a>
                             </div>
                           </div>
@@ -139,10 +139,8 @@
                     <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> VPs and Patients can chat or message each other.</li>
 
                 </ul>
-
-                <a href="reg_health_partner" type="button" class="btn btn-primary ">Be a Vaccination Provider</a>
-
-                <a href="/home" class="btn btn-primary">View certificate</a>
+                <a href="reg_health_partner" type="button" class="btn btn-primary">Be a Vaccination Provider</a>
+                <button type="button" class="btn btn-primary">View certificate</button>
             </div>
 
             <div class="col-md-4">

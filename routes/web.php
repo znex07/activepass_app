@@ -70,7 +70,8 @@ Route::get('/news', function () {
     return view('news');
 });
 Route::get('/reg_health_partner', function () {
-    return view('healthprovider.register');
+    $province = DB::table('provinces')->get();
+    return view('healthprovider.register',compact('province'));
 });
 Route::get('/register', function () {
     return view('auth.register');
@@ -92,7 +93,7 @@ Route::get('/verify-now', function () {
     return view('auth.verify-otp');
 });
 Route::get('/recap', function () {
-    return view('recap');
+    return view('recaptcha');
 });
 Auth::routes();
 
@@ -116,6 +117,4 @@ Route::get('fetchCity/{id}', [App\Http\Controllers\ClinicController::class, 'fet
 Route::get('fetchClinic/{id}', [App\Http\Controllers\ClinicController::class, 'fetchClinic']);
 Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 Route::post('/health_reg', [App\Http\Controllers\HealthPartnerController::class, 'store']);
-Route::post('/save_vax', [App\Http\Controllers\ImmunizationController::class, 'store']);
-
-
+Route::post('/recaptcha-page', [App\Http\Controllers\DevController::class, 'verifyRecaptcha']);
