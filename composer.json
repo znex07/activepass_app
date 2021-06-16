@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "almasaeed2010/adminlte": "~2.4",
+        "dompdf/dompdf": "^1.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "google/recaptcha": "1.2",

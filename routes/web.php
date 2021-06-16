@@ -116,5 +116,6 @@ Route::get('fetchCity/{id}', [App\Http\Controllers\ClinicController::class, 'fet
 Route::get('fetchClinic/{id}', [App\Http\Controllers\ClinicController::class, 'fetchClinic']);
 Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 Route::post('/health_reg', [App\Http\Controllers\HealthPartnerController::class, 'store']);
+Route::post('/save_vax', [App\Http\Controllers\ImmunizationController::class, 'store']);
 
 

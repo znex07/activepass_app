@@ -147,7 +147,7 @@
     </footer>
     </div>
     <script>
-        $(".se-pre-con").fadeOut("slow");;
+        $(".se-pre-con").fadeOut("slow");
         $(window).on('load',function() {
 
             $(".navbar-toggler").click(function(e) {
