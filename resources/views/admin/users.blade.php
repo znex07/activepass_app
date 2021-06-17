@@ -98,7 +98,7 @@
                         <td class="no-sort no-click bread-actions">
                             <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-sm btn-success" id="btn-save"><span class="fa fa-save" id="saving"></span> Save</button>
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delModal"><span class="fa fa-trash "></span> Delete</button>
+                            <button type="button" class="btn btn-sm btn-danger btn-del" data-toggle="modal" data-info="{{$patients->id}}" data-target="#delModal"><span class="fa fa-trash "></span> Delete</button>
                             </div>
                         </td>
                       </tr>
@@ -132,7 +132,7 @@
           <p>Are you sure you want to delete this user? </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger "><i class="fa fa-trash"></i> Delete</button>
+          <button type="button" class="btn btn-danger delete"><i class="fa fa-trash"></i> Delete</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
       </div>
@@ -151,106 +151,102 @@
         <div class="modal-body">
             (*)<small>Required</small><hr>
 
-                            <form action="/register-user" method="POST" id="patient-new">
-                                @csrf
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-                                    </div>
-                                    <select class="form-control" name="user_type" id="user_type">
-                                        <option selected disabled hidden> Select User type</option>
-                                        <option>Healthcare Provider</option>
-                                        <option>Patient</option>
-                                        <option>Doctor</option>
-                                    </select>
-                                </div> <!-- form-group end.// -->
-                                <div class="form-group input-group" id="clinic">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-clinic-medical"></i> </span>
-                                    </div>
-                                    <select class="form-control" name="clinic" >
-                                        <option selected disabled hidden> Select Clinic</option>
+    <form action="/register-patient" method="POST" id="patient-new">
+        @csrf
+        <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+        <input id="fname" name="fname" class="form-control" placeholder="First name" type="text">
+        <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text">
+        <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address" required>
+        @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+        </div>
+        <select class="custom-select" id="phone_prefix" name="phone_code" style="max-width: 120px;">
+            <option selected="">+63</option>
+            <option value="1">+97</option>
+            <option value="2">+19</option>
+            <option value="3">+70</option>
+        </select>
+        <input name="phone_number" id="phone" class="form-control" placeholder="Phone number" type="text">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
+        <div class="form-row">
 
-                                    </select>
-                                </div> <!-- form-group end.// -->
-                                <div class="form-group input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                                    </div>
-                                <input id="fname" name="fname" class="form-control" placeholder="First name" type="text">
-                                <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text">
-                                <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text">
-                            </div> <!-- form-group// -->
-                            <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                                    </div>
-                                <!--<input class="form-control" name="email" placeholder="Email address" type="email">-->
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address" required>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div> <!-- form-group// -->
-                            <div class="form-group input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                                </div>
-                                <select class="custom-select" id="phone_prefix" name="phone_code" style="max-width: 120px;">
-                                    <option selected="">+63</option>
-                                    <option value="1">+97</option>
-                                    <option value="2">+19</option>
-                                    <option value="3">+70</option>
-                                </select>
-                                <input name="phone_number" id="phone" class="form-control" placeholder="Phone number" type="text">
-                            </div> <!-- form-group// -->
-                            <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Address</label>
+                <input id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
+            </div>
 
-                                    <div class="form-group col-md-6">
-                                        <label for="inputAddress">Address</label>
-                                        <input id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
-                                    </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress2">Address 2</label>
+                <input id="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
+            </div>
+        </div>
+            <div class="form-row">
 
-                                    <div class="form-group col-md-6">
-                                        <label for="inputAddress2">Address 2</label>
-                                        <input id="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
-                                    </div>
-                                </div>
-                                    <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="brgy">Province</label>
+                <select id="province" name="province" class="form-control">
+                    <option selected hidden disabled>Choose Province</option>
 
-                                    <div class="form-group col-md-4">
-                                        <label for="brgy">Province</label>
-                                        <select id="province" name="province" class="form-control">
-                                            <option selected hidden disabled>Choose Province</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                <label for="city">City</label>
+                <select id="city" name="city" class="form-control">
+                    <option selected disabled hidden>City</option>
+                    <option>...</option>
 
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                        <label for="city">City</label>
-                                        <select id="city" name="city" class="form-control">
-                                            <option selected disabled hidden>City</option>
-                                            <option>...</option>
-
-                                        </select>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                        <label for="brgy">Barangay</label>
-                                        <input id="brgy" type="text" class="form-control" >
-                                        </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputZip">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip">
-                                    </div>
-                                    </div>
+                </select>
+                </div>
+                <div class="form-group col-md-2">
+                <label for="brgy">Barangay</label>
+                <input id="brgy" type="text" class="form-control" >
+                </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+            </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary "><i class="fa fa-user-plus"></i> Add</button>
+            <button type="submit" class="btn btn-primary "><i class="fa fa-user-plus"></i> Add</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
         </div>
+        </div>
+    </form>
     </div>
 </div>
 
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        console.log('load');
+        $('.btn-del').click(function(){
+            id = $(this).data('info');
+            alert(id);
+        })
+        $('.delete').on('click',function(){
+            alert('deleted');
+        });
+    });
+
+</script>
 @endsection
