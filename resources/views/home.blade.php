@@ -101,7 +101,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
-                              <a class="dropdown-item" href="#">Go to VP Dashboard</a>
+                              <a class="dropdown-item" href="/admin/viewusers">Go to VP Dashboard</a>
                             </div>
                           </div>
                         </li>
@@ -116,7 +116,7 @@
                             </div>
                           </div>
                         </li>
-                        <li class="nav-item"> <a href="/vacc_info" class="nav-link">About Covid Vaccines</a> </li>
+                        <li class="nav-item"> <a href="/news" class="nav-link">About Covid Vaccines</a> </li>
                     </ul>
 
                 </div>
@@ -163,10 +163,9 @@
         </div>
         <div class="row">
 
-            <small class="">Copyright &copy; 2021 ACTIVEPASS <a href="/terms" class="nav-link d-none">PRIVACY & TERMS</a></small>
+            <small class="">Copyright &copy; 2021 ACTI  VEPASS <a href="/terms" class="nav-link d-none">PRIVACY & TERMS</a></small>
         </div>
     </div>
-</footer>
 </body>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>

@@ -44,7 +44,9 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        Patient::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -87,8 +89,9 @@ class PatientController extends Controller
      * @param  \App\Models\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function delete(Patient $patient, $id)
     {
-        //
+        $patient->where('id',$id)->delete();
+        return redirect()->back();
     }
 }
