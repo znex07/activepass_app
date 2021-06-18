@@ -143,8 +143,8 @@
                 <button type="button" class="btn btn-primary">View certificate</button>
             </div>
 
-            <div class="col-md-4">
-                <img src="/img/slider3.png" alt="" srcset="" height="592" width="583">
+            <div class="col-md-5">
+                <img src="/img/slider3.png" class="img-fluid" alt="Responsive image">
             </div>
 
         </div>

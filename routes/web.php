@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/report', function () {
+    return view('report');
+});
 // ADMIN
 Route::get('admin/dashboard', function () {
     $side_effects = SideEffects::all();
