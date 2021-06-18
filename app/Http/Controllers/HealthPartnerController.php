@@ -32,12 +32,22 @@ class HealthPartnerController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'business_name' => 'required|max:255',
+            'fname1' => 'required|max:255',
+            'mname1' => 'required|max:255',
+            'lname1' => 'required|max:255',
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+
         $user = new User;
         //representative 1
         $user->fname = $request->fname1;
         $user->mname = $request->mname1;
         $user->lname = $request->lname1;
-        $user->email = $request->email1;
+        $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
         //representative 2
@@ -56,7 +66,7 @@ class HealthPartnerController extends Controller
         $healthPartner->cellphone = $request->cp;
         $healthPartner->business_email = $request->company_email;
         $healthPartner->save();
-        return $request;
+        return view('request_completed')->with('fname',$user->fname);
 
     }
 

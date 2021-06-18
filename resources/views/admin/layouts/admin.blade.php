@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/>
 
+  <script src="{{ asset('js/app.js') }}" ></script>
 
 </head>
 
@@ -52,69 +53,25 @@
     </form>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto d-none">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-                @foreach ($side_effects as $side_ef)
-                    {{ $side_ef->fname }}
-                @endforeach
-              <img src="{{ asset('/img/default.png') }}" alt="User Avatar" style="height: 30px; width: 30px" class=" mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  NAME
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
+    <ul class="navbar-nav ml-auto ">
 
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-            class="fas fa-th-large"></i></a>
+        <div class="user-panel d-flex">
+            <div class="image">
+              <img src="{{ asset('/img/default.png') }}" class="rounded-circle img-thumbnail" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="/admin/profile/{{Auth::user()->id}}" class="d-block" style="text-transform: capitalize"> {{Auth::user()->fname}} {{Auth::user()->lname}} </a>
+              </div>
+          </div>
+
       </li>
     </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-light elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
       <img src="{{ asset('/img/plus.png') }}" alt="" class="brand-image"
@@ -126,11 +83,9 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('/img/default.png') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
+
         <div class="info">
-          <a href="/admin/profile/{{Auth::user()->id}}" class="d-block" style="text-transform: capitalize"> {{Auth::user()->fname}} {{Auth::user()->lname}} </a>
+          Master Dashboard
         </div>
       </div>
 
@@ -139,17 +94,23 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
           <li class="nav-item">
-            <a href="/admin/dashboard" class="nav-link {{ 'admin/dashboard' == request()->path() ? 'active' : '' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="/admin/viewusers" class="nav-link {{ 'admin/viewusers' == request()->path() ? 'active' : '' }}">
+              <img src="/img/pnt.png" alt="" sizes="15" srcset="">
+              <p>View Users</p>
+            </a>
+          </li>
+          <li class="nav-item">
+                <a href="/admin/clinic" class="nav-link {{ 'admin/clinic' == request()->path() ? 'active' : '' }}">
+            <img src="/img/hp.png" alt="" sizes="15" srcset="">
               <p>
-                Dashboard
+                Healthcare Partners
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path() ? 'menu-open' : '' }}">
+          <li class="d-none nav-item {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path() ? 'menu-open' : '' }}">
             <a href="" class="nav-link {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path()  || 'admin/profile' == request()->path() ? 'active' : '' }}">
-              <i class="nav-icon fas fa-th"></i>
               <p>
                 Users
                 <i class="fas fa-angle-left right"></i>
@@ -163,13 +124,13 @@
                     <p>View Users</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item d-none">
                   <a href="/admin/addpatient" class="nav-link {{ 'admin/addpatient' == request()->path() ? 'active' : '' }}">
                     <i class="fa fa-user-plus nav-icon"></i>
                     <p>Add new User</p>
                   </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item d-none">
                     <a href="/admin/patient/request" class="nav-link {{ 'admin/patient/request' == request()->path() ? 'active' : '' }}">
                       <i class="nav-icon fa fa-laptop-medical"></i>
                       <p>
@@ -181,7 +142,7 @@
                   </li>
             </ul>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item d-none">
             <a href="/admin/clinic" class="nav-link {{ 'admin/clinic' == request()->path() ? 'active' : '' }}">
               <i class="nav-icon fa fa-clinic-medical"></i>
               <p>
@@ -194,7 +155,7 @@
 
           <li class="nav-item ">
             <a href="/admin/customercare" class="nav-link {{ 'admin/customercare' == request()->path() ? 'active' : '' }}">
-              <i class="nav-icon fa fa-hand-holding-medical"></i>
+              <img src="/img/cc.png" alt="" sizes="15" srcset="">
               <p>
                 Customer Care
                 {{-- <span class="right badge badge-danger">New</span> --}}
@@ -204,9 +165,10 @@
           </li>
           <li class="nav-item ">
             <a href="/admin/messages" class="nav-link {{ 'admin/messages' == request()->path() ? 'active' : '' }}">
-              <i class="nav-icon fa fa-envelope"></i>
+              <img src="/img/analytics.png" alt="" sizes="15" srcset="">
+
               <p>
-                Messages
+                Analytics
                 <span class="right badge badge-danger">New</span>
 
               </p>
@@ -254,23 +216,12 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-  <div class="container text-center">
+    <div class="container text-center">
             <small class="m-0 text-center">
             Copyright &copy; 2021 Activepass <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
     </div>
-
   </footer>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- AdminLTE -->
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
-<!-- OPTIONAL SCRIPTS -->
-{{-- <script src="{{ asset('js/chart.js') }}"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js" integrity="sha512-AJUWwfMxFuQLv1iPZOTZX0N/jTCIrLxyZjTRKQostNU71MzZTEPHjajSK20Kj1TwJELpP7gl+ShXw5brpnKwEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
-
-<script src="{{ asset('js/app.js') }}" ></script>
+{{-- scripts --}}
 <script src="{{ asset('js/lifepass.js') }}"></script>
 <script src="/dist/chart.js/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -289,6 +240,21 @@
                 { responsivePriority: 1, targets: 0 },
 		            { responsivePriority: 2, targets: 5 }
             ],
+        });
+        $("#btn-save").on('click',function(e) {
+            e.preventDefault();
+            console.log("save");
+            // $("#saving").removeClass("fa fa-save").addClass("spinner-border spinner-border-sm");
+            $.ajax(
+                {
+                    url: "/save_vax",
+                    method: "POST",
+                    success: function(data){
+                        console.log(data);
+                    }
+                }
+            )
+
         });
     });
 </script>

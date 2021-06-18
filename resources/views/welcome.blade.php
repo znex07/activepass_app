@@ -64,9 +64,6 @@
                         <li class="nav-item active"> <a href="#" class="nav-link  "><span class="fa fa-phone"></span> TEL: 8-899-6356</a>  </li>
                         <li class="nav-item active"> <a href="#" class="nav-link  "><span class="fa fa-envelope"></span> Email: info@activepass.app</a> </li>
                         <li class="nav-item active"> <a href="/" class="nav-link btn btn-light d-none"> HOME</a> </li>
-                        {{-- <li class="nav-item"> <a href="/about" class="nav-link btn btn-light "> ABOUT</a> </li>
-                        <li class="nav-item"> <a href="/contact" class="nav-link btn btn-light ">CONTACT US</a> </li>
-                        <li class="nav-item"> <a href="/news" class="nav-link btn btn-light ">NEWS</a> </li> --}}
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item d-none">

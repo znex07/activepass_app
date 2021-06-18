@@ -17,16 +17,30 @@
     <link href="{{ asset('css/activepass1.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
     <script>
         $(window).load(function() {
-            $(".se-pre-con").fadeOut("slow");;
+            $(".se-pre-con").fadeOut("slow");
             $(".navbar-toggler").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
             });
         });
+
     </script>
       <link rel="stylesheet" href="{{ asset('css/jquery.steps.css') }}">
+      <style>
+          label.error
+            {
+            width: 250px;
+            display: block;
+            float: left;
+            color: red;
+            padding-left: 10px;
+            }
+      </style>
 
     </head>
 <body>
@@ -89,21 +103,30 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"> <a href="/" class="nav-link"> HOME</a> </li>
+                        <li class="nav-item mx-1">
                         <div class="dropdown">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Vaccination Providers
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Register as New VP </a>
-                              <a class="dropdown-item" href="#">Log in As VP </a>
+                              <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
+                              <a class="dropdown-item" href="#">Go to VP Dashboard</a>
                             </div>
                           </div>
-                        <li class="nav-item"> <a href="/about" class="nav-link">Vaccination Certificate</a> </li>
-                        <li class="nav-item"> <a href="/vacc_info" class="nav-link">Vaccination Info</a> </li>
-                        <li class="nav-item"> <a href="/news" class="nav-link">NEWS</a> </li>
+                        </li>
+                          <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Patient Dashboard
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="home">See Vax Certificate </a>
+                              <a class="dropdown-item" href="#">Report Adverse Events </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="nav-item"> <a href="/vacc_info" class="nav-link">About Covid Vaccines</a> </li>
                     </ul>
-
-
 
                 </div>
             </div>
@@ -121,7 +144,7 @@
 
 
 
-<footer class="footer footer-nav p-2" style="background:#F1F1F1 !important">
+<footer class="footer footer-nav" style="background:#F1F1F1 !important">
     <div class="container">
         <div class="row">
 
@@ -137,38 +160,52 @@
     </div>
 </footer>
 </body>
-<script src="{{ asset('js/app.js') }}"></script>
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 <script src="{{ asset('js/jquery.steps.min.js') }}"></script>
 
 <script>
 
     $('document').ready(function () {
+
+        function adjustIframeHeight() {
+            var $body   = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                // Adjust the height of iframe
+                $iframe.height($body.height());
+            }
+        }
         $("#health-reg").steps({
             headerTag: "h3",
             bodyTag: "section",
             transitionEffect: "fade",
             autoFocus: true,
+            saveState: true,
+		    onStepChanged: function(e, currentIndex, priorIndex) {
+                // You don't need to care about it
+                // It is for the specific demo
+                adjustIframeHeight();
+            },
             onStepChanging: function (event, currentIndex, newIndex) {
-                var business_name = $('#in_business_name').val();
-                var business_type = $('#in_business_name').val();
-                var address = $('#in_business_name').val();
-                var tel = $('#in_business_name').val();
-                var cp = $('#in_business_name').val();
-                var email = $('#in_business_name').val();
-                var name1 = $('#in_business_name').val();
-                var name2 = $('#in_business_name').val();
-                var gender = $('#in_business_name').val();
-
+                var business_name = $('#business_name').val();
+                var business_type = $("input:radio[name='business_type']:checked").val();
+                var address = $('#in_postal').val() +' '+ $('#in_building').val() +' '+ $('#in_apartment').val() +' '+ $('#in_brgy').val() +' '+ $('#province').val() +' '+ $('#city').val();
+                var tel = $('#in_tel').val();
+                var cp = $('#in_cp').val();
+                var email = $('#in_comp_email').val();
+                var name1 = $('#in_name1').val();
+                var name2 = $('#in_name2').val();
+                var gender = $("input:radio[name='gender1']:checked").val();
                 $('#conf_business_name').text(business_name);
-
-                // $('#inputphone').text('Phone Number: ' + $('#phone_prefix').val() + $('#phone').val());
+                $('#conf_business_type').text(business_type);
+                $('#conf_c_address').text(address);
                 return true;
             },
             onFinished: function(){
-                // alert('submitted');
                 $("#provider-new").submit();
             }
         });
+
         var lastScrollTop = 0;
         $(window).scroll(function(event){
             var st = $(this).scrollTop();

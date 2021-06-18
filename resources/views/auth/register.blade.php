@@ -207,7 +207,7 @@
             <input class="form-control" placeholder="Repeat password" type="password" required>
         </div> <!-- form-group// -->
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+            <button type="submit" class="btn bt n-primary btn-block"> Create Account  </button>
         </div> <!-- form-group// -->
         <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
     </form>

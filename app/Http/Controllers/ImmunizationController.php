@@ -49,7 +49,7 @@ class ImmunizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd(Immunization::create($request));
     }
 
     /**
