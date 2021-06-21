@@ -1,5 +1,13 @@
-input:focus, textarea:focus, select:focus{
-    outline: none;
+.company-title{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+input {
+    outline: 0 !important;
+    border-width: 0 0 2px !important;
+    border-color: rgb(28, 142, 194) !important;
+  }
+input:focus {
+    border-color: green !important
 }
 
 .h6_css{
@@ -8,7 +16,6 @@ input:focus, textarea:focus, select:focus{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
 }
-
 
 .ir_date{
     border: 0px;

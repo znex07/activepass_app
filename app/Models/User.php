@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends \TCG\Voyager\Models\User
+
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -17,9 +18,24 @@ class User extends \TCG\Voyager\Models\User
      * @var array
      */
     protected $fillable = [
-        'name',
+        'fname',
+        'mname',
+        'lname',
         'email',
+        'role_id',
+        'phone_number',
+        'vaccine_brand',
+        'is_vaccinated',
+        'date_1',
+        'date_2',
+        'email',
+        'avatar',
+        'address1',
+        'address2',
+        'city',
+        'zip',
         'password',
+        'qr_code',
     ];
 
     /**
@@ -40,4 +56,9 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
 }

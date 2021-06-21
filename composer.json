@@ -9,14 +9,20 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "almasaeed2010/adminlte": "~2.4",
+        "dompdf/dompdf": "^1.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "google/recaptcha": "1.2",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
+        "maatwebsite/excel": "^3.1",
+        "mostafaznv/recaptcha": "^1.1",
+        "pusher/pusher-php-server": "^7.0",
         "simplesoftwareio/simple-qrcode": "~4",
-        "tcg/voyager": "^1.4"
+        "twilio/sdk": "^6.19"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

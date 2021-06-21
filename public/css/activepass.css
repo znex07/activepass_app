@@ -1,10 +1,15 @@
 body {
-    background-image: url('/img/bg-blue.jpg');
+    /* background-image: url('/img/bg-blue.jpg'); */
     background-repeat: repeat;
     background-size:cover;
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 .navbar-toggle { display:block !important; }
 footer {
+    /* background-color: rgba(153, 59, 59, 0.5); */
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -69,8 +74,8 @@ input:disabled{
     background-color:white;
 }
 .sidebar-heading{
-    background-image: url('/img/bg-green.jpg');
-    color: white;
+    background-image: url('/img/bg-white.jpg');
+    /* color: rgb(0, 0, 0); */
 
 }
 .mycard{
@@ -116,4 +121,25 @@ input:disabled{
 	height: 100%;
 	z-index: 9999;
 	background: url('../img/Preloader_11.gif') center no-repeat #fff;
+}
+.card-services{
+    position: absolute;
+width: 350px;
+height: 354px;
+left: 240px;
+top: 1222px;
+
+background: #FFFFFF;
+/* drop shadow */
+
+box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+border-radius: 20px;
+}
+.card-thum{
+    width: 200px;
+    margin: 15px;
+    padding-top: 15px;
+    background: #FFFFFF;
+    box-shadow: 50px 40px 50px rgba(229, 233, 246, 1.0);
+    border-radius: 5px;
 }
