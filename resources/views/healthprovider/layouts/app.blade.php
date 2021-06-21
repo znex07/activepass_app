@@ -160,7 +160,7 @@
     </div>
 </footer>
 </body>
-{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.steps.min.js') }}"></script>
 
 <script>
