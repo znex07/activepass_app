@@ -37,6 +37,9 @@ class HealthPartnerController extends Controller
             'fname1' => 'required|max:255',
             'mname1' => 'required|max:255',
             'lname1' => 'required|max:255',
+            'fname2' => 'required|max:255',
+            'mname2' => 'required|max:255',
+            'lname2' => 'required|max:255',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);

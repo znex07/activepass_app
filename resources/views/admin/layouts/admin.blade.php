@@ -58,7 +58,7 @@
       <li class="nav-item">
         <div class="user-panel d-flex">
             <div class="image">
-              <img src="{{ asset('/img/default.png') }}" class="rounded-circle img-thumbnail" alt="User Image">
+              <img src="/img/{{ Auth::user()->avatar }}" class="rounded-circle img-thumbnail" alt="User Image">
             </div>
             <div class="info">
                 <a href="/admin/profile/{{Auth::user()->id}}" class="d-block" style="text-transform: capitalize"> {{Auth::user()->fname}} {{Auth::user()->lname}} </a>

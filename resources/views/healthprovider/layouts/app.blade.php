@@ -160,7 +160,7 @@
     </div>
 </footer>
 </body>
-{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.steps.min.js') }}"></script>
 
 <script>
@@ -182,8 +182,6 @@
             autoFocus: true,
             saveState: true,
 		    onStepChanged: function(e, currentIndex, priorIndex) {
-                // You don't need to care about it
-                // It is for the specific demo
                 adjustIframeHeight();
             },
             onStepChanging: function (event, currentIndex, newIndex) {

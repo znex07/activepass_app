@@ -1,224 +1,329 @@
-@extends('layouts.app')
+@extends('healthprovider.layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center py-3">
-        <!--<div class="col-md-8">-->
-        <!--    <div class="card mt-5">-->
-
-                <!--<div class="card-body">-->
-                <!--    <form method="POST" action="/register-user">-->
-                <!--        @csrf-->
-
-                <!--        <div class="form-group row">-->
-                <!--            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>-->
-
-                <!--            <div class="col-md-6">-->
-                <!--                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>-->
-
-                <!--                @error('name')-->
-                <!--                    <span class="invalid-feedback" role="alert">-->
-                <!--                        <strong>{{ $message }}</strong>-->
-                <!--                    </span>-->
-                <!--                @enderror-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--        {{-- <div class="form-group row">-->
-                <!--            <label class="col-md-4 col-form-label text-md-right">Vaccine</label>-->
-                <!--            <div class="col-md-6 dropdown">-->
-
-                <!--                    <select class="form-control" id="vaccine" name="vaccine" aria-labelledby="dropdownMenuButton">-->
-                <!--                        <option selected>Sinopharm</option>-->
-                <!--                        <option >Kexing</option>-->
-                <!--                        <option >Can Sino</option>-->
-                <!--                        <option >AstraZeneca</option>-->
-                <!--                        <option >Pfizer</option>-->
-                <!--                        <option >Moderna</option>-->
-                <!--                        <option >Johnsons & Johnsons</option>-->
-                <!--                        <option >Novovax</option>-->
-                <!--                        <option >Satellite 5</option>-->
-                <!--                    </select>-->
-                <!--            </div>-->
-                <!--        </div> --}}-->
-                <!--        <div class="form-group row">-->
-                <!--            <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>-->
-                <!--            <div class="col-md-6">-->
-                <!--                <input id="phone_number" type="tel" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="+639" required>-->
-                <!--                @error('phone_number')-->
-                <!--                    <span class="invalid-feedback" role="alert">-->
-                <!--                        <strong>{{ $message }}</strong>-->
-                <!--                    </span>-->
-                <!--                @enderror-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--        <div class="form-group row">-->
-
-                <!--            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>-->
-
-                <!--            <div class="col-md-6">-->
-                <!--                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">-->
-                <!--                @error('email')-->
-                <!--                    <span class="invalid-feedback" role="alert">-->
-                <!--                        <strong>{{ $message }}</strong>-->
-                <!--                    </span>-->
-                <!--                @enderror-->
-                <!--            </div>-->
-                <!--        </div>-->
-
-                <!--        <div class="form-group row">-->
-                <!--            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>-->
-
-                <!--            <div class="col-md-6">-->
-                <!--                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">-->
-
-                <!--                @error('password')-->
-                <!--                    <span class="invalid-feedback" role="alert">-->
-                <!--                        <strong>{{ $message }}</strong>-->
-                <!--                    </span>-->
-                <!--                @enderror-->
-                <!--            </div>-->
-                <!--        </div>-->
-
-                <!--        <div class="form-group row">-->
-                <!--            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>-->
-
-                <!--            <div class="col-md-6">-->
-                <!--                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">-->
-                <!--            </div>-->
-                <!--        </div>-->
-
-                <!--        <div class="form-group row mb-0">-->
-                <!--            <div class="col-md-6 offset-md-4">-->
-                <!--                <button type="submit" class="btn btn-primary">-->
-                <!--                    {{ __('Register') }}-->
-                <!--                </button>-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--    </form>-->
-                <!--</div>-->
-            <!--</div>-->
-            <div class="card mt-3 bg-light">
-                <form method="POST" action="/register-user">
-                        @csrf
-    <article class="card-body mx-auto" style="max-width: 600px;">
-    	<h4 class="card-title mt-3 text-center">Register for VaxPass</h4>
-    	{{-- <p class="text-center">Get started with your free account</p> --}}
-    	{{-- <p>
-    		<a href="" class="btn btn-block btn-danger"> <i class="fab fa-google"></i>   Login via Gmail</a>
-    		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-    	</p>
-    	<p class="divider-text">
-            <span class="bg-light">OR</span>
-        </p> --}}
-    	{{-- <form> --}}
-    	<div class="form-group input-group">
-    		<div class="input-group-prepend">
-    		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-    		 </div>
-             <input id="fname" name="fname" class="form-control" placeholder="First name" type="text" required>
-             <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text" required>
-             <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text" required>
-        </div> <!-- form-group// -->
-        <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
-        	<div class="input-group-prepend">
-    		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-    		 </div>
-            <!--<input class="form-control" name="email" placeholder="Email address" type="email">-->
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address" required>
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div> <!-- form-group// -->
-        <div class="form-row">
-
-            <div class="form-group col">
-                <label for="inputAddress">Address</label>
-                <input name="address1" id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
-            </div>
-
-            <div class="form-group col">
-                <label for="inputAddress2">Address 2</label>
-                <input id="address2" name="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
-            </div>
-        </div>
-          <div class="form-row">
-            <div class="form-group col">
-                <label for="brgy">Province</label>
-                <select id="province" name="province" class="form-control">
-                    <option selected hidden disabled>Choose Province</option>
-                    @foreach ($province as $prov)
-                    <option value="{{$prov->id}}">{{$prov->name}}</option>
-                    @endforeach
-                  </select>
-              </div>
-              <div class="form-group col">
-                <label for="city">City</label>
-                <select id="city" name="city" class="form-control">
-                  <option selected disabled hidden>City</option>
-                  <option>...</option>
-
-                </select>
-              </div>
-
-            <div class="form-group col">
-              <label for="brgy">Barangay</label>
-              <input id="brgy" type="text" class="form-control" >
-            </div>
-            <div class="form-group col">
-              <label for="inputZip">Zip</label>
-              <input type="text" name="zip" class="form-control" id="inputZip">
-            </div>
-          </div>
-        <div class="form-group input-group">
-        	<div class="input-group-prepend">
-    		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-    		</div>
-    		<select class="custom-select" name="phone_code" style="max-width: 120px;">
-    		    <option selected="">+63</option>
-    		    <option value="1">+97</option>
-    		    <option value="2">+19</option>
-    		    <option value="3">+70</option>
-    		</select>
-        	<input name="phone_number" class="form-control" placeholder="Phone number" type="text">
-        </div> <!-- form-group// -->
-        <div class="form-group input-group">
-        	<div class="input-group-prepend">
-    		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-    		</div>
-    		<select class="form-control" >
-    			<option selected hidden disabled> Select User type</option>
-    			<option>Healthcare Provider</option>
-    			<option>Patient</option>
-    			<option>Doctor</option>
-    		</select>
-    	</div> <!-- form-group end.// -->
-        <div class="form-group input-group">
-        	<div class="input-group-prepend">
-    		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-    		</div>
-            <input class="form-control" name="password" placeholder="Create password" type="password" required>
-        </div> <!-- form-group// -->
-        <div class="form-group input-group">
-        	<div class="input-group-prepend">
-    		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-    		</div>
-            <input class="form-control" placeholder="Repeat password" type="password" required>
-        </div> <!-- form-group// -->
-        <div class="form-group">
-            <button type="submit" class="btn bt n-primary btn-block"> Create Account  </button>
-        </div> <!-- form-group// -->
-        <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
-    </form>
-    </article>
-</div> <!-- card.// -->
+<form method="POST" action="health_reg" id="provider-new">
+    @csrf
+<div id="health-reg">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<h3>Fill Up </h3>
+    <section data-step="0">
+    <h4>Healthcare Partner Registration </h4>
+    <h6 class="text-weight-bold text-info"></h6>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="business_name" class="text-primary">Business Name or Company Name</label>
+            <input type="text"  placeholder="Complete Business Name or Company Name *" class="form-control" name="business_name" id="business_name" value="{{ old('business_name') }}">
         </div>
     </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="exampleFormControlInput1" class="text-primary">Type of Healthcare Partner *</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="business_type" id="exampleRadios1" value="hospital" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Hospital/Clinic
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="business_type" id="exampleRadios2" value="health_org">
+                <label class="form-check-label" for="exampleRadios2">
+                    Healthcare organization
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="business_type" id="exampleRadios3" value="government" >
+                <label class="form-check-label" for="exampleRadios3">
+                    Government
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="business_type" id="other_rb" >
+                <label class="form-check-label" for="other_rb">
+                    Other:
+                </label>
+                <input type="text" name="business_type  " class="form-control form-control-sm col-md-4" id="other" placeholder="Please specify" disabled>
+            </div>
+
+        </div>
+    </div>
+    <label for="exampleFormControlInput1" class="text-primary">Company Address</label>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="in_building" name="building" placeholder="House/ Building no., Street *" value="{{ old('building') }}">
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="in_postal" name="postal_code"  placeholder="Postal Code *" value="{{ old('postal_code') }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <input type="text" id="in_apartment" class="form-control" name="apartment" placeholder="Apartment, Suite No., etc. (Optional)" value="{{ old('apartment') }}">
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="in_brgy" name="brgy"  placeholder="Barangay/ Village *" value="{{old('brgy')}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <select id="province" name="province"
+            class="form-control" value="{{old('province')}}">
+                <option selected hidden disabled>Choose Province</option>
+                @foreach ($province as $prov)
+                <option value="{{$prov->id}}">{{$prov->name}}</option>
+                @endforeach
+              </select>
+        </div>
+        <div class="form-group col-md-4">
+            <select id="city" name="city" class="form-control">
+                <option selected disabled hidden>City</option>
+                <option>...</option>
+
+              </select>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" name="country"  placeholder="Country *" value="{{old('country')}}">
+        </div>
+    </div>
+    <label for="exampleFormControlInput1" class="text-primary">Contact Information</label>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" name="tel" placeholder="Telephone Number *" value="{{old('tel')}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" name="cp" placeholder="Cellphone Number *" value="{{old('cp')}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" name="company_email" placeholder="Company Email Address *" value="{{old('company_email')}}">
+        </div>
+    </div>
+    </section>
+
+<h3>Represent</h3>
+    <section data-step="1">
+        <label for="exampleFormControlInput1" class="text-primary">Company Representative</label>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="fname1" placeholder="First Name *" value="{{old('fname1')}}">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="lname1" placeholder="Last Name *" value="{{old('lname1')}}">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="exampleFormControlInput1" class="text-primary">Gender *</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender1" id="male1" value="male" checked>
+                    <label class="form-check-label" for="male">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender1" id="female1" value="female">
+                    <label class="form-check-label" for="female">
+                      Female
+                    </label>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="mname1"  placeholder="Middle Initial *" value="{{old('mname1')}}">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="suffix_name1"  placeholder="Suffix (if applicable only) ">
+                <small>(e.g. Sr., Jr., III)</small>
+            </div>
+
+        </div>
+        <label for="exampleFormControlInput1" class="text-primary"> Contact Information </label>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="email" placeholder="Email Address *" value="{{old('email')}}">
+            </div>
+        </div>
+        <label for="exampleFormControlInput1" class="text-success">Company Representative 2</label>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="fname2" value="{{old('fname2')}}" placeholder="First Name *">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="lname2" value="{{old('lname2')}}" placeholder="Last Name *">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="exampleFormControlInput1" class="text-primary">Gender *</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender2" id="male" value="male" checked>
+                    <label class="form-check-label" for="male">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender2" id="female" value="female">
+                    <label class="form-check-label" for="female">
+                      Female
+                    </label>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="mname2" value="{{old('mname2')}}" placeholder="Middle Initial *">
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="suffix_name2" value="{{old('suffix_name2')}}"  placeholder="Suffix (if applicable only) ">
+                <small>(e.g. Sr., Jr., III)</small>
+            </div>
+
+        </div>
+        <label for="exampleFormControlInput1" class="text-primary"> Contact Information </label>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="email2" value="{{old('email2')}}" placeholder="Email Address *">
+            </div>
+        </div>
+    </section>
+<h3>Confirm</h3>
+    <section>
+        <h3>Healthcare Partner Confirmation Information</h3>
+        <div class="row">
+        <div class="col-sm-12">
+            <div class="card ">
+                <div class="card-header">
+                       <h4 class="text-primary"><a class="btn float-right">
+                        <span class="fa fa-edit"></span>
+                    </a>Name</h4>
+
+
+                </div>
+                <div class="card-body">
+                    <h5>Business Name or company Name</h5>
+                    <p class="text-primary text-uppercase" id="conf_business_name">Null</p>
+                    <h5>Type of Healthcare Partner</h5>
+                    <p class="text-primary text-uppercase" id="conf_business_type">Null</p>
+                    <h5>Company Address</h5>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h6>House/ Building no., Street</h6>
+                            <p id="conf_c_address" class="text-primary text-uppercase">Null</p>
+                        </div>
+                    </div>
+
+                    <h5>Contact Information</h5>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h6>Telephone Number</h6>
+                            <p class="text-primary text-uppercase" id="conf_tel">Null</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h6>Cellphone Number</h6>
+                            <p class="text-primary text-uppercase" id="conf_cp">Null</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h6>Company Email Address</h6>
+                            <p class="text-primary text-uppercase" id="conf_c_email">Null</p>
+                        </div>
+                    </div>
+                    <h5>Company Representative</h5>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h6>Name1</h6>
+                            <p class="text-primary text-uppercase" id="conf_r_fname1">Null</p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <h6>Gender</h6>
+                            <p class="text-primary text-uppercase" id="conf_gender1">Null</p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <h5>Contact Information</h5>
+                            <h6>Email Address</h6>
+                            <p class="text-primary text-uppercase" id="conf_r_email1">Null</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h6>Name2</h6>
+                            <p class="text-primary text-uppercase" id="conf_r_fname2">Null</p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <h6>Gender</h6>
+                            <p class="text-primary text-uppercase" id="conf_gender2">Null</p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <h5>Contact Information</h5>
+                            <h6>Email Address</h6>
+                            <p class="text-primary text-uppercase" id="conf_r_email2">Null</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agree" value="" checked>
+                        <label class="form-check-label" for="agree">
+                            I agree to your terms and conditions.
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input bg-success" id="confirm" type="checkbox" value="" checked>
+                        <label class="form-check-label" for="confirm">
+                            I confirm that all the information I placed are authentic.
+                        </label>
+                      </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+<h3>Password</h3>
+    <section>
+        <h2>Generate Password</h2>
+        <p class="text-primary"><i class="fas fa-info-circle"></i> Password must be 8 to 12 characters long</p>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="password">Create Password</label>
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" value="{{old('password')}}">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+            </div>
+            <div class="form-group col-md-4">
+                <label for="password-confirm" >{{ __('Confirm Password') }}</label>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" value="{{old('password_confirmation')}}">
+            </div>
+
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LeszzQbAAAAAGH6CY3279MGaykLrlo0-acv3FUj"></div>
+    </section>
 </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#province').on('change', function(){
+    $(document).on('change','#province', function(){
             $("#city option").remove();
             $.ajax({
                 type: 'GET',
@@ -230,7 +335,10 @@
                 }
             });
 
-        });
+    });
+    $(document).on('click','#other_rb', function(){
+        $('#other').removeAttr('disabled');
+        $('#other').focus();
     });
 
 </script>

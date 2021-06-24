@@ -330,14 +330,13 @@
                 type: 'GET',
                 url: '/fetchCity/'+$(this).val(),
                 success: function(data){
-                    console.log(data);
                     $.each( data, function(id, value){
                         $('#city').append('<option > '+data[id]+'</option>');
                     })
                 }
             });
 
-        });
+    });
 
 </script>
 @endsection

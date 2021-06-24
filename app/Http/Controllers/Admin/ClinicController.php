@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\DB;
 
-use App\Models\Vaccine;
+use App\Models\Clinic;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class VaccineController extends Controller
+class ClinicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,10 @@ class VaccineController extends Controller
     {
         //
     }
+    public function fetchClinic($id){
+        return Clinic::get();
 
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -41,10 +46,10 @@ class VaccineController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Vaccine  $vaccine
+     * @param  \App\Models\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-    public function show(Vaccine $vaccine)
+    public function show(Clinic $clinic)
     {
         //
     }
@@ -52,22 +57,27 @@ class VaccineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Vaccine  $vaccine
+     * @param  \App\Models\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vaccine $vaccine)
+    public function edit(Clinic $clinic)
     {
         //
     }
+    public function fetchCity($id)
+    {
+        $city = DB::table('cities')->where('province_id',$id)->pluck('name');
 
+        return $city;
+    }
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Vaccine  $vaccine
+     * @param  \App\Models\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vaccine $vaccine)
+    public function update(Request $request, Clinic $clinic)
     {
         //
     }
@@ -75,10 +85,10 @@ class VaccineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Vaccine  $vaccine
+     * @param  \App\Models\Clinic  $clinic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vaccine $vaccine)
+    public function destroy(Clinic $clinic)
     {
         //
     }
