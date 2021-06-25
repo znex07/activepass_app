@@ -44,7 +44,7 @@
                         <section>
                             (*)<small>Required</small><hr>
 
-                            <form action="/register-user" method="POST" id="patient-new">
+                            <form action="{{route('user.store')}}" method="POST" id="patient-new">
                                 @csrf
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
@@ -328,7 +328,7 @@
             $("#city option").remove();
             $.ajax({
                 type: 'GET',
-                url: '/fetchCity/'+$(this).val(),
+                url: '/city/'+$(this).val(),
                 success: function(data){
                     $.each( data, function(id, value){
                         $('#city').append('<option > '+data[id]+'</option>');

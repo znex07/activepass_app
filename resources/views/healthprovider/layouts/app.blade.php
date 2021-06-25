@@ -109,8 +109,8 @@
                                 Vaccination Providers
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
-                              <a class="dropdown-item" href="#">Go to VP Dashboard</a>
+                              <a class="dropdown-item" href="register">Register as new VP </a>
+                              <a class="dropdown-item" href="healthprovider">Go to VP Dashboard</a>
                             </div>
                           </div>
                         </li>
@@ -136,7 +136,7 @@
 
 
 <main class="py-5">
-    <div class="container" style="padding: 5%; margin-top:30px">
+    <div class="container" style="padding: 5%; margin-top:10px; background-image: url('/img/bg-green.jpg')">
         @yield('content')
 
     </div>

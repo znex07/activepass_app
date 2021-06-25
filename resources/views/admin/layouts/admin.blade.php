@@ -96,7 +96,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="/admin/viewusers" class="nav-link {{ 'admin/viewusers' == request()->path() ? 'active' : '' }}">
+            <a href="user" class="nav-link {{ 'admin/viewusers' == request()->path() ? 'active' : '' }}">
               <img src="/img/pnt.png" alt="" sizes="15" srcset="">
               <p>View Users</p>
             </a>

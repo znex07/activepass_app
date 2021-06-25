@@ -103,7 +103,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="/register">Register as new VP </a>
-                              <a class="dropdown-item" href="/admin/users">Go to VP Dashboard</a>
+                              <a class="dropdown-item" href="/healthprovider">Go to VP Dashboard</a>
                             </div>
                           </div>
                         </li>

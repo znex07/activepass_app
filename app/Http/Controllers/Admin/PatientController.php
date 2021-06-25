@@ -13,8 +13,11 @@ class PatientController extends Controller
    
     public function index()
     {
-        $users = Clinic::get();
-        return view('search', compact('users'));
+        $province = DB::table('provinces')->get();
+        $patients = Patient::get();
+        $clinic = Clinic::get();
+        // dd($patients);
+        return view('admin.addpatient', compact('patients','clinic','province'));
 
     }
     public function report(Request $request){

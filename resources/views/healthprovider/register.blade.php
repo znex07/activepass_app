@@ -1,7 +1,7 @@
 @extends('healthprovider.layouts.app')
 
 @section('content')
-<form method="POST" action="health_reg" id="provider-new">
+<form method="POST" action="{{ route('user.store') }}" id="provider-new">
     @csrf
 <div class="card">
     <div class="card-header">

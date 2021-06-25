@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use DB;
+use App\Models\Patient;
+use App\Models\Clinic;
 use App\Models\HealthPartner;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HealthPartnerController extends Controller
 {
@@ -15,7 +18,10 @@ class HealthPartnerController extends Controller
      */
     public function index()
     {
-        //
+        $province = DB::table('provinces')->get();
+        $patients = Patient::get();
+        $clinic = Clinic::get();
+        return view('admin.addpatient', compact('patients','clinic','province'));
     }
 
     /**

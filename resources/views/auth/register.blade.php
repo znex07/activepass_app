@@ -1,7 +1,7 @@
 @extends('healthprovider.layouts.app')
 
 @section('content')
-<form method="POST" action="health_reg" id="provider-new">
+<form method="POST" action="{{ route('user.store') }}" id="provider-new">
     @csrf
 <div id="health-reg">
 @if ($errors->any())
@@ -15,17 +15,19 @@
 @endif
 <h3>Fill Up </h3>
     <section data-step="0">
-    <h4>Healthcare Partner Registration </h4>
+    <div class="card">
+        <div class="card-header text-primary text-center"><h4>Healthcare Partner Registration </h4></div>
+    <div class="card-body">
     <h6 class="text-weight-bold text-info"></h6>
     <div class="row">
-        <div class="form-group col-md-6">
-            <label for="business_name" class="text-primary">Business Name or Company Name</label>
+        <div class="form-group col-md-8">
+            <h2 for="business_name" class="text-dark"><i class="fas fa-user"></i> Business Name or Company Name</h2>
             <input type="text"  placeholder="Complete Business Name or Company Name *" class="form-control" name="business_name" id="business_name" value="{{ old('business_name') }}">
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-md-6">
-            <label for="exampleFormControlInput1" class="text-primary">Type of Healthcare Partner *</label>
+        <div class="form-group col-md-8">
+            <h3 for="exampleFormControlInput1" class="text-dark">Type of Healthcare Partner *</h3>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="business_type" id="exampleRadios1" value="hospital" checked>
                 <label class="form-check-label" for="exampleRadios1">
@@ -54,7 +56,7 @@
 
         </div>
     </div>
-    <label for="exampleFormControlInput1" class="text-primary">Company Address</label>
+    <h2 for="exampleFormControlInput1" class="text-dark"><i class="fas fa-map"></i> Company Address</h2>
     <div class="row">
         <div class="form-group col-md-4">
             <input type="text" class="form-control" id="in_building" name="building" placeholder="House/ Building no., Street *" value="{{ old('building') }}">
@@ -95,7 +97,7 @@
             <input type="text" class="form-control" name="country"  placeholder="Country *" value="{{old('country')}}">
         </div>
     </div>
-    <label for="exampleFormControlInput1" class="text-primary">Contact Information</label>
+    <h2 for="exampleFormControlInput1" class="text-dark"><i class="fas fa-envelope"></i> Contact Information</h2>
     <div class="row">
         <div class="form-group col-md-4">
             <input type="text" class="form-control" name="tel" placeholder="Telephone Number *" value="{{old('tel')}}">
@@ -111,11 +113,15 @@
             <input type="text" class="form-control" name="company_email" placeholder="Company Email Address *" value="{{old('company_email')}}">
         </div>
     </div>
+    </div>
+    </div>
     </section>
 
-<h3>Represent</h3>
+<h3>Representative</h3>
     <section data-step="1">
-        <label for="exampleFormControlInput1" class="text-primary">Company Representative</label>
+    <div class="card">
+        <div class="card-header"><h2 for="exampleFormControlInput1" class="text-dark"><i class="fas fa-user"></i> Company Representative</h2></div>
+        <div class="card-body">
         <div class="row">
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="fname1" placeholder="First Name *" value="{{old('fname1')}}">
@@ -157,7 +163,7 @@
                 <input type="text" class="form-control" name="email" placeholder="Email Address *" value="{{old('email')}}">
             </div>
         </div>
-        <label for="exampleFormControlInput1" class="text-success">Company Representative 2</label>
+        <h2 for="exampleFormControlInput1" class="text-dark"><i class="fas fa-user"></i> Company Representative 2</h2>
         <div class="row">
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="fname2" value="{{old('fname2')}}" placeholder="First Name *">
@@ -197,6 +203,8 @@
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="email2" value="{{old('email2')}}" placeholder="Email Address *">
             </div>
+        </div>
+        </div>
         </div>
     </section>
 <h3>Confirm</h3>
@@ -327,7 +335,7 @@
             $("#city option").remove();
             $.ajax({
                 type: 'GET',
-                url: '/fetchCity/'+$(this).val(),
+                url: '/city/'+$(this).val(),
                 success: function(data){
                     $.each( data, function(id, value){
                         $('#city').append('<option > '+data[id]+'</option>');
