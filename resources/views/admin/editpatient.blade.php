@@ -2,12 +2,11 @@
 @extends('admin.layouts.admin')
 
 @section('content')
-
 <div class="content-wrapper">
 <div class="content-header">
-<div class="container-fluid">
-        
-
+    <div class="container-fluid">
+    <div class="row mb-2">
+          
 <div class="content">
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
@@ -29,8 +28,9 @@
                         <section>
                             (*)<small>Required</small><hr>
 
-                            <form action="{{route('patients.store')}}" method="POST" id="patient-new">
+                            <form action="{{route('patients.update',$patient->id)}}" method="POST" id="patient-new">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"> <i class="fa fa-building"></i> </span>
@@ -49,8 +49,7 @@
                                     <select class="form-control" name="clinic" >
                                         <option selected disabled hidden> Select Clinic</option>
                                         @foreach ($clinic as $clinics)
-                                        <option value="{{$clinics->name}}">{{$clinics->name}}</option>
-
+                                            <option value="{{$clinics->name}}" {{$patient}}>{{$clinics->name}}</option>
                                         @endforeach
                                     </select>
                                 </div> <!-- form-group end.// -->
@@ -58,16 +57,16 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                  </div>
-                                <input id="fname" name="fname" class="form-control" placeholder="First name" type="text">
-                                <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text">
-                                <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text">
+                                <input id="fname" name="fname" class="form-control" placeholder="First name" type="text" value="{{$patient->fname}}">
+                                <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text" value="{{$patient->mname}}">
+                                <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text" value="{{$patient->lname}}">
                             </div> <!-- form-group// -->
                             <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                  </div>
                                 <!--<input class="form-control" name="email" placeholder="Email address" type="email">-->
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{$patient->email}}" value="{{ old('email') }}" placeholder="Email address" required>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -84,7 +83,7 @@
                                     <option value="2">+19</option>
                                     <option value="3">+70</option>
                                 </select>
-                                <input name="phone_number" id="phone" class="form-control" placeholder="Phone number" type="text">
+                                <input name="phone_number" value="{{$patient->phone_number}}" id="phone" class="form-control" placeholder="Phone number" type="text">
                             </div> <!-- form-group// -->
                             <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="form-row">

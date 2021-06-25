@@ -50,9 +50,9 @@
 
             <div class="container">
 
-                <img src="{{asset('/img/plus.png')}}" class="navbar-toggler-right align-self-center mx-1" style="height: 30px; width:30px">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'ActivePass') }}
+                <img src="{{asset('/img/plus.png')}}" class="navbar-toggler-right align-self-center m-3" style="height: 30px; width:30px">
+                <a class="navbar-brand  mt-2" href="{{ url('/') }}">
+                    <h3>{{ config('app.name', 'ActivePass') }}</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

@@ -9,11 +9,12 @@ Auth::routes();
 
 Route::view('/','welcome');
 
-Route::resource('user', PatientController::class);
-Route::get('city/{id}',[ClinicController::class, 'fetchCity']);
 Route::middleware(['auth'])->group(function () {
-    Route::view('home', 'admin.dashboard');
-    Route::resource('patient',PatientController::class);
+    Route::view('home', 'user.dashboard');
+    Route::resource('users', PatientController::class);
+    Route::get('patients/new', [PatientController::class,'new']);
+    Route::resource('patients',PatientController::class);
     Route::resource('healthprovider', HealthPartnerController::class);
 });
+Route::get('city/{id}',[ClinicController::class, 'fetchCity']);
 

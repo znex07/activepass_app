@@ -16,15 +16,20 @@ class PatientController extends Controller
         $province = DB::table('provinces')->get();
         $patients = Patient::get();
         $clinic = Clinic::get();
-        // dd($patients);
-        return view('admin.addpatient', compact('patients','clinic','province'));
-
+        return view('admin.users', compact('patients','clinic','province'));
     }
     public function report(Request $request){
         SideEffects::create($request->all());
 
     }
-    
+    public function new()
+    {
+        $province = DB::table('provinces')->get();
+        $patients = Patient::get();
+        $clinic = Clinic::get();
+        return view('admin.addpatient', compact('patients','clinic','province'));
+
+    }
     public function create()
     {
         $province = DB::table('provinces')->get();
@@ -35,26 +40,30 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         Patient::create($request->all());
-        return redirect()->back();
+        return redirect('patients')->with('success','Patient successfully created.');
     }
 
     public function show(Patient $patient)
     {
-        
+        return $patient->all();
     }
 
     public function edit(Patient $patient)
     {
+        $province = DB::table('provinces')->get();
+        $patients = Patient::get();
+        $clinic = Clinic::get();
+        return view('admin.editpatient',compact('patient','clinic','province'));
     }
 
     public function update(Request $request, Patient $patient)
     {
     }
 
-    public function delete(Patient $patient, $id)
+    public function destroy(Patient $patient)
     {
         $patient->delete();
-        return redirect()->back();
+        return redirect()->route('patients.index')->with('success','post deleted successfully');
     }
 
     public function report_adverse(){
