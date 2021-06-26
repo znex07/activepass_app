@@ -34,6 +34,7 @@ class HealthPartnerController extends Controller
     {
         $validated = $request->validate([
             'business_name' => 'required|max:255',
+            'business_type' => 'required',
             'fname1' => 'required|max:255',
             'mname1' => 'required|max:255',
             'lname1' => 'required|max:255',

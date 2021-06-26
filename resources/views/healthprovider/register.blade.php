@@ -14,108 +14,117 @@
     </div>
 @endif
 <h3>Fill Up </h3>
-    <section data-step="0">
-    <h4>Healthcare Partner Registration </h4>
-    <h6 class="text-weight-bold text-info"></h6>
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="business_name" class="text-primary">Business Name or Company Name</label>
-            <input type="text"  placeholder="Complete Business Name or Company Name *" class="form-control" name="business_name" id="business_name" value="{{ old('business_name') }}">
+    <section data-step="0" >
+    <div class="card">
+        <div class="card-header">
+        <h3 class="text-primary text-weight-bold text-center">Healthcare Partner Registration </h3>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="exampleFormControlInput1" class="text-primary">Type of Healthcare Partner *</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="business_type" id="exampleRadios1" value="hospital" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                    Hospital/Clinic
-                </label>
+    <div class="card-body">
+        <div class="row">
+            <div class="form-group col-md-8">
+                <h4 for="business_name" class="text-dark"><i class="fas fa-address-card"></i> Business Name or Company Name</h4>
+                <input type="text"  placeholder="Complete Business Name or Company Name *" class="form-control" name="business_name" id="business_name" value="{{ old('business_name') }}">
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="business_type" id="exampleRadios2" value="health_org">
-                <label class="form-check-label" for="exampleRadios2">
-                    Healthcare organization
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="business_type" id="exampleRadios3" value="government" >
-                <label class="form-check-label" for="exampleRadios3">
-                    Government
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="business_type" id="other_rb" >
-                <label class="form-check-label" for="other_rb">
-                    Other:
-                </label>
-                <input type="text" name="business_type  " class="form-control form-control-sm col-md-4" id="other" placeholder="Please specify" disabled>
-            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <h4 for="exampleFormControlInput1" class="text-dark">Type of Healthcare Partner *</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="business_type" id="exampleRadios1" value="hospital" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Hospital/Clinic
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="business_type" id="exampleRadios2" value="health_org">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Healthcare organization
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="business_type" id="exampleRadios3" value="government" >
+                    <label class="form-check-label" for="exampleRadios3">
+                        Government
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="business_type" id="other_rb" >
+                    <label class="form-check-label" for="other_rb">
+                        Other:
+                    </label>
+                    <input type="text" name="business_type  " class="form-control form-control-sm col-md-4" id="other" placeholder="Please specify" disabled>
+                </div>
 
+            </div>
         </div>
-    </div>
-    <label for="exampleFormControlInput1" class="text-primary">Company Address</label>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="in_building" name="building" placeholder="House/ Building no., Street *" value="{{ old('building') }}">
+        <h4 for="company_address" class="text-dark"><i class="fas fa-map-marked-alt"></i> Company Address</h4>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="in_building" name="building" placeholder="House/ Building no., Street *" value="{{ old('building') }}">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="in_postal" name="postal_code"  placeholder="Postal Code *" value="{{ old('postal_code') }}">
+            </div>
         </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="in_postal" name="postal_code"  placeholder="Postal Code *" value="{{ old('postal_code') }}">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="text" id="in_apartment" class="form-control" name="apartment" placeholder="Apartment, Suite No., etc. (Optional)" value="{{ old('apartment') }}">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="in_brgy" name="brgy"  placeholder="Barangay/ Village *" value="{{old('brgy')}}">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <input type="text" id="in_apartment" class="form-control" name="apartment" placeholder="Apartment, Suite No., etc. (Optional)" value="{{ old('apartment') }}">
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="in_brgy" name="brgy"  placeholder="Barangay/ Village *" value="{{old('brgy')}}">
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <select id="province" name="province"
-            class="form-control" value="{{old('province')}}">
-                <option selected hidden disabled>Choose Province</option>
-                @foreach ($province as $prov)
-                <option value="{{$prov->id}}">{{$prov->name}}</option>
-                @endforeach
-              </select>
-        </div>
-        <div class="form-group col-md-4">
-            <select id="city" name="city" class="form-control">
-                <option selected disabled hidden>City</option>
-                <option>...</option>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <select id="province" name="province"
+                class="form-control" value="{{old('province')}}">
+                    <option selected hidden disabled>Choose Province</option>
+                    @foreach ($province as $prov)
+                    <option value="{{$prov->id}}">{{$prov->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <select id="city" name="city" class="form-control">
+                    <option selected disabled hidden>City</option>
+                    <option>...</option>
 
-              </select>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="row">
 
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" name="country"  placeholder="Country *" value="{{old('country')}}">
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" name="country"  placeholder="Country *" value="{{old('country')}}">
+            </div>
         </div>
-    </div>
-    <label for="exampleFormControlInput1" class="text-primary">Contact Information</label>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" name="tel" placeholder="Telephone Number *" value="{{old('tel')}}">
+        <h4 for="exampleFormControlInput1" class="text-dark"><i class="fas fa-mail-bulk"></i> Contact Information</h4>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" name="tel" placeholder="Telephone Number *" value="{{old('tel')}}">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" name="cp" placeholder="Cellphone Number *" value="{{old('cp')}}">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" name="cp" placeholder="Cellphone Number *" value="{{old('cp')}}">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" name="company_email" placeholder="Company Email Address *" value="{{old('company_email')}}">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" name="company_email" placeholder="Company Email Address *" value="{{old('company_email')}}">
+            </div>
         </div>
-    </div>
+    </div> 
+    </div> 
     </section>
-
 <h3>Represent</h3>
-    <section data-step="1">
-        <label for="exampleFormControlInput1" class="text-primary">Company Representative</label>
+    <section data-step="1" >
+    <div class="card d-flex justify-content-center" >
+        <div class="card-header">
+        <h4 for="exampleFormControlInput1" class="text-primary">Company Representative</h4>
+        </div>
+        
+        <div class="card-body">
         <div class="row">
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="fname1" placeholder="First Name *" value="{{old('fname1')}}">
@@ -197,6 +206,8 @@
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="email2" value="{{old('email2')}}" placeholder="Email Address *">
             </div>
+        </div>
+        </div>
         </div>
     </section>
 <h3>Confirm</h3>

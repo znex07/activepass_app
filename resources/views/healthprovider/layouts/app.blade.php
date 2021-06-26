@@ -144,7 +144,7 @@
 
 
 
-<footer class="footer footer-nav" style="background:#F1F1F1 !important">
+<footer class="footer footer-nav d-none" style="background:#F1F1F1 !important">
     <div class="container">
         <div class="row">
 
