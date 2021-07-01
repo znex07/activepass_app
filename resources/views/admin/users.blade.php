@@ -45,9 +45,9 @@
                     <tr>
                       <th>Name</th>
                       <th>Vaccine type</th>
-                      <th>Vaccine Status</th>
                       <th>First Dose</th>
                       <th>Second Dose</th>
+                      <th>Vaccine Status</th>
                       <th>Actions</th>
                     </tr>
                     </thead>
@@ -61,31 +61,31 @@
                             </a>
                         </td>
                         <td><select class="form-control" name="vaccine_brand">
+                            <option>Pfizer</option>
                             <option>Sinopharm</option>
                             <option>CoronaVac</option>
                             <option>CoVaxin</option>
-                            <option>Pfizer</option>
                             <option>Moderna</option>
                             <option>AstraZeneca</option>
                             <option>Sputnik V</option>
                             <option>Johnson&Johnson</option>
                           </select>
                         </div></td>
-                        <td><select class="form-control" name="user_type" id="user_type">
+                        <td><select class="form-control" name="user_type">
+                            <option selected>Notified</option>
+                            <option>Confirmed</option>
+                            <option>No-show</option>
+                            <option>Done</option>
+                        </select></td>
+                        <td><select class="form-control" name="user_type">
+                            <option selected>Notified</option>
+                            <option>Confirmed</option>
+                            <option>No-show</option>
+                            <option>Done</option>
+                        </select></td>
+                        <td><select class="form-control" name="user_type" disabled>
                             <option selected>Pending</option>
                             <option>Completed</option>
-                        </select></td>
-                        <td><select class="form-control" name="user_type" id="user_type">
-                            <option selected>Notified</option>
-                            <option>Confirmed</option>
-                            <option>No-show</option>
-                            <option>Done</option>
-                        </select></td>
-                        <td><select class="form-control" disabled name="user_type" id="user_type">
-                            <option selected>Notified</option>
-                            <option>Confirmed</option>
-                            <option>No-show</option>
-                            <option>Done</option>
                         </select></td>
                         <td class="no-sort no-click bread-actions">
                             <div class="btn-group" role="group" aria-label="actions">
