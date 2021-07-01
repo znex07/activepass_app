@@ -63,8 +63,8 @@
                     Vaccination Providers
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="left: 0px; right: inherit;">
-                  <a class="dropdown-item text-dark" href="reg_health_partner">Register as new VP </a>
-                  <a class="dropdown-item text-dark" href="/admin/viewusers">Go to VP Dashboard</a>
+                  <a class="dropdown-item text-dark" href="/register">Register as new VP </a>
+                  <a class="dropdown-item text-dark" href="/users">Go to VP Dashboard</a>
                 </div>
               </div>
             </li>
