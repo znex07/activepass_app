@@ -2566,6 +2566,10 @@
             "support": {
                 "issues": "https://github.com/paragonie/sodium_compat/issues",
                 "source": "https://github.com/paragonie/sodium_compat/tree/v1.16.1"
+<<<<<<< HEAD
+            },
+            "time": "2021-05-25T12:58:14+00:00"
+=======
             },
             "time": "2021-05-25T12:58:14+00:00"
         },
@@ -2653,6 +2657,7 @@
                 "source": "https://github.com/PhenX/php-svg-lib/tree/master"
             },
             "time": "2019-09-11T20:02:13+00:00"
+>>>>>>> cfe4747736ddad62078012bc099da85255533035
         },
         {
             "name": "phpoffice/phpspreadsheet",
