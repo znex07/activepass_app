@@ -2,31 +2,16 @@
 @extends('admin.layouts.admin')
 
 @section('content')
-
 <div class="content-wrapper">
 <div class="content-header">
-<div class="container-fluid">
-
-
+    <div class="container-fluid">
+    <div class="row mb-2">
+          
 <div class="content">
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
                 <div class="alert alert-info alert-dismissible " role="alert" id="message">
-                    @if ($errors->any())
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-info alert-dismissible " role="alert" id="message">
-                                <p>{{ $message }}</p>
-                            </div>
-                    @endif
-
                     <p class="card-text"> <span class="fa fa-info-circle"></span> All personal data you input is confidential and be kept private </p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -43,23 +28,45 @@
                         <section>
                             (*)<small>Required</small><hr>
 
-                            <form action="{{route('patients.store')}}" method="POST" id="patient-new">
+                            <form action="{{route('patients.update',$patient->id)}}" method="POST" id="patient-new">
                                 @csrf
-                                <input type="hidden" name="unique_id" value="">
+                                @method('PUT')
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                                    </div>
+                                    <select class="form-control" name="user_type" id="user_type">
+                                        <option selected disabled hidden> Select User type</option>
+                                        <option>Healthcare Provider</option>
+                                        <option>Patient</option>
+                                        <option>Doctor</option>
+                                    </select>
+                                </div> <!-- form-group end.// -->
+                                <div class="form-group input-group" id="clinic">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-clinic-medical"></i> </span>
+                                    </div>
+                                    <select class="form-control" name="clinic" >
+                                        <option selected disabled hidden> Select Clinic</option>
+                                        @foreach ($clinic as $clinics)
+                                            <option value="{{$clinics->name}}" {{$patient}}>{{$clinics->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div> <!-- form-group end.// -->
                               <div class="form-group input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                  </div>
-                                <input id="fname" name="fname" class="form-control" placeholder="First name" type="text">
-                                <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text">
-                                <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text">
+                                <input id="fname" name="fname" class="form-control" placeholder="First name" type="text" value="{{$patient->fname}}">
+                                <input id="mname" name="mname" class="form-control" placeholder="Middle name" type="text" value="{{$patient->mname}}">
+                                <input id="lname" name="lname" class="form-control" placeholder="Last name" type="text" value="{{$patient->lname}}">
                             </div> <!-- form-group// -->
                             <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                  </div>
                                 <!--<input class="form-control" name="email" placeholder="Email address" type="email">-->
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{$patient->email}}" value="{{ old('email') }}" placeholder="Email address" required>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -76,19 +83,19 @@
                                     <option value="2">+19</option>
                                     <option value="3">+70</option>
                                 </select>
-                                <input name="phone_number" id="phone" class="form-control" placeholder="Phone number" type="text">
+                                <input name="phone_number" value="{{$patient->phone_number}}" id="phone" class="form-control" placeholder="Phone number" type="text">
                             </div> <!-- form-group// -->
                             <div class="form-group input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="form-row">
 
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-6">
                                         <label for="inputAddress">Address</label>
                                         <input id="address1" type="text" class="form-control" id="inputAddress" placeholder="Unit # /Block and Lot / Street">
                                     </div>
 
-                                    <div class="form-group col-md-4">
-                                        <label for="">Vaccine Number</label>
-                                        <input id="address2" type="text" class="form-control">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress2">Address 2</label>
+                                        <input id="address2" type="text" class="form-control" id="inputAddress2" placeholder="Building / Subdivision / Village / floor">
                                     </div>
                                 </div>
                                   <div class="form-row">
@@ -152,7 +159,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                 </div>
-                                <input class="form-control" name="password_confirmation" placeholder="Repeat password" type="password">
+                                <input class="form-control" placeholder="Repeat password" type="password">
                             </div> <!-- form-group// -->
 
                         </section>

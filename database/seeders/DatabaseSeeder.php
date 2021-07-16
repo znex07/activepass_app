@@ -25,12 +25,11 @@ class DatabaseSeeder extends Seeder
         User::create([
             'fname'           => 'Admin',
             'role_id'  => '1',
-            'is_vaccinated'  => 'Partially...',
-            'avatar'  => 'default.png',
+            'is_vaccinated'  => 'Pending...',
+            'avatar'  => 'doc2.png',
             'email'          => 'admin@admin.com',
             'password'       => bcrypt('sgweb123'),
             'remember_token' => Str::random(60),
-            'role_id'        => 1,
         ]);
     }
 }

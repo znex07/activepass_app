@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Clinic;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ClinicController extends Controller
 {

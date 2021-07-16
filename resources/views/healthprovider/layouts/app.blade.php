@@ -50,9 +50,9 @@
 
             <div class="container">
 
-                <img src="{{asset('/img/plus.png')}}" class="navbar-toggler-right align-self-center mx-1" style="height: 30px; width:30px">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'ActivePass') }}
+                <img src="{{asset('/img/plus.png')}}" class="navbar-toggler-right align-self-center m-3" style="height: 30px; width:30px">
+                <a class="navbar-brand  mt-2" href="{{ url('/') }}">
+                    <h3>{{ config('app.name', 'ActivePass') }}</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -109,8 +109,8 @@
                                 Vaccination Providers
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
-                              <a class="dropdown-item" href="/admin/patients">Go to VP Dashboard</a>
+                              <a class="dropdown-item" href="register">Register as new VP </a>
+                              <a class="dropdown-item" href="patients">Go to VP Dashboard</a>
                             </div>
                           </div>
                         </li>
@@ -136,7 +136,7 @@
 
 
 <main class="py-5">
-    <div class="container" style="padding: 5%; margin-top:30px">
+    <div class="container" style="padding: 5%; margin-top:10px; background-image: url('/img/bg-green.jpg')">
         @yield('content')
 
     </div>
@@ -182,8 +182,6 @@
             autoFocus: true,
             saveState: true,
 		    onStepChanged: function(e, currentIndex, priorIndex) {
-                // You don't need to care about it
-                // It is for the specific demo
                 adjustIframeHeight();
             },
             onStepChanging: function (event, currentIndex, newIndex) {
@@ -192,12 +190,25 @@
                 var address = $('#in_postal').val() +' '+ $('#in_building').val() +' '+ $('#in_apartment').val() +' '+ $('#in_brgy').val() +' '+ $('#province').val() +' '+ $('#city').val();
                 var tel = $('#in_tel').val();
                 var cp = $('#in_cp').val();
-                var email = $('#in_comp_email').val();
-                var name1 = $('#in_name1').val();
-                var name2 = $('#in_name2').val();
+                var company_email = $('#in_comp_email').val();
+                var email1 = $('#email1').val();
+                var email2 = $('#email2').val();
+                var name1 = $('#fname1').val();
+                var name2 = $('#fname2').val();
                 var gender = $("input:radio[name='gender1']:checked").val();
+                var gender1 = $("input:radio[name='gender1']:checked").val();
+                var gender2 = $("input:radio[name='gender2']:checked").val();
                 $('#conf_business_name').text(business_name);
                 $('#conf_business_type').text(business_type);
+                $('#conf_tel').text(tel);
+                $('#conf_cp').text(cp);
+                $('#conf_c_email').text(company_email);
+                $('#conf_r_fname1').text(name1);
+                $('#conf_r_fname2').text(name2);
+                $('#conf_gender1').text(gender1);
+                $('#conf_gender2').text(gender2);
+                $('#conf_r_email1').text(email1);
+                $('#conf_r_email2').text(email2);
                 $('#conf_c_address').text(address);
                 return true;
             },

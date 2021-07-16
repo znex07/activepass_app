@@ -56,14 +56,47 @@
     <ul class="navbar-nav ml-auto ">
 
       <li class="nav-item">
-        <div class="user-panel d-flex">
+
+          @guest
+              @if (Route::has('login'))
+                  <li class="nav-item d-none">
+                      <a class=" btn btn-light mx-2 " href="{{ route('login') }}">{{ __('LOGIN') }}</a>
+                  </li>
+              @endif
+
+              @if (Route::has('register'))
+                  <li class="nav-item d-none">
+                      <a class=" btn btn-dark" href="register">{{ __('REGISTER') }}</a>
+                  </li>
+              @endif
+          @else
+          <div class="user-panel d-flex">
             <div class="image">
-              <img src="{{ asset('/img/default.png') }}" class="rounded-circle img-thumbnail" alt="User Image">
+              <img src="/img/{{ Auth::user()->avatar }}" class="rounded-circle img-thumbnail" alt="User Image">
             </div>
-            <div class="info">
-                <a href="/admin/profile/{{Auth::user()->id}}" class="d-block" style="text-transform: capitalize"> {{Auth::user()->fname}} {{Auth::user()->lname}} </a>
-              </div>
-          </div>
+        </div>
+              <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->fname }}
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/home">
+                          Dashboard
+                      </a>
+
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </div>
+              </li>
+          @endguest
 
       </li>
     </ul>
@@ -96,12 +129,12 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="/admin/patients" class="nav-link {{ 'admin/patients' == request()->path() ? 'active' : '' }}">
+            <a href="/patients" class="nav-link {{ 'admin/viewusers' == request()->path() ? 'active' : '' }}">
               <img src="/img/pnt.png" alt="" sizes="15" srcset="">
               <p>View Users</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-none">
                 <a href="/admin/clinic" class="nav-link {{ 'admin/clinic' == request()->path() ? 'active' : '' }}">
             <img src="/img/hp.png" alt="" sizes="15" srcset="">
               <p>
@@ -154,7 +187,7 @@
           </li>
 
           <li class="nav-item ">
-            <a href="/admin/customercare" class="nav-link {{ 'admin/customercare' == request()->path() ? 'active' : '' }}">
+            <a href="/customercare" class="nav-link {{ 'admin/customercare' == request()->path() ? 'active' : '' }}">
               <img src="/img/cc.png" alt="" sizes="15" srcset="">
               <p>
                 Customer Care
@@ -163,7 +196,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item d-none">
             <a href="/admin/messages" class="nav-link {{ 'admin/messages' == request()->path() ? 'active' : '' }}">
               <img src="/img/analytics.png" alt="" sizes="15" srcset="">
 

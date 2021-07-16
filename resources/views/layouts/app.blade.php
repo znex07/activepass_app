@@ -1,170 +1,164 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ActivePass | Dashboard</title>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-    <title>{{ config('app.name', 'ActivePass') }}</title>
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="/img/Preloader_11.gif" alt="" height="60" width="60">
+  </div>
 
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/lifepass.js') }}" type="module" defer></script> --}}
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="home" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block ">
+        <a href="#" class="nav-link d-none">Contact</a>
+      </li>
+    </ul>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
-    <link href="/css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- Styles -->
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/immune_record.css') }}" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/activepass1.css" rel="stylesheet">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/>
-
-    </head>
-<body>
-    <div id="app">
-        <div class="se-pre-con"></div>
-        <nav class="navbar fixed-top  navbar-expand-md navbar-light bg-light color-white shadow-sm">
-            <div class="container">
-
-                <button class="navbar-toggler d-block navbar-light" type="button"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
                 </button>
-                <a class="navbar-brand pull-left" href="{{ url('/') }}">
-                    <img src="{{asset('/img/plus.png')}}" class="ball img-thumbnail card-img-top mx-1" style="height: 30px; width:30px">
-                    <b>{{ config('app.name', 'FitPass') }}</b>
-                </a>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class=" btn btn-light mx-2" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class=" btn btn-dark" href="register">{{ __('REGISTER') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->fname }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/home">
-                                        Dashboard
-                                    </a>
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-
-                    </ul>
-                </div>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
             </div>
-        </nav>
-        <script src="{{ asset('js/app.js') }}" ></script>
+          </form>
+        </div>
+      </li>
 
-        <main class="py-5">
-            @guest
-            @if (Route::has('login'))
+      <!-- Messages Dropdown Menu -->
 
-            @endif
-            @else
-            <div class="d-flex" id="wrapper" style="margin-top:5px">
-                <div class="bg-light border-right" id="sidebar-wrapper">
-                    <div class="sidebar-heading d-flex justify-content-center" style="">
-                        <div class="container">
-                            <img class="row rounded-circle img-thumbnail" src="{{ asset('/img/'. Auth::user()->avatar )  }}" style="width: 80px; height: 80px">
-                        <p class="row font-weight-bold mt-3" style="text-transform: capitalize;">Welcome,<br> {{ Auth::user()->fname . ' ' . Auth::user()->mname .' '. Auth::user()->lname }} !</p>
-                        @if (Auth::user()->role_id == '1' )
-                            <p class="row font-weight-bold mt-2"><a href="/admin/dashboard" class="btn btn-sm btn-dark">Admin Dashboard</a></p>
-                        @endif
-                    </div>
-                </div>
-                <div class="list-group list-group-flush">
-                    {{-- <a href="home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-dashboard text-success fa-lg"></i> Dashboard</a> --}}
+    </ul>
+  </nav>
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-light-light elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+      <img src="{{ asset('/img/plus.png') }}" alt="" class="brand-image"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Admin</span>
+    </a>
 
-                    {{-- {{-- <a href="search" class="list-group-item list-group-item-action bg-light"><i class="fa fa-search btn-success"></i> Search</a> --}}
-                    <a href="/home" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Access VaxPass</a>
-                    <a href="/edit-personal" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user-circle btn-success"></i> Edit Personal Info</a>
-                    <a href="/upload-id" class="list-group-item list-group-item-action bg-light"><i class="fa fa-address-card btn-success"></i> Upload files</a>
-                    <a href="/chat" class="list-group-item list-group-item-action bg-light"><i class="fa fa-comment btn-success"></i> Chat</a>
-                    {{-- <a href="immune_records" class="list-group-item list-group-item-action bg-light"><i class="fa fa-qrcode btn-success"></i> Immunization form</a> --}}
-                    <a type="button" class="list-group-item list-group-item-action text-danger" data-toggle="modal" data-target="#exampleModalCenter">
-                        <span class="fa fa-lg fa-warning" style="color: orange"></span> Report Side Effect
-                    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
-                    <a href="{{ route('logout') }}" class="list-group-item list-group-item-action bg-light" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-times-circle text-danger fa-lg"></i> Logout </a>
-                        <form action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </div>
+        <div class="info">
+          Patient Dashboard
+        </div>
+      </div>
 
-                @endguest
-                <div id="page-content-wrapper">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
 
-                @yield('content')
-        </main>
-        <footer class="footer py-3 bg-dark">
-            <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; 2021 ActivePass</p>
-                <p class="m-0 text-center"><a href="/terms" >Terms and Condition</a></p>
-            </div>
-    </footer>
+          <li class="nav-item">
+            <a href="/patients" class="nav-link {{ 'admin/viewusers' == request()->path() ? 'active' : '' }}">
+              <img src="/img/pnt.png" alt="" sizes="15" srcset="">
+              <p>View Users</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+          </li>
+
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
     </div>
-    <script>
-        $(".se-pre-con").fadeOut("slow");
-        $(window).on('load',function() {
+    <!-- /.sidebar -->
+  </aside>
 
-            $(".navbar-toggler").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-            });
 
-            $('#txt_d').on('change', function () {
-                var text = $('#txt_d');
-                text.val(text.val() + ' Day(s)');
-             });
-             $('#txt_h').on('change', function () {
-                var text = $('#txt_h');
-                text.val(text.val() + ' Hour(s)');
-             });
-        });
-    </script>
+<main>
+    @yield('content')
+</main>
+
+<footer class="main-footer">
+  <div class="container text-center">
+            <small class="m-0 text-center">
+            Copyright &copy; 2021 ActivePass <a href="/terms" class="d-none">PRIVACY & TERMS</a></small>
+  </div>
+
+</footer>
+</div>
+
+<script src="{{ asset('js/app.js') }}" ></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+
+<script src="plugins/sparklines/sparkline.js"></script>
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/pages/dashboard.js"></script>
 
 </body>
 </html>

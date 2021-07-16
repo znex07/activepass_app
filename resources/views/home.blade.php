@@ -129,7 +129,7 @@
 <main class="py-5">
     <div class="container" style="margin-top: 80px; ">
         <div class="row d-flex justify-content-center" >
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h3 class="mt-">ActivePass supports COVID-19 vaccinations.</h3>
                 <ul>
                     <li style="padding-top: 20px !important; padding-bottom: 20px !important;"> Vaccination providers (VPs) can create a private cloud-based database of patients innoculated, track status and see reports. </li>
@@ -143,8 +143,8 @@
                 <button type="button" class="btn btn-primary">View certificate</button>
             </div>
 
-            <div class="col-md-4">
-                <img src="/img/slider3.png" alt="" srcset="" height="592" width="583">
+            <div class="col-md-5">
+                <img src="/img/slider3.png" class="img-fluid" alt="Responsive image">
             </div>
 
         </div>
@@ -163,7 +163,7 @@
         </div>
         <div class="row">
 
-            <small class="">Copyright &copy; 2021 ACTI  VEPASS <a href="/terms" class="nav-link d-none">PRIVACY & TERMS</a></small>
+            <small class="">Copyright &copy; 2021 ACTIVEPASS <a href="/terms" class="nav-link d-none">PRIVACY & TERMS</a></small>
         </div>
     </div>
 </body>

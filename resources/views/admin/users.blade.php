@@ -5,20 +5,8 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Users</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6 d-none">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-            </ol>
-        </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+
 </div>
-<!-- /.content-header -->
 
 <!-- Main content -->
 <div class="content">
@@ -26,10 +14,14 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
 
-                <div class="alert alert-info alert-dismissible d-none" role="alert" id="message">
-                    <p class="card-text"> <span class="fa fa-info-circle"></span> All personal data you input is confidential and be kept private </p>
-                    <button type="button" class="close" dat a-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-dismissible" role="alert" id="message">
+                            <p class="card-text"> <span class="fa fa-info-circle"></span> {{ $message }} </p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" aria-hidden = "true">
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+                    @endif
+
                 </button>
             </div>
 
@@ -42,9 +34,9 @@
             <div class="col-12">
               <div class="card">
                   <div class="card-header">
-                      <h3 class="card-title"><img src="/img/patient3.png" alt="" sizes="5" srcset="">Users</h3>
+                      <h3 class="card-title"><img src="/img/patient3.png" alt="" style="height:40px; width: 25px;" srcset="">Users</h3>
+                      <a class="btn btn-primary float-right" href="patients/new"><span class="fa fa-user-plus"></span> Add Patient</a>
 
-                  <button class="btn btn-primary float-right d-none" data-toggle="modal" data-target="#addModal"><span class="fa fa-user-plus"></span> Add Patient</button>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -53,14 +45,14 @@
                     <tr>
                       <th>Name</th>
                       <th>Vaccine type</th>
-                      <th>Vaccine Status</th>
                       <th>First Dose</th>
                       <th>Second Dose</th>
+                      <th>Vaccine Status</th>
                       <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($users as $patients)
+                    @foreach ($patients as $patients)
                     <tr>
                         <td class="font-weight-bold text-capitalize text-success">
                             <a href="/admin/profile/{{ $patients->id }}" > {{ $patients->fname }}
@@ -68,49 +60,52 @@
                             {{ $patients->lname }}
                             </a>
                         </td>
-                        <td><select class="form-control" name="vaccine_brand">
-                            <option>Sinopharm</option>
-                            <option>CoronaVac</option>
-                            <option>CoVaxin</option>
-                            <option>Pfizer</option>
-                            <option>Moderna</option>
-                            <option>AstraZeneca</option>
-                            <option>Sputnik V</option>
-                            <option>Johnson&Johnson</option>
-                          </select>
+                        <form action="{{ route('immunization.store') }}" method="post">
+                            @csrf
+
+                            <td><select class="form-control" name="vaccine_brand">
+                                <option>Pfizer</option>
+                                <option>Sinopharm</option>
+                                <option>CoronaVac</option>
+                                <option>CoVaxin</option>
+                                <option>Moderna</option>
+                                <option>AstraZeneca</option>
+                                <option>Sputnik V</option>
+                                <option>Johnson&Johnson</option>
+                            </select>
                         </div></td>
-                        <td><select class="form-control" name="user_type" id="user_type">
+                        <td>
+                            <input type="date" name="first_dose" id="" class="form-control" value="{{ $patients->first_dose }}">
+                        </td>
+                        <td>
+                            <input type="date" name="second_dose" id="" class="form-control" value="{{ $patients->second_dose }}">
+
+                        </td>
+                        <td><select class="form-control" name="user_type" disabled>
                             <option selected>Pending</option>
                             <option>Completed</option>
                         </select></td>
-                        <td><select class="form-control" name="user_type" id="user_type">
-                            <option selected>Notified</option>
-                            <option>Confirmed</option>
-                            <option>No-show</option>
-                            <option>Done</option>
-                        </select></td>
-                        <td><select class="form-control" disabled name="user_type" id="user_type">
-                            <option selected>Notified</option>
-                            <option>Confirmed</option>
-                            <option>No-show</option>
-                            <option>Done</option>
-                        </select></td>
                         <td class="no-sort no-click bread-actions">
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-sm btn-success" id="btn-save"><span class="fa fa-save" id="saving"></span> Save</button>
-                            <button type="button" class="btn btn-sm btn-danger btn-del" data-toggle="modal" data-info="{{$patients->id}}" data-target="#delModal"><span class="fa fa-trash "></span> Delete</button>
-                            </div>
+                            <div class="btn-group" role="group" aria-label="actions">
+
+                                    <button type="submit" class="btn btn-sm btn-success" id="btn-sub"><i class="fa fa-save"></i> Save</button>
+                                </form>
+
+                                <a class="btn btn-sm btn-info" href="{{ route('patients.edit', $patients->id) }}"><i class="fa fa-edit"></i> Edit</a>
+                                <form action="{{ route('patients.destroy',$patients->id) }}" method="POST" id="delete-form">
+
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger" type="submit" ><i class="fa fa-trash"></i> Delete</button>
+                                </form>
+                             </div>
                         </td>
                       </tr>
 
                       @endforeach
                     </tbody>
                   </table>
-                  <a name="" id="" class="btn btn-primary d-none" href="#" role="button">Save</a>
-                  <button class="btn btn-primary float-left" data-toggle="modal" data-target="#addModal"><span class="fa fa-user-plus"></span> Add Patient</button>
-                  <button class="btn btn-danger btn-sm float-right" data-toggle="modal" data-target="#addModal"><span class="fa fa-file-pdf"></span> Print PDF</button>
-
-                </div>
+                  </div>
               </div>
             </div>
         </div>
@@ -238,13 +233,8 @@
 </div>
 <script>
     $(document).ready(function(){
-        console.log('load');
-        $('.btn-del').click(function(){
-            id = $(this).data('info');
-            alert(id);
-        })
-        $('.delete').on('click',function(){
-            alert('deleted');
+        $('#delete-form').on("submit", function(){
+            return confirm("Do you want to delete this item?");
         });
     });
 

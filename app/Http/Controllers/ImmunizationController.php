@@ -49,7 +49,8 @@ class ImmunizationController extends Controller
      */
     public function store(Request $request)
     {
-        dd(Immunization::create($request));
+        dd($request->all());
+        return Immunization::create($request);
     }
 
     /**

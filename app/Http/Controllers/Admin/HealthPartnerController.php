@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use DB;
+use App\Models\Patient;
+use App\Models\Clinic;
 use App\Models\HealthPartner;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HealthPartnerController extends Controller
 {
@@ -15,7 +18,10 @@ class HealthPartnerController extends Controller
      */
     public function index()
     {
-        //
+        $province = DB::table('provinces')->get();
+        $patients = Patient::get();
+        $clinic = Clinic::get();
+        return view('admin.addpatient', compact('patients','clinic','province'));
     }
 
     /**
@@ -32,41 +38,37 @@ class HealthPartnerController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'business_name' => 'required|max:255',
-            'fname1' => 'required|max:255',
-            'mname1' => 'required|max:255',
-            'lname1' => 'required|max:255',
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        $request->validate = [
+            'business_name' => 'required',
+            'business_type' => 'required',
+            'building' => 'required',
+            'postal_code' => 'required',
+            'apartment' => 'required',
+            'brgy' => 'required',
+            'province' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'tel' => 'required',
+            'cp' => 'required',
+            'company_email' => 'required',
+            'fname1' => 'required',
+            'lname1' => 'required',
+            'gender1' => 'required',
+            'mname1' => 'required',
+            'suffix_name1' => 'required',
+            'email' => 'required',
+            'fname2' => 'required',
+            'lname2' => 'required',
+            'mname2' => 'required',
+            'suffix_name2' => 'required',
+            'email2' => 'required',
+            'password' => 'required',
+            'password_confirmation' => 'required',
+            'g-recaptcha-response' => 'required',
 
-
-        $user = new User;
-        //representative 1
-        $user->fname = $request->fname1;
-        $user->mname = $request->mname1;
-        $user->lname = $request->lname1;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
-        //representative 2
-        $user = new User;
-        $user->fname = $request->fname2;
-        $user->mname = $request->mname2;
-        $user->lname = $request->lname2;
-        $user->email = $request->email2;
-        $user->password = bcrypt($request->password);
-        $user->save();
-        //store new health partner
-        $healthPartner = new HealthPartner;
-        $healthPartner->business_name = $request->business_name;
-        $healthPartner->business_type = $request->business_type;
-        $healthPartner->telephone = $request->tel;
-        $healthPartner->cellphone = $request->cp;
-        $healthPartner->business_email = $request->company_email;
-        $healthPartner->save();
-        return view('request_completed')->with('fname',$user->fname);
+        ];
+        Patient::create($request->all());
+        return view('request_completed')->with('fname1',$request->fname1);
 
     }
 
