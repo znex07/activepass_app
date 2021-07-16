@@ -110,7 +110,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="reg_health_partner">Register as new VP </a>
-                              <a class="dropdown-item" href="#">Go to VP Dashboard</a>
+                              <a class="dropdown-item" href="/admin/patients">Go to VP Dashboard</a>
                             </div>
                           </div>
                         </li>
@@ -125,7 +125,7 @@
                             </div>
                           </div>
                         </li>
-                        <li class="nav-item"> <a href="/vacc_info" class="nav-link">About Covid Vaccines</a> </li>
+                        <li class="nav-item"> <a href="/news" class="nav-link">About Covid Vaccines</a> </li>
                     </ul>
 
                 </div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Admin | Dashboard</title>
 
   <!-- Font Awesome Icons -->
@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="{{ asset('css/jquery.steps.css') }}">
 
   <!-- Google Font: Source Sans Pro -->
+  <script src="{{ asset('js/app.js') }}" ></script>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/>
 
-  <script src="{{ asset('js/app.js') }}" ></script>
 
 </head>
 
@@ -96,7 +96,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="/admin/viewusers" class="nav-link {{ 'admin/viewusers' == request()->path() ? 'active' : '' }}">
+            <a href="/admin/patients" class="nav-link {{ 'admin/patients' == request()->path() ? 'active' : '' }}">
               <img src="/img/pnt.png" alt="" sizes="15" srcset="">
               <p>View Users</p>
             </a>
@@ -109,8 +109,8 @@
               </p>
             </a>
           </li>
-          <li class="d-none nav-item {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path() ? 'menu-open' : '' }}">
-            <a href="" class="nav-link {{ 'admin/viewusers' == request()->path() || 'admin/addpatient' == request()->path()  || 'admin/profile' == request()->path() ? 'active' : '' }}">
+          <li class="d-none nav-item {{ 'admin/patients' == request()->path() || 'admin/patients' == request()->path() ? 'menu-open' : '' }}">
+            <a href="" class="nav-link {{ 'admin/patients' == request()->path() || 'admin/patients' == request()->path()  || 'admin/profile' == request()->path() ? 'active' : '' }}">
               <p>
                 Users
                 <i class="fas fa-angle-left right"></i>
@@ -234,11 +234,11 @@
     $(document).ready(function() {
 
         $('#users_table').DataTable({
-            // rowReorder: {selector: 'td:nth-child(3)'},
             responsive: true,
+            order: [],
             columnDefs: [
                 { responsivePriority: 1, targets: 0 },
-		            { responsivePriority: 2, targets: 5 }
+		        { responsivePriority: 2, targets: 5 }
             ],
         });
         $("#btn-save").on('click',function(e) {

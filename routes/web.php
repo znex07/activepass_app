@@ -5,12 +5,47 @@ use App\Models\Patient;
 use App\Models\Clinic;
 use App\Models\SideEffects;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ChatsController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------|
 */
+
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index']);;
+Route::get('/search_vax', [PatientController::class, 'index']);
+Route::post('/register-user', [RegisterController::class, 'create'])->name('register-user');
+Route::get('/request_vax', [RegisterController::class, 'request_vax']);
+Route::post('/request_now', [RegisterController::class, 'request_now']);
+Route::post('/verify', [RegisterController::class, 'verify'])->name('verify');
+Route::get('/send_otp', [App\Http\Controllers\ImmunizationController::class, 'send_otp'])->name('send_otp');
+Route::post('/send_vax_mail', [App\Http\Controllers\ImmunizationController::class, 'send_mail'])->name('send_vax_mail');
+Route::post('/add/vaccine', [App\Http\Controllers\ImmunizationController::class, 'give_vac']);
+Route::get('/immunization',  function () {
+    return view('user.immunization');
+});
+Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class, 'report'])->name('report');
+// CHAT
+Route::get('/chat', [ChatsController::class, 'index']);
+Route::get('messages', [ChatsController::class, 'fetchMessages']);
+Route::get('fetchCity/{id}', [App\Http\Controllers\ClinicController::class, 'fetchCity']);
+Route::get('fetchClinic/{id}', [App\Http\Controllers\ClinicController::class, 'fetchClinic']);
+Route::post('messages', [ChatsController::class, 'sendMessage']);
+Route::post('/health_reg', [App\Http\Controllers\HealthPartnerController::class, 'store']);
+Route::post('/recaptcha-page', [App\Http\Controllers\DevController::class, 'verifyRecaptcha']);
+//ADMIN
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    //patient
+    Route::resource('patients', PatientController::class);
+});
+
 
 Route::get('/', function () {
     return view('home');
@@ -45,84 +80,4 @@ Route::get('/verify-now', function () {
 });
 Route::get('/recap', function () {
     return view('recaptcha');
-});
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);;
-Route::get('/search_vax', [App\Http\Controllers\PatientController::class, 'index']);
-Route::post('/register-user', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register-user');
-Route::get('/request_vax', [App\Http\Controllers\Auth\RegisterController::class, 'request_vax']);
-Route::post('/request_now', [App\Http\Controllers\Auth\RegisterController::class, 'request_now']);
-Route::post('/verify', [App\Http\Controllers\Auth\RegisterController::class, 'verify'])->name('verify');
-Route::get('/send_otp', [App\Http\Controllers\ImmunizationController::class, 'send_otp'])->name('send_otp');
-Route::post('/send_vax_mail', [App\Http\Controllers\ImmunizationController::class, 'send_mail'])->name('send_vax_mail');
-Route::post('/add/vaccine', [App\Http\Controllers\ImmunizationController::class, 'give_vac']);
-Route::get('/immunization',  function () {
-    return view('user.immunization');
-});
-Route::post('/report/sideeffect',[App\Http\Controllers\PatientController::class, 'report'])->name('report');
-// CHAT
-Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
-Route::get('messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
-Route::get('fetchCity/{id}', [App\Http\Controllers\ClinicController::class, 'fetchCity']);
-Route::get('fetchClinic/{id}', [App\Http\Controllers\ClinicController::class, 'fetchClinic']);
-Route::post('messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
-Route::post('/health_reg', [App\Http\Controllers\HealthPartnerController::class, 'store']);
-Route::post('/recaptcha-page', [App\Http\Controllers\DevController::class, 'verifyRecaptcha']);
-//ADMIN
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/viewusers', function () {
-        $side_effects = SideEffects::all();
-        $users = Patient::orderBy('updated_at','asc')->get();
-        if(Auth::user()->role_id == 'admin')
-            return view('admin.users', compact('side_effects', 'users' ));
-        else
-            return redirect('/home');
-    });
-    Route::get('admin/dashboard', function () {
-        $side_effects = SideEffects::all();
-
-        return view('admin.dashboard', compact('side_effects',$side_effects));
-    });
-    Route::get('admin/profile/{id}', function ($id) {
-        $user_info = User::where('id',$id)->get();
-        $side_effects = SideEffects::all();
-
-        return view('admin.profile', compact('side_effects','user_info'));
-    });
-    Route::get('admin/calendar', function () {
-        $side_effects = SideEffects::all();
-
-        return view('admin.calendar', compact('side_effects',$side_effects));
-    });
-    Route::get('admin/clinic', function () {
-        $side_effects = SideEffects::all();
-        $clinic = Clinic::get();
-        return view('admin.clinic', compact('side_effects','clinic'));
-    });
-    Route::get('admin/patient/request', function () {
-        $side_effects = SideEffects::all();
-        $patient = Patient::get();
-        return view('admin.request', compact('side_effects','patient'));
-    });
-    Route::get('/admin/customercare', function () {
-        $side_effects = SideEffects::all();
-        $users = User::all();
-        return view('admin.customercare', compact('side_effects', 'users' ));
-    });
-    Route::get('/admin/messages', function () {
-        $side_effects = SideEffects::all();
-
-        return view('admin.messages', compact('side_effects',$side_effects));
-    });
-
-    Route::get('/admin/addpatient', function () {
-        $side_effects = SideEffects::all();
-        $clinic = Clinic::get();
-        $province = DB::table('provinces')->get();
-        return view('admin.addpatient', compact('side_effects','clinic','province'));
-    });
-    //patient
-    Route::post('register-patient',[App\Http\Controllers\PatientController::class, 'store']);
-    Route::post('delete-patient',[App\Http\Controllers\PatientController::class, 'delete']);
 });

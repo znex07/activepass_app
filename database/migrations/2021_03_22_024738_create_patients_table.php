@@ -22,7 +22,11 @@ class CreatePatientsTable extends Migration
             $table->string('lname');
             $table->string('phone_number');
             $table->string('isVerified');
+            $table->string('floor_no');
+            $table->string('house_no');
             $table->string('email');
+            $table->string('profile_pic')->nullable();
+            $table->string('path')->nullable();
             $table->string('password');
             $table->timestamps();
         });

@@ -16,6 +16,8 @@ class Patient extends Model
         'phone_number',
         'email',
         'password',
+        'profile_pic',
+        'path',
     ];
 
     public function doctor()
